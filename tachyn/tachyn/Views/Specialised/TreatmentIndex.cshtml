@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Tachyon.Models.TreatmentPlan>
+
+@{
+    ViewData["Title"] = "TreatmentIndex";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<div>
+<h1>Treatment</h1>
+
+<p>
+    <a type ="button" class="btn btn-primary" asp-action="TreatmentCreate">Create New</a>
+</p>
+    table class="fl-table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.procedureName)
+            </th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.procedureName)
+            </td>
+            <td>
+                
+            </td>
+                <td class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        
+                        <a type="button" class="dropdown-item" asp-action="TreatmentEdit" asp-route-id="@item.id">Edit</a> |
+                        <a type="button" class="dropdown-item" asp-action="TreatmentDetails" asp-route-id="@item.id">Details</a> |
+                        <a type="button" class="dropdown-item" asp-action="TreatmentDelete" asp-route-id="@item.id">Delete</a>
+                    </div>
+                </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+
+<link href="~/specialised/style - copy.css" rel="stylesheet" />
+<link href="~/specialised/style.css" rel="stylesheet" />
+<link href="~/specialised/table.css" rel="stylesheet" />

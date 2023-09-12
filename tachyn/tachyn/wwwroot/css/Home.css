@@ -1,0 +1,38 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url("Subsystem.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#card {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    /*align-content: space-around;*/
+    align-content: space-evenly;
+    overflow: hidden;
+    float: left
+}
+
+.element {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background: #ce8888;
+}

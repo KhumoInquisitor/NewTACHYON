@@ -1,0 +1,17 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_MainLayout2.cshtml";
+
+}
+<div class="text-center"><br />
+    <div class="alert alert-success">
+        <div class="card-header">
+            <h4>@TempData["ResultT"]</h4>
+        </div>
+        <div class="card-body">
+            <p class="text-center">@TempData["Result"]</p>
+            <br />
+            <a asp-controller="Vaccine" asp-action="Index">Click here</a> to go back home
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+﻿
+@{
+    ViewData["Title"] = "Self Screening";
+    Layout = "~/Views/Shared/_MainLayout2.cshtml";
+
+}
+
+
+<div class="text-center">
+    <br />
+    <div class="card">
+        <div class="card-body">
+            <p class="text-center">Self Screening</p>
+        </div>
+    </div>
+</div>
+<br />
+@if(TempData["Result"] != null)
+{
+    <div class="alert alert-danger text-center">
+        <p>
+            @TempData["Result"]
+        </p>
+    </div>
+}
+
+<br />
+<br />
+<form asp-action="Screening" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        Have you been in close contact with someone who has tested positive for COVID-19?
+                    </p>
+                    <br />
+                    <br />
+                    <p>Have you traveled to any high-risk areas or been in contact with individuals from high-risk areas?</p>
+                    <br />
+                    <br />
+                    <p>
+                        Have you been advised to quarantine or self-isolate by a healthcare professional or public health authority?
+                    </p>
+                    <br />
+                    <br />
+                    <p>
+                        Have you experienced any symptoms commonly associated with COVID-19, as fever, cough, shortness of breath, loss of taste or smell, or fatigue?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="card" style="height:100%">
+                <div class="card-body">
+
+                    <div class="row" style="justify-content:center">
+                        <div class="col-3">
+                            <input type="radio" class="btn-check" name="Q1" id="option1" autocomplete="off" value="Yes">
+                            <label class="btn btn-outline-success" for="option1">Yes</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="radio" class="btn-check" name="Q1" id="option2" autocomplete="off" value="No">
+                            <label class="btn btn-outline-success" for="option2">No</label>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="row" style="justify-content:center">
+                        <div class="col-3">
+                            <input type="radio" class="btn-check" name="Q2" id="option3" autocomplete="off" value="Yes">
+                            <label class="btn btn-outline-success" for="option3">Yes</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="radio" class="btn-check" name="Q2" id="option4" autocomplete="off" value="No">
+                            <label class="btn btn-outline-success" for="option4">No</label>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="row" style="justify-content:center">
+                        <div class="col-3">
+                            <input type="radio" class="btn-check" name="Q3" id="option5" autocomplete="off" value="Yes">
+                            <label class="btn btn-outline-success" for="option5">Yes</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="radio" class="btn-check" name="Q3" id="option6" autocomplete="off" value="No">
+                            <label class="btn btn-outline-success" for="option6">No</label>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="row" style="justify-content:center">
+                        <div class="col-3">
+                            <input type="radio" class="btn-check" name="Q4" id="option7" autocomplete="off" value="Yes">
+                            <label class="btn btn-outline-success" for="option7">Yes</label>
+                        </div>
+                        <div class="col-3">
+                            <input type="radio" class="btn-check" name="Q4" id="option8" autocomplete="off" value="No">
+                            <label class="btn btn-outline-success" for="option8">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="text-center">
+        <div class="">
+            <button type="submit" class="btn btn-success w-50">Done</button>
+        </div>
+    </div>
+</form>

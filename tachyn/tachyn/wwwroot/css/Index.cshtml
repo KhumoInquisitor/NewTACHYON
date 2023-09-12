@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<br />
+<div class="text-center">
+    <h3>Welcome</h3>
+</div>
+<br />
+<br />
+<div>
+    <div class="row">
+        <div class="col-6">
+            <a asp-action="Screening" asp-controller="Vaccine">
+                <div class="card" style="border-radius:20px;height:150px">
+                    <div class="card-body">
+                        <div class="text-center text-black">
+                            <div>
+                                <img src="~/css/health.png" width="100px" alt="health"/>
+                            </div>
+                            <p>Self Screening</p>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-6">
+            <a asp-action="Select" asp-controller="Vaccine">
+                <div class="card" style="border-radius:20px;height:150px">
+                    <div class="card-body">
+                        <div class="text-center text-black">
+                            <div>
+                                <img src="~/css/appointment.png" width="100px" alt="Appointment" />
+                            </div>
+                            <p>Appoinments</p>
+                        </div>
+                    </div>                    
+                </div>
+            </a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-6">
+            <a asp-action="Status" asp-controller="Vaccine">
+                <div class="card" style="border-radius:20px;height:150px">
+                    <div class="card-body">
+                        <div class="text-center text-black">
+                            <div>
+                                <img src="~/css/check-list.png" width="100px" alt="Check list" />
+                            </div>
+                            <p>Status</p>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+        <div class="col-6">
+            <a asp-action="Feedback" asp-controller="Vaccine">
+                <div class="card" style="border-radius:20px;height:150px">
+                    <div class="card-body">
+                        <div class="text-center text-black">
+                            <div>
+                                <img src="~/css/feedback.png" width="100px" alt="Feedback" />
+                            </div>
+                            <p>Feedback</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+

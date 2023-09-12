@@ -1,0 +1,53 @@
+﻿@model Tachyon.Models.MedicationRecords
+
+@{
+    ViewData["Title"] = "Update Medication";
+    Layout = "~/Views/Shared/_Layoutchronic.cshtml";
+
+}
+
+<div class="CollectMed">
+
+    <div class="container">
+        <!-- main content -->
+        <div class="agile_info">
+            <div class="w3l_form">
+                <div class="col-lg-4 w3l-features-photo-7 mt-lg-0 mt-4">
+                    <img src="/css/poisoning-pill-bottle.jpg" alt="" width="560"/>
+                </div>
+            </div>
+            <div class="w3_info">
+                <h2>Update Patient Medication</h2>
+
+                <form asp action="UpdateMed" method="post">
+                    <div class="input-group">
+                        <label asp-for="NameOfMedication"></label>
+                        <input asp-for="NameOfMedication" class="form-control" />
+                    </div>
+
+                    <div class="input-group">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" class="form-control" />
+                    </div>
+                    <div class="input-group">
+                        <label asp-for="ExpiryDate"></label>
+                        <input asp-for="ExpiryDate" class="form-control" />
+                    </div>
+                    <div class="input-group">
+                        <label asp-for="OrderedDate"></label>
+                        <input asp-for="OrderedDate" class="form-control" />
+                    </div>
+                   
+
+
+
+                    <input type="submit" class="btn btn-success" value="update" />
+                </form>
+                <a asp-action="MedicationIndex" class="btn btn-danger">Back</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

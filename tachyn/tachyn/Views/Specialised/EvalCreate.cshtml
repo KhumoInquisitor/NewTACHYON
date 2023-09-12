@@ -1,0 +1,93 @@
+﻿@model Tachyon.Models.PatientEvaluation
+
+@{
+    ViewData["Title"] = "EvalCreate";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<div>
+<h4>Patient Evaluation</h4>
+<hr />
+<div class="row">
+    <div class="col-sm">
+        <form class="row g-3" asp-action="EvalCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-6">
+                    <label class="control-label">Name</label>
+                    <input asp-for="name" class="form-control" />
+                    <span asp-validation-for="name" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label">Last Name</label>
+                    <input asp-for="lastname" class="form-control" />
+                    <span asp-validation-for="lastname" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label">Date Of Birth</label>
+                    <input asp-for="dob" class="form-control" />
+                    <span asp-validation-for="dob" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label">Age</label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label">Gender</label>
+                    <input asp-for="Gender" class="form-control" />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label">Date</label>
+                    <input asp-for="Date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+            <div class="col-md-3">
+                    <label class="control-label">physician</label>
+                <input asp-for="physician" class="form-control" />
+                <span asp-validation-for="physician" class="text-danger"></span>
+            </div>
+            <div class="col-md-3">
+                    <label class="control-label">vitals</label>
+                <input asp-for="vitals" class="form-control" />
+                <span asp-validation-for="vitals" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                    <label class="control-label">Medical History</label>
+                <input asp-for="medHistory" class="form-control" />
+                <span asp-validation-for="medHistory" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                    <label class="control-label">Physical Test</label>
+                <input asp-for="physicalTest" class="form-control" />
+                <span asp-validation-for="physicalTest" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                    <label class="control-label">Risk Assessment</label>
+                <input asp-for="riskAssessment" class="form-control" />
+                <span asp-validation-for="riskAssessment" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                    <label class="control-label">Notes</label>
+                    <input asp-for="notes" class="form-control" />
+                <span asp-validation-for="notes" class="text-danger"></span>
+            </div>
+            <div class="col-md-4">
+                    <label class="control-label">addition Info</label>
+                <input asp-for="addInfo" class="form-control" />
+                <span asp-validation-for="addInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="EvalIndex">Back to List</a>
+</div>
+</div>
+
+<link href="~/specialised/style - copy.css" rel="stylesheet" />
+<link href="~/specialised/style.css" rel="stylesheet" />

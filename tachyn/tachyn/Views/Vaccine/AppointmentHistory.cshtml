@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Appointment History";
+    Layout = "~/Views/Shared/_MainLayout2.cshtml";
+
+}
+@model List<Appointment>
+<br />
+<div class="text-center">
+    <h3>Appointment History</h3>
+</div>
+<br />
+<br />
+
+<div class="card">
+    <div class="card-body">
+        <div class="card-body">
+            <small class="text-danger">Should you wish to cancel an appointment, click on the update button.</small>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Surname</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count() > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Surname</td>
+                            <td>@item.Date.ToShortDateString()</td>
+                            <td>@item.PhoneNumber</td>
+                            <td>@item.Email</td>
+                            <td>@item.Status</td>
+                            <td>
+                                <form method="post" asp-action="UpdateAppointment">
+                                    <input name="AppointmentID" value="@item.AppointmentId" hidden />
+                                    <button type="submit" class="btn btn-success float-end">Update</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                }
+                @*<tr>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>01/01/2013</td>
+                    <td>0123456789</td>
+                    <td>asa@hmak.com</td>
+                    <td>Pending</td>
+                    <td>
+                        <form method="post" asp-action="UpdateAppointment">
+                            <button type="submit" class="btn btn-success float-end">Update</button>
+                        </form>
+                    </td>
+                </tr>*@
+                
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Tachyon.Models.MedicationRecords>
+
+
+<div class="container p-4">
+    <div class="row pt-5">
+        <div class="col-6">
+            <h2 class="text-center text-capitalize" style="color:cadetblue"> List of Patients Meddication </h2>
+        </div>
+
+    </div>
+
+
+    <br>
+
+
+    @if(Model.Count()>0)
+    {
+        <table class="table-info  table-bordered table-active" style="width:100%">
+            <thead>
+                <tr>
+
+                    <th></th>
+                    <th>Description</th>
+                    <th>Expiry Date</th>
+                    <th>Ordered Date</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Records in Model)
+                {
+                    <tr>
+                        <td width="10%"> @Records.ID </td>
+                        <td width="20%">@Records.Description </td>
+                        <td width="30%"> @Records.ExpiryDate </td>
+                        <td width="10%"> @Records.OrderedDate </td>
+                    </tr>
+             
+
+                    @* <a asp-controller="Fighters" asp-action="Delete" asp-route-ID="@fighter.ID" class="btn btn-danger mx-1">Delete</a>*@
+                    @*</div>*@
+                    @*</td>*@
+
+
+                }
+            </tbody>
+
+
+        </table>
+    }
+    else
+    {
+        <p class="text-danger">No Records</p>
+
+    }
+
+
+
+    <div class="btn">
+        <a asp-controller="Chronic" asp-action="MedRecords" class=" btn btn-success mx-1">Create</a>
+    </div>
+
+</div>
+
+  
+
+

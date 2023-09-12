@@ -1,0 +1,42 @@
+﻿@model Tachyon.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<body id="screen">
+    <br />
+    <br />
+    <br />
+    <h1 id="Walkheading">Book an appointment</h1>
+    <br />
+    <form id="card" class="card" asp-controller="Walkin" asp-action="Create" method="post">
+
+        <label>First Name:</label>
+        <input asp-for="name" type="text" /><br />
+        <label>Last Name:</label>
+        <input asp-for="lastname" type="text" /><br />
+        <label>Email:</label>
+        <input asp-for="email" type="email" value="@User.Identity?.Name" readonly /><br />
+        <label>Date aand Time:</label>
+        @Html.TextBoxFor(m=>m.datetimevalue,new{type = "datetime-local"})<br />
+        <label>Booking for which department</label>
+        <select asp-for="Department">
+            <option disabled selected>----Select a department----</option>
+            <option>Vaccinantion</option>
+            <option>Family planning</option>
+            <option>Chronic medication</option>
+            <option>Specialised Medical Procedures</option>
+        </select>
+
+        <br />
+        <button type="submit" id="button2" class="btn-warning">Book</button><br />
+
+    </form>
+    <a asp-controller="Walkin" asp-action="Details"><button id="button2" class="btn-primary">View appointments</button></a>
+    <br />
+    <a asp-controller="Walkin" asp-action="Index"><button id="button1" class="btn-danger">Back</button></a>
+</body>
+
+

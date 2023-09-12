@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Tachyon.Models.LabTest>
+
+@{
+    ViewData["Title"] = "LabIndex";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<div>
+<h1>Lab Tests</h1>
+
+<p>
+    <a type ="button" class="btn btn-primary" asp-action="LabCreate">Create New</a>
+</p>
+    <table class="fl-table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.lastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.physician)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.testName)
+            </th>@* 
+            <th>
+                @Html.DisplayNameFor(model => model.results)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.interpretation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recommendations)
+            </th> *@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.physician)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.testName)
+            </td>@* 
+            <td>
+                @Html.DisplayFor(modelItem => item.results)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.interpretation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recommendations)
+            </td> *@
+            <td class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a type="button" class="dropdown-item" asp-action="LabEdit" asp-route-id="@item.id">Edit</a> |
+                    <a type="button" class="dropdown-item" asp-action="LabDetails" asp-route-id="@item.id">Details</a> |
+                    <a type="button" class="dropdown-item" asp-action="LabDelete" asp-route-id="@item.id">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+<link href="~/specialised/style - copy.css" rel="stylesheet" />
+<link href="~/specialised/style.css" rel="stylesheet" />
+<link href="~/specialised/table.css" rel="stylesheet" />

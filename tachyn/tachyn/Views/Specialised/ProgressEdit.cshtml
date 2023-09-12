@@ -1,0 +1,145 @@
+﻿@model Tachyon.Models.PatientProgress
+
+@{
+    ViewData["Title"] = "ProgressEdit";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<div>
+<h4>Patient Progress</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ProgressEdit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="patientID" class="control-label"></label>
+                <input asp-for="patientID" class="form-control" />
+                <span asp-validation-for="patientID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="name" class="control-label"></label>
+                <input asp-for="name" class="form-control" />
+                <span asp-validation-for="name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="lastname" class="control-label"></label>
+                <input asp-for="lastname" class="form-control" />
+                <span asp-validation-for="lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="age" class="control-label"></label>
+                <input asp-for="age" class="form-control" />
+                <span asp-validation-for="age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="room" class="control-label"></label>
+                <input asp-for="room" class="form-control" />
+                <span asp-validation-for="room" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Day" class="control-label"></label>
+                <input asp-for="Day" class="form-control" />
+                <span asp-validation-for="Day" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Breakfast" class="control-label"></label>
+                <input asp-for="Breakfast" class="form-control" />
+                <span asp-validation-for="Breakfast" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lunch" class="control-label"></label>
+                <input asp-for="Lunch" class="form-control" />
+                <span asp-validation-for="Lunch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dinner" class="control-label"></label>
+                <input asp-for="Dinner" class="form-control" />
+                <span asp-validation-for="Dinner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Snacks" class="control-label"></label>
+                <input asp-for="Snacks" class="form-control" />
+                <span asp-validation-for="Snacks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color" class="control-label"></label>
+                <input asp-for="Color" class="form-control" />
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Consistency" class="control-label"></label>
+                <input asp-for="Consistency" class="form-control" />
+                <span asp-validation-for="Consistency" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Saturation" class="control-label"></label>
+                <input asp-for="Saturation" class="form-control" />
+                <span asp-validation-for="Saturation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FluidBalance" class="control-label"></label>
+                <input asp-for="FluidBalance" class="form-control" />
+                <span asp-validation-for="FluidBalance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Intake" class="control-label"></label>
+                <input asp-for="Intake" class="form-control" />
+                <span asp-validation-for="Intake" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Output" class="control-label"></label>
+                <input asp-for="Output" class="form-control" />
+                <span asp-validation-for="Output" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Temperature" class="control-label"></label>
+                <input asp-for="Temperature" class="form-control" />
+                <span asp-validation-for="Temperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodPressure" class="control-label"></label>
+                <input asp-for="BloodPressure" class="form-control" />
+                <span asp-validation-for="BloodPressure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeartRate" class="control-label"></label>
+                <input asp-for="HeartRate" class="form-control" />
+                <span asp-validation-for="HeartRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transfusion" class="control-label"></label>
+                <input asp-for="Transfusion" class="form-control" />
+                <span asp-validation-for="Transfusion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AntibioticTreatment" class="control-label"></label>
+                <input asp-for="AntibioticTreatment" class="form-control" />
+                <span asp-validation-for="AntibioticTreatment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ProgressIndex">Back to List</a>
+</div>
+</div>
+
+<link href="~/css/style - copy.css" rel="stylesheet" />
+<link href="~/css/style.css" rel="stylesheet" />
+<link href="~/css/table.css" rel="stylesheet" />

@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Select Options";
+    Layout = "~/Views/Shared/_MainLayout2.cshtml";
+
+}
+
+
+<br />
+<div class="text-center">
+    <h3>Select action</h3>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col-6">
+        <a asp-action="Appointment" asp-controller="Vaccine">
+            <div class="card" style="border-radius:20px;height:150px">
+                <div class="card-body">
+                    <div class="text-center text-black">
+                        <p style="margin-top:50px">Book Appointment</p>
+
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-6">
+        <a asp-action="AppointmentHistory" asp-controller="Vaccine">
+            <div class="card" style="border-radius:20px;height:150px">
+                <div class="card-body">
+                    <div class="text-center text-black">
+                        <p style="margin-top:50px">Appoinment(s) History</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+

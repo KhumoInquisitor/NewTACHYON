@@ -1,0 +1,86 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+#Walkheading {
+    font-family: Arial;
+    font-weight: 600;
+    color: darkblue;
+    text-align: center;
+}
+
+#walkbut {
+    border-radius: 5px;
+    border: double;
+    font-size: 25px;
+    background-color: saddlebrown;
+    text-align: center;
+}
+
+#contain {
+    text-align: center;
+}
+
+#screen {
+    background-image: url('screening.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#content {
+    font-size: 20px;
+}
+
+#btnsub {
+    position: center;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+#risk {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+#total {
+    color: red;
+}
+
+#total1 {
+    color: green;
+}
+
+#button1 {
+    border: double;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+#button2 {
+    position: center;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+#card {
+    margin: auto;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    width: 400px;
+    padding: 10px;
+}
+}

@@ -1,0 +1,106 @@
+﻿@model Tachyon.Models.FillingPrescription
+
+@{
+    ViewData["Title"] = "Filling";
+    Layout = "~/Views/Shared/_Layoutchronic.cshtml";
+
+}
+
+
+<form method="post" asp-action="CreateFilling" class=" form-horizontal bg-blue-200 p-2 text-dark bg-opacity-80" max-width:800px; margin:50px auto;>
+    <div class=" border border-dark p-3">
+        <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
+        <div class="col-lg-4 right mt-lg-0 mt-4">
+            <img src="/css/_filling_pill.jpg" alt="" width="560" />
+        </div>
+        <div class="mt-2 p-2 bg-primary text-center text-white rounded">
+            <h6>Please Fill in Prescription</h6>
+
+        </div>
+        <div class=" form-group">
+            <label asp-for="PatientName"></label>
+            <div col-sm-5>
+                <input asp-for="PatientName" class=" form-control" id="validationName" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="PatientName" class=" text-danger"></span>
+        </div>
+        <div class=" form-group">
+            <label asp-for="DateOfBirth"></label>
+            <div col-sm-10>
+                <input asp-for="DateOfBirth" class=" form-control" id="validationRace" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="DateOfBirth" class=" text-danger"></span>
+
+        </div>
+        <div class=" form-group">
+            <label asp-for="Allergies"></label>
+            <div col-sm-10>
+                <input asp-for="Allergies" class=" form-control" id="validationRace" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="Allergies" class=" text-danger"></span>
+
+        </div>
+        <div class=" form-group">
+            <label asp-for="Weight"></label>
+            <div col-sm-10>
+                <input asp-for="Weight" class=" form-control" id="validationAbility" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="Weight" class=" text-danger"></span>
+            </div>
+
+            <div class=" form-group">
+            <label asp-for="DrugsName"></label>
+                <div col-sm-10>
+                <input asp-for="DrugsName" class=" form-control" id="validationAbility" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+            <span asp-validation-for="DrugsName" class=" text-danger"></span>
+            </div>
+        <div class=" form-group">
+            <label asp-for="Unit"></label>
+            <div col-sm-10>
+                <input asp-for="Unit" class=" form-control" id="validationAbility" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="Unit" class=" text-danger"></span>
+        </div>
+        <div class=" form-group">
+            <label asp-for="Dosage"></label>
+            <div col-sm-10>
+                <input asp-for="Dosage" class=" form-control" id="validationAbility" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="Dosage" class=" text-danger"></span>
+        </div>
+        <div class=" form-group">
+            <label asp-for="DietToFollow"></label>
+            <div col-sm-10>
+                <input asp-for="DietToFollow" class=" form-control" id="validationAbility" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="DietToFollow" class=" text-danger"></span>
+        </div>
+
+                <div class=" form-group row">
+                    <div class=" col-8 offset-2 row">
+                        <div class=" col">
+                            <input type="submit" class="btn-blue-300 btn-lg  " value="create" />
+                        </div>
+                        <div class=" col-1">
+                    <a asp-action="FillingIndex" class="btn btn-danger">MedicationList</a>
+                    </div>
+                </div>
+
+</form>

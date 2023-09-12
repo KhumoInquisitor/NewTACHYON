@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Tachyon.Models.ManageFile>
+
+    
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    }
+<div class="container p-3 bg-success p-2 text-dark bg-opacity-50">
+    <img src="~/css/images.jpg" class="rounded float-end">
+    <div class=" row pt-4">
+        <div class=" col-10">
+            <h2 class="text-primary"> List of Files</h2>
+        </div>
+        <div class=" col-10 text-right">
+            <a asp-controller="ManageFile" asp-action="ManageFile" style="width:100%"></a>
+        </div>
+    </div>
+
+    <br />
+    <a asp-action="ManageFile" class="btn btn-success"> add  a new patient</a>
+    @if (Model.Count() >0)
+    {
+        <table class=" table table-bordered table-striped table-success">
+            <thead>
+                <tr>
+                    <th>Name</th>
+
+                    <th>Surname</th>
+
+
+                    <th>Gender</th>
+
+                    <th>DateOfBirth</th>
+
+                    <th>Race</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var manageFile in Model)
+                {
+
+                    <tr>
+                        <td>@manageFile.Name</td>
+
+                        <td >@manageFile.Surname</td>
+                        <td >@manageFile.Gender</td>
+                        <td >@manageFile.DateOFBirth</td>
+                        <td >@manageFile.Race</td>
+
+                    </tr>
+
+
+
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>NO file has been created</p>
+    }
+
+
+</div>
+

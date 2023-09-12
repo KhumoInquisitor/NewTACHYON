@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Tachyon.Models.TrackMenstruation>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/LayoutFamily.cshtml";
+}
+<div class="container p-3 bg-blue-200 p-2 text-dark bg-opacity-50">
+    <img src="~/css/images.jpg" class="rounded float-end">
+    <div class=" row pt-4">
+        <div class=" col-10">
+            <h2 class="text-primary"> Track List</h2>
+        </div>
+        <div class=" col-10 text-right">
+            <a asp-controller="Family" asp-action="CreateTrackMentruction" style="width:100%"></a>
+        </div>
+    </div>
+
+    <br />
+    <a asp-action="CreateTrackMentruction" class="btn btn-success"> Track </a>
+    @if (Model.Count() > 0)
+    {
+        <table class=" table table-bordered table-striped table-success">
+            <thead>
+                <tr>
+                    <th>CurrentDate</th>
+
+                    <th>LastPeriodDate</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var trackMenstruation in Model)
+                {
+
+                    <tr>
+                        <td >@trackMenstruation.CurrentDate</td>
+
+                        <td >@trackMenstruation.LastPeriodDate</td>
+                        
+
+                    </tr>
+
+
+
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>NO track has been done</p>
+    }
+
+
+</div>

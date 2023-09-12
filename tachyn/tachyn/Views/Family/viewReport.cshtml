@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Tachyon.Models.ManageFile>
+@using Microsoft.AspNetCore.Identity
+@using Tachyon.Models
+@using Tachyon.Areas.Identity.Data
+
+@inject SignInManager<TachyonUser> SignInManager
+@inject UserManager<TachyonUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="container p-3 bg-success p-2 text-dark bg-opacity-50">
+    <img src="~/css/images.jpg" class="rounded float-end">
+    <div class=" row pt-4">
+        <div class=" col-10">
+            <h2 class="text-primary"> List of Files</h2>
+        </div>
+        <div class=" col-10 text-right">
+            <a asp-controller="ManageFile" asp-action="ManageFile" style="width:100%"></a>
+        </div>
+    </div>
+
+    <br />
+    <a asp-action="ManageFile" class="btn btn-success"> add  a new patient</a>
+   
+        <table class=" table table-bordered table-striped table-success">
+            <thead>
+                <tr>
+                    <th>Name</th>
+
+                    <th>Surname</th>
+
+
+                    <
+                </tr>
+            </thead>
+            <tbody>
+              
+
+                    <tr>
+                        <td>@UserManager.GetUserAsync(User).Result.FirstName</td>
+
+                        <td>@UserManager.GetUserAsync(User).Result.LastName</td>
+                       
+
+                    </tr>
+
+
+
+                
+               
+
+            </tbody>
+        </table>
+                    <div class="row mt-6 mb-6">
+                        <div class="col-md-12 text-end" >
+                            <div class="col">
+                                <a asp-action="Patient" class="btn btn-Info w-25">Back</a>
+                                <a href="javascript:window.print()" class="btn btn-Info">Print</a>
+                            </div>
+                            
+                        </div>
+                    </div>
+    

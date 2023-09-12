@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container-fluid">
+	<h3 class="page-title">Welcome to Specialised Medical Procedures</h3>
+	<div class="row d-flex w-100">
+		
+		<div>
+			<section class="products">
+				@* <h2>Sub System</h2> *@
+				<div class="all-products">
+					<div class="product">
+						<img src="~/css/patient.png" />
+						<div class="product-info">
+							<h4 class="product-title">
+								Patient Evaluation
+							</h4>
+							<a class="product-btn" href="#">Patient Evaluation</a>
+
+						</div>
+					</div>
+					<div class="product">
+						<img src="~/css/7477305_3618271.jpg" />
+						<div class="product-info">
+							<h4 class="product-title">
+								Procedure
+							</h4>
+							<a class="product-btn" href="#">Procedure</a>
+
+						</div>
+					</div>
+					<div class="product">
+						<img src="~/css/pngtree-hand-drawn-cartoon-medical-treatment-illustration-png-image_2173250.jpg" />
+						<div class="product-info">
+							<h4 class="product-title">
+								Treatment Plan
+							</h4>
+							<a class="product-btn" href="#">Treatment Plan</a>
+
+						</div>
+					</div>
+					<div class="product">
+						<img src="~/css/5268552.jpg" />
+						<div class="product-info">
+
+							<h4 class="product-title">Patient Pogress</h4>
+							<a asp-controller="Specialised" asp-action="ProcedureIndex">Patient Pogress</a>
+						</div>
+					</div>
+					<div class="product">
+						<img src="~/css/blood-test.png" />
+						<div class="product-info">
+							<h4 class="product-title">
+								Lab Tests
+							</h4>
+							<a class="product-btn" href="#">Lab Tests</a>
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<link href="~/css/style.css" rel="stylesheet" />
+<link href="~/css/style - copy.css" rel="stylesheet" />
+
+
+
+
+<script src="./oneJavascript.js"></script>
+<script src="~/js/one.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>

@@ -1,0 +1,59 @@
+﻿@model Tachyon.Models.walkincheckboxes;
+@{
+    ViewData["Title"] = "Screening";
+}
+<body id="screen">
+    <br />
+    <br />
+    <br />
+    <h1 id="Walkheading">Self Screening</h1>
+    <br />
+    <form>
+        <div id="content">
+            <label>Do you have a cough?</label>
+            <input type="checkbox" name="cough" /><br />
+            <label>Do you have a loss of smell or taste?</label>
+            <input type="checkbox" name="smell" /><br />
+            <label> Do you have a shortness of breath?</label>
+            <input type="checkbox" name="breath" /><br />
+            <label> Do you have a headache?</label>
+            <input type="checkbox" name="head" /><br />
+            <label>
+                Have you , or anyone you have been close contact with,
+                been diagnosed with COVID-19 or placed in quarantine
+                for possible exposure to COVID-19?
+            </label>
+            <input type="checkbox" name="covid" /><br />
+        </div>
+        <br />
+        <br />
+        <button id="btnsub" class="bg-primary" disabled="true" type="submit">Submit</button>
+    </form>
+    @if (@Model.message == "Low Risk")
+    {
+        <div id="risk">
+            <h1 id="total1">
+                <b>@Model.message</b>
+
+            </h1>
+        </div>
+    }
+    else if (@Model.message == "High Risk")
+    {
+        <div id="risk">
+            <h1 id="total">
+                <b>
+                    @Model.message !!!
+
+                </b>
+
+            </h1><br />
+
+            We may ask you to leave and we will reschedule an appointment for you at a later time
+
+        </div>
+    }
+
+    <br />
+    <a asp-controller="Walkin" asp-action="Index"><button id="butto1" class="btn-danger">Back</button></a>
+</body>

@@ -1,0 +1,57 @@
+﻿@model Tachyon.Models.FamilyAppointment
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/LayoutFamily.cshtml";
+}
+
+<form method="post" asp-action="updateAppointment" class="bg-green-300 p-2 text-dark bg-opacity-25">
+    <input asp-for="AppointmentID" hidden />
+    <div class="border border-dark ">
+        <div class="form-group row">
+            <h2 class="text-black-50 pl-3"> UPDATE</h2>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-6">
+                        <label asp-for="Description"></label>
+                        <select id="DescriptionDropdown" asp-for="Description" class=" form-control" id="validationName" required>
+                            <option value="Pill">pill</option>
+                            <option value="Implants">implant</option>
+                            <option value="Injection">Injection</option>
+                            <option value="Plan B">Plan B</option>
+                            <option value="Injection">Plan B</option>
+
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="NurseName"></label>
+                        <select id="NurseDropdown" asp-for="NurseName" class=" form-control" id="validationName" required>
+                            <option value="Miss Buntu"> Miss Buntu</option>
+                            <option value="2">Mr treat</option>
+                            <option value="3">miss lisa</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="CurrentDate"></label>
+                        <input asp-for="CurrentDate" class="form-control" />
+                    </div>
+                    <div class="col-6">
+                        <label asp-for="AppointmentDate"></label>
+                        <input asp-for="AppointmentDate" class="form-control" />
+                    </div>
+                    
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-8 offset-2 row">
+                        <input type="submit" class="btn btn-info w-75" value="update" />
+                    </div>
+                    <div class="col">
+                        <a asp-action="Index" class="btn btn-danger w-75"> Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

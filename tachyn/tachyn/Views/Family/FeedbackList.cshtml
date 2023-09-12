@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Tachyon.Models.FamilyFeedBack>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/LayoutFamily.cshtml";
+}
+<div class="container p-3 bg-blue-200 p-2 text-dark bg-opacity-50">
+    <img src="~/css/images.jpg" class="rounded float-end">
+    <div class=" row pt-4">
+        <div class=" col-10">
+            <h2 class="text-primary"> Feedback list</h2>
+        </div>
+        <div class=" col-10 text-right">
+            <a asp-controller="Family" asp-action="CreateFeedBack" style="width:100%"></a>
+        </div>
+    </div>
+
+    <br />
+    <a asp-action="CreateFeedBack" class="btn btn-success"> add  a new FeedBack</a>
+    @if (Model.Count() > 0)
+    {
+        <table class=" table table-bordered table-striped table-success">
+            <thead>
+                <tr>
+                    <th>Phone</th>
+
+                    <th>Email</th>
+
+
+                    <th>Messege</th>
+
+                    <th>Update</th>
+
+                    <th>Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var familyFeedBack in Model)
+                {
+
+                    <tr>
+                        <td >@familyFeedBack.PhoneNumber</td>
+
+                        <td >@familyFeedBack.EmailAddress</td>
+                        <td >@familyFeedBack.Message</td>
+                       
+
+                    </tr>
+
+
+
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>NO feedback has been given</p>
+    }
+
+
+</div>

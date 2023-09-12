@@ -1,0 +1,123 @@
+﻿@model Tachyon.Models.ManageFile
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form method="post" asp-action="ManageFile" class=" form-horizontal bg-blue-200 p-2 text-dark bg-opacity-80" max-width:800px; margin:50px auto;>
+    <div class=" border border-dark p-3">
+        <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
+       <div class="mt-2 p-2 bg-primary text-center text-white rounded">
+        <h6>Pesonal Details</h6>
+
+    </div>
+        <div class=" form-group">
+            <label asp-for="Name"></label>
+            <div col-sm-5>
+                <input asp-for="Name" class=" form-control" id="validationName" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="Name" class=" text-danger"></span>
+        </div>
+        <div class=" form-group">
+            <label asp-for="Surname"></label>
+            <div col-sm-10>
+                <input asp-for="Surname" class=" form-control" id="validationRace" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="Surname" class=" text-danger"></span>
+
+        </div>
+        <div class=" form-group">
+            <label asp-for="Gender"></label>
+            <div col-sm-10>
+                <select id="GenderDropdown" asp-for="Gender" class=" form-control" id="validationName" required>
+                    <option value="Male"> Male</option>
+                    <option value="Female">Female</option>
+                    
+                </select>
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="Gender" class=" text-danger"></span>
+        </div>
+        <div class=" form-group">
+            <label asp-for="DateOFBirth"></label>
+            <div col-sm-10>
+                <input asp-for="DateOFBirth" class=" form-control" id="validationAbility" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            <span asp-validation-for="DateOFBirth" class=" text-danger"></span>
+            <div class=" form-group">
+                <select id="DescriptionDropdown" asp-for="Race" class=" form-control" id="validationName" required>
+                    <option value="Black">Black</option>
+                    <option value="Coloured">Coloured</option>
+                    <option value="White">White</option>
+                  
+
+                </select>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Race" class=" text-danger"></span>
+            </div>
+        </div>
+
+        
+
+    </div class=" border border-dark p-3">
+    <div class="mt-2 p-2 bg-primary text-center text-white rounded">
+        <h6>Address</h6>
+
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail4">
+    </div>
+    @*<div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input type="password" class="form-control" id="inputPassword4">
+    </div>*@
+    <div class="col-12">
+        <label asp-for="address" class="form-label">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="col-12">
+        <label asp-for="address2" class="form-label">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    </div>
+    <div class="col-md-6">
+        <label asp-for="City" class="form-label">City</label>
+        <input type="text" class="form-control" id="inputCity">
+    </div>
+    <div class="col-md-4">
+        <label asp-for="province" class="form-label">province</label>
+        <select id="DescriptionDropdown" asp-for="province" class=" form-control" id="validationName" required>
+            <option value="Limpompo">Limpompo</option>
+            <option value="Mpumalanga">Mpumalanga</option>
+            <option value="Eastern Cape">Eastern Cape</option>
+            <option value="WESTERN Cape">WESTERN Cape</option>
+
+        </select>
+    </div>
+    <div class="col-md-2">
+        <label asp-for="zip" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class=" form-group row">
+        <div class=" col-8 offset-2 row">
+            <div class=" col">
+                <input type="submit" class="btn-blue-300 btn-lg  " value="create" />
+            </div>
+            <div class=" col-1">
+                <a asp-action="FileList" class=" btn btn-blue-300btn-lg ">Files</a>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+ 
