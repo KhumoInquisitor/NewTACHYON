@@ -165,7 +165,7 @@ namespace Tachyon.Areas.Identity.Pages.Account
                         $"if you did not register for account with {applicationName} ,please ignore this email.maybe someone entered your email by mistake" +
                         $""+
                         $"if you have any question ,contact our team at {supportEmail}</p>" +
-                        $"<dic class='footer'>" +
+                        $"<div class='footer'>" +
                         $"<p>Thank you</p>" +
                         $"</div>" +
                         $"</body>" +

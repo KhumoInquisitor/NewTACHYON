@@ -13,11 +13,22 @@ namespace Tachyon.Models
 		[DisplayName(" did you have period this month?")]
 		public string? Period { get; set; }
         [Required]
-        [DisplayName(" did you have Child?")]
+        [DisplayName(" are you sexual active?")]
+        public string? active { get; set; }
+        [Required]
+        [DisplayName(" do you have Child?")]
         public string? Child { get; set; }
         [Required]
         [DisplayName(" did you have sexual intercourse in the past 2 weeks?")]
         public string? intercourse { get; set; }
-
+        [Required]
+        [DisplayName(" do you have any allergies?")]
+        public string? allergies { get; set; }
+        [Required]
+        [DisplayName("are you taking any medication?")]
+        public string? medication { get; set; }
+        [Required]
+        [DisplayName(" Have you ever used any contraceptive before?")]
+        public string? contraceptive { get; set; }
     }
 }
