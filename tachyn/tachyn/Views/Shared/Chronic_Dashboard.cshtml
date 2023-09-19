@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Tachyon.Models
+@using Tachyon.Areas.Identity.Data
+
+@inject SignInManager<TachyonUser> SignInManager
+@inject UserManager<TachyonUser> UserManager
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -14,82 +21,11 @@
 	
 </head>
 <body>
+	
 
 
 
-	<h3 class="head text-center">Welcome to Chronic Medication <span style="color:#f48260;"></span></h3>
-	<p class="narrow text-center">
-		We provide comprehensive care for chronic illnesses,ofering accessible medication,advice and support.
-		Our team of experienced professionals are committed in providing quality healthcare to all.
-	</p>
-	@*<div class="container"><img src="/css/What-Is-Chronic-Illness.jpg" width:240px></div>*@
-
-	<div class="container mx-auto mt-4">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="card" style="width: 18rem;">
-					<img src="/css/Asthma.jpg" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Asthma </h5>
-						<h6 class="card-subtitle mb-2 text-muted">Asthma Adults vs child</h6>
-						<p class="card-text">
-							affects adults and children. It is a chronic inflammation of the airways caused by an allergy.
-							Asthma cannot be cured but can be effectively managed by taking preventive medication daily.
-						</p>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-md-4">
-				<div class="card" style="width: 18rem;">
-					<img src="/css/Canser.png" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Canser</h5>
-						<h6 class="card-subtitle mb-2 text-muted">other sevier chronic diseases</h6>
-						<p class="card-text">
-							Cancer is a disease caused when cells divide uncontrollably and spread into surrounding tissues.
-							Cancer is caused by changes to DNA.
-						</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4">
-				<div class="card" style="width: 20rem;">
-					<img src="/css/obstructive lung disease.jpg" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">obstructive lung disease</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Lungs </h6>
-						<p class="card-text">
-							Obstructive lung disease is a category of respiratory disease characterized by airway obstruction.
-							Many obstructive diseases of the lung result from narrowing of the smaller bronchi and larger bronchioles,
-							often because of excessive contraction of the smooth muscle itself.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card" style="width: 18rem;">
-					<img src="/css/Hypertension.jpg" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">Hypertension</h5>
-						<h6 class="card-subtitle mb-2 text-muted">Symtoms</h6>
-						<p class="card-text">
-							Hypertension or high blood pressure is a disease of lifestyle that can be prevented and treated.
-							If the blood pressure remains high for a period, serious complications can develop.
-						</p>
-					</div>
-				</div>
-			</div>
-
-
-
-
-
-
-
-			<div class="wrapper">
+    <div class="wrapper">
 		<div class="main-header">
 			<div class="logo-header">
 				<a href="index.html" class="logo">
@@ -113,7 +49,6 @@
 							</div>
 						</div>
 					</form>
-
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -183,13 +118,13 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> @*<img src="assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"*@><span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"><img src="~/specialised/person.svg" alt="user-img" width="36" class="img-circle"> <span>@UserManager.GetUserAsync(User).Result.FirstName</span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
-										<div class="u-img"><img src="assets/img/profile.jpg" alt="user"></div>
+										@*<div class="u-img"><img src="assets/img/profile.jpg" alt="user"></div>*@
 										<div class="u-text">
-											<h4>Hizrian</h4>
+											@*<h4>Hizrian</h4>*@
 											<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
 										</div>
 									</div>
@@ -209,18 +144,97 @@
 				</div>
 			</nav>
 		</div>
+
+		
+		<!-- Blog Section -->
+		<section class="w3l-blog">
+			<div class="blog py-5" id="Newsblog">
+				<div class="container py-lg-5 py-md-4 py-2">
+					<div class="text-center mb-sm-5 mb-4">
+						<h5 class="w3l-title-small mb-1">Welcome to e-Nompilo</h5>
+						<h3 class="w3l-title-main">Chronic Medication</h3>
+						<p class="text-lg-center border-2 bg-light">
+							We provide comprehensive care for chronic illnesses,ofering accessible medication,advice and support.
+							Our team of experienced professionals are committed in providing quality healthcare to all.
+						</p>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6 item">
+							<div class="card">
+								<div class="card-header p-0 position-relative">
+									<a href="#blog-single" class="zoom d-block">
+										<img class="card-img-bottom d-block" src="/css/Reco.jpg"
+											 alt="Card image cap">
+									</a>
+									
+								</div>
+								<div class="card-body blog-details">
+									<div class="price-review mb-1 align-items-center">
+										<p>Medication Records</p>
+									</div>
+									<a asp-controller="Chronic" asp-action="MedRecords" class="blog-desc">Our Pharmacist can check the records for available meds </a>
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6 item mt-md-0 mt-5">
+							<div class="card">
+								<div class="card-header p-0 position-relative">
+									<a href="#blog-single" class="zoom d-block">
+										<img class="card-img-bottom d-block" src="/css/prescription.jpg"
+											 alt="Card image cap">
+									</a>
+									
+								</div>
+								<div class="card-body blog-details">
+									<div class="price-review mb-1 align-items-center">
+										<p>Prescriptions</p>
+									</div>
+									<a asp-controller="Chronic" asp-action="Fillmed" class="blog-desc">You can get your prescribe meds at our facility.</a>
+								</div>
+								
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6 item mt-lg-0 mt-5">
+							<div class="card">
+								<div class="card-header p-0 position-relative">
+									<a href="#blog-single" class="zoom d-block">
+										<img class="card-img-bottom d-block" src="/css/collect.jpg"
+											 alt="Card image cap">
+									</a>
+									
+								</div>
+								<div class="card-body blog-details">
+									<div class="price-review mb-1 align-items-center">
+										<p>Collect Medication</p>
+									</div>
+									<a asp-controller="Chronic" asp-action="CollectMed" class="blog-desc">We aim in giving our client better services.</a>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
 	
 		<div class="sidebar">
 			<div class="scrollbar-inner sidebar-wrapper">
 				<div class="user">
 					<div class="photo">
-						<img src="assets/img/profile.jpg">
+						@*<img src="assets/img/profile.jpg">*@
 					</div>
 					<div class="info">
 						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 							<span>
 								
-								<span class="user-level">Administrator</span>
+								@*<span class="user-level">Administrator</span>*@
 								<span class="caret"></span>
 							</span>
 						</a>
@@ -251,7 +265,7 @@
 				
 				<ul class="nav">
 					<li class="nav-item active">
-						<a href="index.html">
+								<a asp-controller="Chronic" asp-action="Chronic_Dashboard">
 							<i class="la la-dashboard"></i>
 							<p>Dashboard</p>
 							<span class="badge badge-count">5</span>
@@ -274,7 +288,7 @@
 					<li class="nav-item">
 						<a asp-controller="Chronic" asp-action="MedRecords">
 							<i class="fa fa-book" style="font-size:small"></i>
-							<p>Medcine Records</p>
+							<p>Medication Records</p>
 							@*<span class="badge badge-count">6</span>*@
 						</a>
 					</li>
