@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Tachyon.Models
+@using Tachyon.Areas.Identity.Data
+
+@inject SignInManager<TachyonUser> SignInManager
+@inject UserManager<TachyonUser> UserManager
+
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -14,17 +21,63 @@
 	
 </head>
 <body>
-
-
-
 	<h3 class="head text-center">Welcome to Chronic Medication <span style="color:#f48260;"></span></h3>
+	<section class="about-section py-5">
+		<div class="container py-lg-5 py-md-4 py-2">
+			<div class="title-heading-w3 mx-auto text-center mb-sm-5 mb-4 pb-xl-4">
+				<h3 class="w3l-title-main">
+					We provide comprehensive care for chronic illnesses,ofering accessible medication,advice and support.
+					Our team of experienced professionals are committed in providing quality healthcare to all.
+				</h3>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-4 col-md-6">
+					<div class="about-single">
+						<div class="photo mb-4">
+							<i class="bi bi-cart-plus-fill"></i>
+						</div>
+						<div class="about-content">
+							<h5 class="mb-3"><a asp-controller="Chronic" asp-action="CollectMed">>Collect your medication</a></h5>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 mt-md-0 mt-3">
+					<div class="about-single">
+						<div class="about-icon mb-4">
+							<i class="bi bi-prescription"></i>
+						</div>
+						<div class="about-content">
+							<h5 class="mb-3"><a asp-controller="Chronic" asp-action="Fillmed"> Prescriptions</a></h5>
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 mt-lg-0 mt-3">
+					<div class="about-single">
+						<div class="about-icon mb-4">
+							<i class="bi bi-file-medical"></i>
+						</div>
+						<div class="about-content">
+							<h5 class="mb-3"><a asp-controller="Chronic" asp-action="MedRecords"> Medcine Records </a></h5>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	@*<h3 class="head text-center">Welcome to Chronic Medication <span style="color:#f48260;"></span></h3>
 	<p class="narrow text-center">
 		We provide comprehensive care for chronic illnesses,ofering accessible medication,advice and support.
-		Our team of experienced professionals are committed in providing quality healthcare to all.
+		Our team of experienced professionals are committed in providing quality healthcare to all.*@
 	</p>
 	@*<div class="container"><img src="/css/What-Is-Chronic-Illness.jpg" width:240px></div>*@
 
-	<div class="container mx-auto mt-4">
+	@*<div class="container mx-auto mt-4">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card" style="width: 18rem;">
@@ -82,7 +135,7 @@
 					</div>
 				</div>
 			</div>
-
+*@
 
 
 
@@ -113,6 +166,8 @@
 							</div>
 						</div>
 					</form>
+
+
 
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						<li class="nav-item dropdown hidden-caret">
@@ -183,13 +238,13 @@
 							</ul>
 						</li>
 						<li class="nav-item dropdown">
-							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> @*<img src="assets/img/profile.jpg" alt="user-img" width="36" class="img-circle"*@><span></span> </a>
+							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"><img src="~/specialised/person.svg" alt="user-img" width="36" class="img-circle"> <span>@UserManager.GetUserAsync(User).Result.FirstName</span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
 									<div class="user-box">
-										<div class="u-img"><img src="assets/img/profile.jpg" alt="user"></div>
+										@*<div class="u-img"><img src="assets/img/profile.jpg" alt="user"></div>*@
 										<div class="u-text">
-											<h4>Hizrian</h4>
+											@*<h4>Hizrian</h4>*@
 											<p class="text-muted">hello@themekita.com</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
 										</div>
 									</div>
@@ -214,13 +269,13 @@
 			<div class="scrollbar-inner sidebar-wrapper">
 				<div class="user">
 					<div class="photo">
-						<img src="assets/img/profile.jpg">
+						@*<img src="assets/img/profile.jpg">*@
 					</div>
 					<div class="info">
 						<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 							<span>
 								
-								<span class="user-level">Administrator</span>
+								@*<span class="user-level">Administrator</span>*@
 								<span class="caret"></span>
 							</span>
 						</a>
@@ -251,7 +306,7 @@
 				
 				<ul class="nav">
 					<li class="nav-item active">
-						<a href="index.html">
+								<a asp-controller="Chronic" asp-action="Chronic_Dashboard">
 							<i class="la la-dashboard"></i>
 							<p>Dashboard</p>
 							<span class="badge badge-count">5</span>

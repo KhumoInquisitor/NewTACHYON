@@ -156,7 +156,7 @@ namespace Tachyon.Controllers
 
 		//}
 
-		public IActionResult Chronic_MedicationIndex()
+		public IActionResult Chronic_Dashboard()
         {
             return View();
         }
