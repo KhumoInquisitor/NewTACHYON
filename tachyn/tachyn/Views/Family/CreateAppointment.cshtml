@@ -14,10 +14,11 @@
         @*<div class=" form-group row">
             <h2 class=" text-success-50 " > ADD NEW APPOINTMENT</h2>
         </div>*@
-        <div class=" form-group border-2 border-success" >
-            <label asp-for="Description"></label>
+        <div class=" form-group border-2 border-success text-dark" >
+            <label asp-for="Description" class="text-dark"></label>
             <div col-md-6 >
                 <select id="DescriptionDropdown" asp-for="Description" class=" form-control" id="validationName" required>
+                    <option value="select">select</option>
                     <option value="Pill">pill</option>
                     <option value="Implant">implant</option>
                     <option value="Injection">Injection</option>
@@ -33,6 +34,7 @@
             <label asp-for="NurseName"></label>
             <div col-sm>
                 <select id="NurseDropdown" asp-for="NurseName" class=" form-control" id="validationName" required>
+                    <option value="select">select</option>
                     <option value="Miss Buntu"> Miss Buntu</option>
                     <option value="Mr Treat">Mr treat</option>
                     <option value="Miss Lisa">miss lisa</option>

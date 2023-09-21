@@ -44,7 +44,7 @@
 						</div>
 					</form>
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-						<li class="nav-item dropdown hidden-caret">
+						@*<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="la la-envelope"></i>
 							</a>
@@ -54,8 +54,8 @@
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">Something else here</a>
 							</div>
-						</li>
-						<li class="nav-item dropdown hidden-caret">
+						</li>*@
+						@*<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<i class="la la-bell"></i>
 								<span class="notification">3</span>
@@ -109,9 +109,10 @@
 								<li>
 									<a class="see-all" href="javascript:void(0);"> <strong>See all notifications</strong> <i class="la la-angle-right"></i> </a>
 								</li>
-							</ul>
-						</li>
+							</ul>*@
+					@*	</li>*@
 						<li class="nav-item dropdown">
+							<i class="la la-user"></i>
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false"> <span>@UserManager.GetUserAsync(User).Result.FirstName</span> </a>
 							<ul class="dropdown-menu dropdown-user">
 								<li>
@@ -137,11 +138,12 @@
 						<!--<div class="photo">
 							<img src="~/assets/img/profile.jpg">
 						</div>-->
+					  
 						<div class="info">
 							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
-
-								<span class="user-level">@UserManager.GetUserAsync(User).Result.FirstName</span>
+								
+								<span class="user-level"> <i class="la la-user"></i>@UserManager.GetUserAsync(User).Result.FirstName</span>
 									<span class="caret"></span>
 								</span>
 							</a>
@@ -329,7 +331,7 @@
 							</li>
 							<li class="nav-item">
 								<a asp-controller="Family" asp-action="CreateTrackMenstruation">
-									<i class="lala-clock-o"></i>
+									<i class="la la-clock-o"></i>
 									<p>Track-Menstruation</p>
 									@*<span class="badge badge-success">3</span>*@
 								</a>

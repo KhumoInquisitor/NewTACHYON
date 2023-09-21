@@ -8,12 +8,20 @@ namespace Tachyon.Models
     {
         [Key]
         public int FamilyFeedBackID { get; set; }
-        [Required]
+		[Required]
+		public string?  Name { get; set; }
+		[Required]
+		public string? lastName { get; set; }
+		[Required]
+		public string? NurseName { get; set; }
+		[Required]
         public string? PhoneNumber { get; set; }
         [Required]
         public string? EmailAddress { get; set; }
         [Required]
         public string? Message { get; set;}
+        [Required]
+        public DateTime? Date { get; set; }
 
     }
 }
