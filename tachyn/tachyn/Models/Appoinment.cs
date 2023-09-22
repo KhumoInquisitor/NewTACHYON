@@ -1,4 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Tachyon.Areas.Identity.Data;
 
 namespace Tachyon.Models
 {
@@ -7,6 +10,9 @@ namespace Tachyon.Models
         [Key]
         public int AppointmentId { get; set; }
         [Required]
+        public string? PatientID { get; set; }
+        [ForeignKey("PatientID")]
+        public virtual TachyonUser MainUser { get; set; }
         public string Name { get; set; }
         [Required]
         public string Surname { get; set; }

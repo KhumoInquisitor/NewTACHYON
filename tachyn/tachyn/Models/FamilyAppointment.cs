@@ -12,6 +12,9 @@ namespace Tachyon.Models
         [Key]
         public int AppointmentID { get; set; }
 
+        public string? PatientID { get; set; }
+        [ForeignKey("PatientID")]
+        public virtual TachyonUser MainUser { get; set; }
         [Required]
        
       

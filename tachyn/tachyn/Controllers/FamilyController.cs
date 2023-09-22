@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Claims;
 using Tachyon.Areas.Identity.Data;
 using Tachyon.Models;
 
 namespace Tachyon.Controllers
 {
+    [Authorize]
     public class FamilyController : Controller
     {
 
@@ -56,7 +59,8 @@ namespace Tachyon.Controllers
         }
         public IActionResult listAppointments()
         {
-            IEnumerable<FamilyAppointment> list = _Context.familyAppointments;
+			var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+			IEnumerable<FamilyAppointment> list = _Context.familyAppointments.Where(a => a.PatientID == user);
             return View(list);
         }
         public IActionResult CreateAppointment()
@@ -67,6 +71,9 @@ namespace Tachyon.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult CreateAppointment(FamilyAppointment familyAppointment)
         {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            familyAppointment.PatientID = user;
+
             if (ModelState.IsValid)
             {
                 _Context.familyAppointments.Add(familyAppointment);
