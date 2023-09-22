@@ -17,7 +17,7 @@ namespace Tachyon.Controllers
 
 
         private readonly TachyonDbContext _Context;
-
+        private readonly IEmailSender _emailSender;
         public FamilyController(TachyonDbContext dBD)
         {
             _Context = dBD;
@@ -269,9 +269,11 @@ namespace Tachyon.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateScreening(FamilyScrenning familyScrenning)
+        public async IActionResult CreateScreening(FamilyScrenning familyScrenning)
         {
-            if (ModelState.IsValid)
+			var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            familyScrenning.PatientID = user;
+			if (ModelState.IsValid)
             {
                 _Context.familyScrenning.Add(familyScrenning);
                 _Context.SaveChanges();

@@ -9,6 +9,12 @@ namespace Tachyon.Models
 	{
 		[Key]
 		public int screnningID { get; set; }
+		[Display(Name = "Date")]
+		[DataType(DataType.Time)]
+		public DateTime date { get; set; }
+		public string? PatientID { get; set; }
+		[ForeignKey("PatientID")]
+		public virtual TachyonUser mainUser { get; set; }
 		[Required]
 		[DisplayName(" did you have period this month?")]
 		public string? Period { get; set; }
