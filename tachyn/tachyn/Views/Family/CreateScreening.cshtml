@@ -10,7 +10,7 @@
 <form method="post" asp-action="CreateScreening" class=" form-horizontal   bg-green-300  p-2 text-dark bg-opacity-20 align-text-center">
     <div class=" border border-primary border-5 p-3">
         <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
-       <div class="row">
+       @*<div class="row">
            <div class="form-group">
                 <label asp-for="PatientID"></label>
                 <select asp-for="PatientID" class="form-group" asp-items="ViewBag.PatientID" ></select>
@@ -19,9 +19,24 @@
                 <label asp-for="date"></label>
                 <select asp-for="date" class="form-group" asp-items="ViewBag.date"></select>
             </div>
-       </div>
+       </div>*@
         <div class="row">
-        <div class=" form-group col" >
+            <div class=" form-group col">
+                <label asp-for="Drink"></label>
+                <div col-sm-5>
+                    <select id="DescriptionDropdown" asp-for="Drink" class=" form-control" id="validationName" required>
+                        <option value="select">select</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+
+
+                    </select>
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Drink" class=" text-danger"></span>
+            </div>
+          <div class=" form-group col" >
             <label asp-for="Period"></label>
             <div col-sm-5>
                 <select id="DescriptionDropdown" asp-for="Period" class=" form-control" id="validationName" required>
@@ -35,25 +50,26 @@
             <div class="invalid-feedback">
             </div>
             <span asp-validation-for="Period" class=" text-danger"></span>
-        </div>
-        <div class=" form-group col">
-            <label asp-for="active"></label>
-            <div col-sm-5>
-                <select id="DescriptionDropdown" asp-for="active" class=" form-control" id="validationName" required>
-                    <option value="select">select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-
-
-                </select>
-            </div>
-            <div class="invalid-feedback">
-            </div>
-            <span asp-validation-for="active" class=" text-danger"></span>
-        </div>
-        </div>
+          </div>
+       </div>
         <div class="row">
-        <div class=" form-group col-3">
+                <div class=" form-group col">
+                    <label asp-for="active"></label>
+                    <div col-sm-5>
+                        <select id="DescriptionDropdown" asp-for="active" class=" form-control" id="validationName" required>
+                            <option value="select">select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+
+
+                        </select>
+                    </div>
+                    <div class="invalid-feedback">
+                    </div>
+                    <span asp-validation-for="active" class=" text-danger"></span>
+                </div>
+            
+          <div class=" form-group col">
             <label asp-for="Child"></label>
             <div col-sm-10>
                 <select id="DescriptionDropdown" asp-for="Child" class=" form-control" id="validationName" required>
@@ -68,8 +84,10 @@
             </div>
             <span asp-validation-for="Child" class=" text-danger"></span>
 
-        </div>
-        <div class=" form-group col-6">
+          </div>
+       </div>
+      <div class="row">
+        <div class=" form-group col">
             <label asp-for="intercourse"></label>
             <div col-sm-10>
                 <select id="DescriptionDropdown" asp-for="intercourse" class=" form-control" id="validationName" required>
@@ -87,7 +105,7 @@
         </div>
         
        
-        <div class=" form-group col-3">
+        <div class=" form-group col">
             <label asp-for="allergies"></label>
             <div col-sm-5>
                 <select id="DescriptionDropdown" asp-for="allergies" class=" form-control" id="validationName" required>
@@ -101,9 +119,10 @@
             <div class="invalid-feedback">
             </div>
             <span asp-validation-for="allergies" class=" text-danger"></span>
+            </div>
         </div>
-        </div>
-        <div class="row">
+   
+      <div class="row">
         <div class=" form-group col">
             <label asp-for="medication"></label>
             <div col-sm-5>
@@ -136,7 +155,7 @@
             </div>
             <span asp-validation-for="contraceptive" class=" text-danger"></span>
         </div>
-        </div>
+       </div>
         
         <div class=" form-group row">
             <div class=" col-8 offset-2 row">
@@ -148,6 +167,6 @@
                 </div>
             </div>
         </div>
-
+    </div>
 </div>
 </form>

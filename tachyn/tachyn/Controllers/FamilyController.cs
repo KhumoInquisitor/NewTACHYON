@@ -2,10 +2,13 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Claims;
+using System.Xml.Schema;
 using Tachyon.Areas.Identity.Data;
 using Tachyon.Models;
 
@@ -263,26 +266,71 @@ namespace Tachyon.Controllers
             IEnumerable<FamilyScrenning> list = _Context.familyScrenning;
             return View(list);
         }
+        //public async Task <IActionResult> Sreening()
+        //{
+        //    var applicationDBContext = _Context.familyScrenning.Include(f >= f.mainUser);
+        //    return View (awail)
+        //}
         public IActionResult CreateScreening()
         {
             return View();
         }
+        //     [HttpPost]
+        //     [ValidateAntiForgeryToken]
+        //     public async IActionResult CreateScreening(FamilyScrenning familyScrenning)
+        //     {
+        //var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //         familyScrenning.PatientID = user;
+        //if (ModelState.IsValid)
+        //         {
+        //             _Context.familyScrenning.Add(familyScrenning);
+        //             _Context.SaveChanges();
+        //             return RedirectToAction("ScreeningList");
+        //         }
+        //         return View(familyScrenning);
+
+
+
+        //     }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async IActionResult CreateScreening(FamilyScrenning familyScrenning)
-        {
-			var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+         public async Task<IActionResult> CreateScreening([Bind("screnningID,date,PatientID,status,Drink,Period,active,Child,intercourse," +
+            "allergies,medication,contraceptive")] FamilyScrenning familyScrenning)
+         {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
             familyScrenning.PatientID = user;
-			if (ModelState.IsValid)
+            int total = 0;
+            if (ModelState.IsValid)
             {
+                total += Convert.ToInt32(familyScrenning.Drink);
+                total += Convert.ToInt32(familyScrenning.Period);
+                total += Convert.ToInt32(familyScrenning.active);
+                total += Convert.ToInt32(familyScrenning.Child);
+                total += Convert.ToInt32(familyScrenning.intercourse);
+                total += Convert.ToInt32(familyScrenning.allergies);
+                total += Convert.ToInt32(familyScrenning.medication);
+                total += Convert.ToInt32(familyScrenning.contraceptive);
+                if (total < 30)
+                {
+                    TempData["Result"] = "Injection will be a perfect choice for you";
+                }
+                else if(total >=30 && total <61)
+                {
+                    TempData["Result"] = "pill will be a perfect choice for you";
+                }
+                else if (total >61)
+                {
+                    TempData["Result"] = "implant will be a perfect choice for you";
+                }
                 _Context.familyScrenning.Add(familyScrenning);
                 _Context.SaveChanges();
                 return RedirectToAction("ScreeningList");
             }
+            ViewData["PatientID"] = new SelectList(_Context.Users, "Id", "Id", familyScrenning.PatientID);
             return View(familyScrenning);
 
 
-
-        }
+         }
     }
 }

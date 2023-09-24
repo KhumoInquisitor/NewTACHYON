@@ -22,17 +22,16 @@
             <thead>
                 <tr>
                       <th>ID</th>
+                      
                     <th>Date</th>
+                    <th>status</th>
+                    <th>drink</th>
                     <th>Period</th>
-
                     <th>Child</th>
-
-
                     <th>Intercourse</th>
-
-                   @* <th>Update</th>
-
-                    <th>Delete</th>*@
+                    <th>Allergies</th>
+                    <th>Medication</th>
+                    <th>contraceptive</th>
 
                 </tr>
             </thead>
@@ -41,12 +40,16 @@
                 {
 
                     <tr>
-                        <td>@screening.PatientID</td>
+                        <td>@screening.mainUser</td>
                         <td>@screening.date</td>
+                        <td>@screening.status</td>
+                        <td>@screening.Drink</td>
                         <td>@screening.Period</td>
-
                         <td>@screening.Child</td>
                         <td>@screening.intercourse</td>
+                        <td>@screening.allergies</td>
+                        <td>@screening.medication</td>
+                        <td>@screening.contraceptive</td>
 
 
                     </tr>
