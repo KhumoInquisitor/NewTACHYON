@@ -20,27 +20,27 @@ namespace Tachyon.Models
 
         [Required]
         [Display(Name ="Do you drnk alcohol?")]
-        public int Drink { get; set; }
+        public string? Drink { get; set; }
 		[Required]
 		[DisplayName(" did you have period this month?")]
-		public int? Period { get; set; }
+		public string? Period { get; set; }
         [Required]
         [DisplayName(" are you sexual active?")]
-        public int? active { get; set; }
+        public string? active { get; set; }
         [Required]
         [DisplayName(" do you have Child?")]
-        public int? Child { get; set; }
+        public string? Child { get; set; }
         [Required]
         [DisplayName(" did you have sexual intercourse in the past 2 weeks?")]
-        public int? intercourse { get; set; }
+        public string? intercourse { get; set; }
         [Required]
         [DisplayName(" do you have any allergies?")]
-        public int? allergies { get; set; }
+        public string? allergies { get; set; }
         [Required]
         [DisplayName("are you taking any medication?")]
-        public int? medication { get; set; }
+        public string? medication { get; set; }
         [Required]
         [DisplayName(" Have you ever used any contraceptive before?")]
-        public int? contraceptive { get; set; }
+        public string? contraceptive { get; set; }
     }
 }
