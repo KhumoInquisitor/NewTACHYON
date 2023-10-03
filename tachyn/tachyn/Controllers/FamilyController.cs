@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Reflection.Metadata.Ecma335;
@@ -21,9 +22,10 @@ namespace Tachyon.Controllers
 
         private readonly TachyonDbContext _Context;
         private readonly IEmailSender _emailSender;
-        public FamilyController(TachyonDbContext dBD)
+        public FamilyController(TachyonDbContext dBD, IEmailSender emailSender)
         {
             _Context = dBD;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -271,29 +273,14 @@ namespace Tachyon.Controllers
         {
             return View();
         }
-        //     [HttpPost]
-        //     [ValidateAntiForgeryToken]
-        //     public async IActionResult CreateScreening(FamilyScrenning familyScrenning)
-        //     {
-        //var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        //         familyScrenning.PatientID = user;
-        //if (ModelState.IsValid)
-        //         {
-        //             _Context.familyScrenning.Add(familyScrenning);
-        //             _Context.SaveChanges();
-        //             return RedirectToAction("ScreeningList");
-        //         }
-        //         return View(familyScrenning);
-
-
-
-        //     }
+       
 
         [HttpPost]
         [ValidateAntiForgeryToken]
          public async Task<IActionResult> CreateScreening( FamilyScrenning familyScrenning)
          {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var email = User.FindFirstValue(ClaimTypes.Email);
             familyScrenning.PatientID = user;
             int total = 0;
             if (ModelState.IsValid)
@@ -320,6 +307,16 @@ namespace Tachyon.Controllers
                 }
                 
                 _Context.familyScrenning.Add(familyScrenning);
+                ////try 
+                ////{
+                //    await _emailSender.SendEmailAsync("esihlembangeleli@gmail.com", "Screening results"+
+                //        "Screening has been done.");
+                //    var alert = new Alert()
+                //    {
+                //        Message = "screening has been done";
+                //    }
+                //}
+               
                 _Context.SaveChanges();
                 return RedirectToAction("ScreeningList");
             }
