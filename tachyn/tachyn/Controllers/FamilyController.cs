@@ -261,16 +261,12 @@ namespace Tachyon.Controllers
             }
             return View(trackMenstruation);
         }
-        public IActionResult ScreeningList()
+        public async Task<IActionResult> ScreeningList()
         {
-            IEnumerable<FamilyScrenning> list = _Context.familyScrenning;
-            return View(list);
+            var applicationDBContext = _Context.familyScrenning.Include(f => f.mainUser);
+            return View(await applicationDBContext.ToListAsync());
         }
-        //public async Task <IActionResult> Sreening()
-        //{
-        //    var applicationDBContext = _Context.familyScrenning.Include(f >= f.mainUser);
-        //    return View (awail)
-        //}
+       
         public IActionResult CreateScreening()
         {
             return View();
@@ -295,8 +291,7 @@ namespace Tachyon.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public async Task<IActionResult> CreateScreening([Bind("screnningID,date,PatientID,status,Drink,Period,active,Child,intercourse," +
-            "allergies,medication,contraceptive")] FamilyScrenning familyScrenning)
+         public async Task<IActionResult> CreateScreening( FamilyScrenning familyScrenning)
          {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
             familyScrenning.PatientID = user;
@@ -311,7 +306,7 @@ namespace Tachyon.Controllers
                 total += Convert.ToInt32(familyScrenning.allergies);
                 total += Convert.ToInt32(familyScrenning.medication);
                 total += Convert.ToInt32(familyScrenning.contraceptive);
-                if (total < 30)
+                if (total <= 30)
                 {
                     TempData["Result"] = "Injection will be a perfect choice for you";
                 }
@@ -323,6 +318,7 @@ namespace Tachyon.Controllers
                 {
                     TempData["Result"] = "implant will be a perfect choice for you";
                 }
+                
                 _Context.familyScrenning.Add(familyScrenning);
                 _Context.SaveChanges();
                 return RedirectToAction("ScreeningList");

@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/LayoutFamily.cshtml";
 }
 @*@if(TempData["Result"] != null)
-{
+{*@
     <div id="mymodal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -13,15 +13,16 @@
                     <button type="button" id="close" class="close btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                 </div>
                 <div class="modal-body">
-                    <h4>TempData["Result"]</h4>
+                    <img src="~/css/images.jpg" class="rounded float-end">
+                    <h4>@TempData["Result"]</h4>
                 </div>
             </div>
         </div>
     </div>
-}*@
+@*}*@
 
 <div class="container p-3 bg-blue-200 p-2 text-dark bg-opacity-50">
-    <img src="~/css/images.jpg" class="rounded float-end">
+   @* <img src="~/css/images.jpg" class="rounded float-end">
     <div class=" row pt-4">
         <div class=" col-10">
             <h2 class="text-primary"> Feedback list</h2>
@@ -29,16 +30,19 @@
         <div class=" col-10 text-right">
             <a asp-controller="Family" asp-action="CreateScreening" style="width:100%"></a>
         </div>
-    </div>
-
-    <br />
+    </div>*@
+@*
+    <br />*@
+    <p>
     <a asp-action="CreateScreening" class="btn btn-success"> add  a new screening</a>
+    </p>
+    
     @if (Model.Count() > 0)
     {
         <table class=" table table-bordered table-striped table-success">
             <thead>
                 <tr>
-                      <th>ID</th>
+                      <th>Name</th>
                       
                     <th>Date</th>
                     <th>status</th>
@@ -57,16 +61,92 @@
                 {
 
                     <tr>
-                        <td>@screening.mainUser</td>
+                        <td>@screening.mainUser.FirstName</td>
                         <td>@screening.date</td>
-                        <td>@screening.status</td>
-                        <td>@screening.Drink</td>
-                        <td>@screening.Period</td>
-                        <td>@screening.Child</td>
-                        <td>@screening.intercourse</td>
-                        <td>@screening.allergies</td>
-                        <td>@screening.medication</td>
-                        <td>@screening.contraceptive</td>
+                        <td> @screening.status</td>
+                        <td>@if(screening.Drink == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+
+                        </td>
+
+                        <td>@if (screening.Period==10)
+                            
+                                {
+                                    <p>Yes</p>
+                                }
+                            else
+                            {
+                                    <p>No</p>
+                            }
+
+                            
+                        </td>
+                        <td>@if (screening.Child == 10)
+                                {
+                                
+                                    <p>Yes</p>
+                                }
+                            else
+                            {
+                                    <p>No</p>
+                            }
+
+                            
+                        </td>
+                        <td>@if (screening.intercourse == 10)
+                            
+                                {
+                                    <p>Yes</p>
+                                }
+                            else
+                                {
+                                    <p>No</p>
+                                }
+
+                            
+                        </td>
+                        <td>@if (screening.allergies == 10)
+                            
+                                {
+                                    <p>Yes</p>
+                                }
+                            else
+                                {
+                                    <p>No</p>
+                                }
+
+                            
+                        </td>
+                        <td>@if (screening.medication == 10)
+                            
+                                {
+                                    <p>Yes</p>
+                                }
+                            else
+                                {
+                                    <p>No</p>
+                                }
+
+                            
+                        </td>
+                        <td>@if (screening.contraceptive == 10)
+                            
+                                {
+                                    <p>Yes</p>
+                                }
+                            else
+                                {
+                                    <p>No</p>
+                                }
+
+                            
+                        </td>
 
 
                     </tr>
