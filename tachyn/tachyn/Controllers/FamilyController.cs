@@ -52,7 +52,7 @@ namespace Tachyon.Controllers
         {
             return View();
         }
-       
+
         public IActionResult PreventationTypeList()
         {
             return View();
@@ -64,8 +64,8 @@ namespace Tachyon.Controllers
         }
         public IActionResult listAppointments()
         {
-			var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
-			IEnumerable<FamilyAppointment> list = _Context.familyAppointments.Where(a => a.PatientID == user);
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            IEnumerable<FamilyAppointment> list = _Context.familyAppointments.Where(a => a.PatientID == user);
             return View(list);
         }
         public IActionResult CreateAppointment()
@@ -268,17 +268,17 @@ namespace Tachyon.Controllers
             var applicationDBContext = _Context.familyScrenning.Include(f => f.mainUser);
             return View(await applicationDBContext.ToListAsync());
         }
-       
+
         public IActionResult CreateScreening()
         {
             return View();
         }
-       
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-         public async Task<IActionResult> CreateScreening( FamilyScrenning familyScrenning)
-         {
+        public async Task<IActionResult> CreateScreening(FamilyScrenning familyScrenning)
+        {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var email = User.FindFirstValue(ClaimTypes.Email);
             familyScrenning.PatientID = user;
@@ -297,33 +297,44 @@ namespace Tachyon.Controllers
                 {
                     TempData["Result"] = "Injection will be a perfect choice for you";
                 }
-                else if(total >=30 && total <61)
+                else if (total >= 30 && total < 61)
                 {
                     TempData["Result"] = "pill will be a perfect choice for you";
                 }
-                else if (total >61)
+                else if (total > 61)
                 {
                     TempData["Result"] = "implant will be a perfect choice for you";
                 }
-                
+
                 _Context.familyScrenning.Add(familyScrenning);
-                ////try 
-                ////{
-                //    await _emailSender.SendEmailAsync("esihlembangeleli@gmail.com", "Screening results"+
-                //        "Screening has been done.");
+                //try
+                //{
+                //    await _emailSender.SendEmailAsync("esihlembangeleli@gmail.com", "Screening results" +
+                //    "Screening has been done.");
                 //    var alert = new Alert()
                 //    {
-                //        Message = "screening has been done";
-                //    }
+                //        Message = "screening has been done",
+                //        intendedUser= user,
+                //        Role = "notification",
+                //    };
+                //    _Context.Alert.Add(alert);
+                //    await _Context.SaveChangesAsync();
+                       
+
+                    
                 //}
-               
+                //catch (Exception ex) {
+                //}
                 _Context.SaveChanges();
                 return RedirectToAction("ScreeningList");
             }
             ViewData["PatientID"] = new SelectList(_Context.Users, "Id", "Id", familyScrenning.PatientID);
             return View(familyScrenning);
 
-
-         }
+        }
+       
     }
+
+         
 }
+

@@ -17,10 +17,8 @@ namespace Tachyon.Models
         public DateTime date { get; set; }
         public string? PatientID { get; set; }
         [ForeignKey("PatientID")]
-        public virtual TachyonUser MainUser { get; set; }
+        public virtual TachyonUser? User { get; set; }
         [Required]
-       
-      
         public string? Description { get; set; }
         [Required]
         public string? NurseName { get; set; }

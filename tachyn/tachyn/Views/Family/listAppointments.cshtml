@@ -21,7 +21,8 @@
         <table class=" table table-bordered table-striped table-success">
             <thead>
                 <tr>
-                    <th> Patient</th>
+                    <th>Patient Name</th>
+                    <th>Patient surname</th>
                     <th>Description</th>
 
                     <th>NurseName</th>
@@ -41,7 +42,8 @@
                 {
 
                     <tr>
-                        <td>@familyAppointment.PatientID</td>
+                        <td>@familyAppointment.User.FirstName</td>
+                        <td>@familyAppointment.User.LastName</td>
                         <td >@familyAppointment.Description</td>
 
                         <td >@familyAppointment.NurseName</td>
