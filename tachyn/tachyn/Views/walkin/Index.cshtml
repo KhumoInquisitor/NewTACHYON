@@ -1,19 +1,105 @@
 ﻿@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/walkinLayout.cshtml";
-    
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/walkinLayout.cshtml";
 }
-<head>
-	<h3 class="page-title">Welcome to <span class="text-primary">E-</span><span class="text-success">NOMPILO</span></h3>
-</head>
-<body id="walkinwall">
+<style>
+	#dash-con {
+		background: rgba( 0, 255, 255, 0.75 );
+		box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+		backdrop-filter: blur( 0px );
+		-webkit-backdrop-filter: blur( 0px );
+		border-radius: 10px;
+		border: 1px solid rgba( 255, 255, 255, 0.18 );
+	}
+
+		#dash-con:hover {
+			background: rgba( 0, 255, 0, 0.3 );
+			box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+			backdrop-filter: blur( 20px );
+			-webkit-backdrop-filter: blur( 20px );
+			border-radius: 10px;
+			border: 1px solid rgba( 255, 255, 255, 0.18 );
+		}
+</style>
+<h1>Welcome <span class="text-primary"></span><span class="text-success"></span> <bold>PATIENTS</bold></h1>
+
+<div class="container-fluid pt-4 px-4">
+
+	<div class="row g-4">
+		<div class=" col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			<div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+				<img src="~/css/medicalfile.png" style="width: 79px" />
+				<div class="ms-3">
+					<h4 class="mb-2">Manage File<span class="badge bg-primary rounded-pill text-white"></span></h4>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+			<div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+				<img src="~/css/calender.png" style="width: 79px" />
+				<div class="ms-3">
+					<h4 class="mb-2">Booking</h4>
+
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+			<div id="dash-con" class=" dash-con rounded d-flex align-items-center justify-content-between p-4">
+				<img src="~/css/selfscreen.png" style="width: 79px" />
+				<div class="ms-3">
+					<h4 class="mb-2">Screening</h4>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-xl-3" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+			<div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
+				<img src="~/css/Practitioner.png" style="width: 79px" />
+				<div class="ms-3">
+					<h4 class="mb-2">Doctors</h4>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-3" style="max-width:100%;">
+	<div class="row g-0">
+		<div class="col-md-4">
+			<img src="~/css/walkpatiennt2023.png" class="img-fluid rounded-start" alt="...">
+		</div>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title">WELCOME</h5>
+				<p class="card-text">
+					We Appreciate You.
+					We make sure that you receive the same traditional attention and treatment that has been lost in some modern medical
+					practices even though we are always expandind our expertise and improving our medical practice.
+					You join our family the momennt you enter our doors.
+				</p>
+				<p class="card-text"><small class="text-body-secondary">book with us</small></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+@*<body id="walkinwall">
 	<br />
 	<br />
 	<br />
 	<br />
 	<br />
 	<br />
-	<br />
+	<br />*@
 @*
 	<div class="container-fluid">
 		
@@ -97,7 +183,7 @@
 			
 	</div>*@
 
-    <div id="textsum" style="text-align:center;color:black">
+    @*<div id="textsum" style="text-align:center;color:black">
         <p >
             <b>
                 We Appreciate You.
@@ -112,8 +198,8 @@
             <img src="~/css/emailwalk.png" width="20px" height="20px" id="email" />enopmilo2@gmai.com
         </b>
         
-    </div>
-	<br />
+    </div>*@
+	@*<br />
 	<br />
 	<br />
 	<br />
@@ -125,4 +211,4 @@
 	<br />
 	<br />
   
-    </body>
+    </body>*@

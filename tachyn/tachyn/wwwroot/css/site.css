@@ -33,7 +33,7 @@ html {
 }
 
 #screen {
-    background-image: url('screening.png');
+    /*background-image: url('screening.png');*/
     background-repeat: no-repeat;
     background-size: cover;
 }
