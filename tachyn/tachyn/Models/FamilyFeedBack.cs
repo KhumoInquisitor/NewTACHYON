@@ -2,17 +2,19 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Tachyon.Areas.Identity.Data;
+
 namespace Tachyon.Models
 {
     public class FamilyFeedBack
     {
         [Key]
         public int FamilyFeedBackID { get; set; }
-		[Required]
-		public string?  Name { get; set; }
-		[Required]
-		public string? lastName { get; set; }
-		[Required]
+        public string? PatientID { get; set; }
+        [ForeignKey("PatientID")]
+        public virtual TachyonUser? ttUser { get; set; }
+       
+        [Required]
 		public string? NurseName { get; set; }
 		[Required]
         public string? PhoneNumber { get; set; }

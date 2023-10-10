@@ -62,11 +62,10 @@ namespace Tachyon.Controllers
             IEnumerable<FamilyAppointment> list = _Context.familyAppointments;
             return View(list);
         }
-        public IActionResult listAppointments()
+        public async Task<IActionResult> listAppointments()
         {
-            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            IEnumerable<FamilyAppointment> list = _Context.familyAppointments.Where(a => a.PatientID == user);
-            return View(list);
+            var applicationDBContext = _Context.familyAppointments.Include(f => f.User);
+            return View(await applicationDBContext.ToListAsync());
         }
         public IActionResult CreateAppointment()
         {
@@ -166,10 +165,10 @@ namespace Tachyon.Controllers
         }
 
 
-        public IActionResult FeedbackList()
+        public async Task<IActionResult> FeedbackList()
         {
-            IEnumerable<FamilyFeedBack> list = _Context.familyFeedBacks;
-            return View(list);
+            var applicationDBContext = _Context.familyFeedBacks.Include(f => f.ttUser);
+            return View(await applicationDBContext.ToListAsync());
         }
         public IActionResult CreateFeedBack()
         {
@@ -177,15 +176,18 @@ namespace Tachyon.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateFeedBack(FamilyFeedBack familyFeedback)
+        public IActionResult CreateFeedBack(FamilyFeedBack familyFeedBack)
         {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            familyFeedBack.PatientID = user;
+
             if (ModelState.IsValid)
             {
-                _Context.familyFeedBacks.Add(familyFeedback);
+                _Context.familyFeedBacks.Add(familyFeedBack);
                 _Context.SaveChanges();
                 return RedirectToAction("FeedbackList");
             }
-            return View(familyFeedback);
+            return View(familyFeedBack);
         }
         public IActionResult updateFeedBack(int? ID)
         {
