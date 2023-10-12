@@ -3,12 +3,16 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/LayoutFamily.cshtml";
 }
+<div class="mt-2 p-2 bg-primary text-center text-white rounded">
+    <h6>UPDATE APPOINTMENT</h6>
 
-<form method="post" asp-action="updateAppointment" class="bg-green-300 p-2 text-dark bg-opacity-25">
+</div>
+<form method="post" asp-action="updateAppointment" class=" form-horizontal bg-green-300 p-2 text-dark bg-opacity-25">
     <input asp-for="AppointmentID" hidden />
-    <div class="border border-dark ">
+    <div class="border border-5 ">
+        <div class=" border border-5 border-primary p-3 border-width:thin">
         <div class="form-group row">
-            <h2 class="text-black-50 pl-3"> UPDATE</h2>
+          
         </div>
         <div class="row">
             <div class="col-12">
@@ -53,5 +57,6 @@
                 </div>
             </div>
         </div>
+        <div/>
     </div>
 </form>

@@ -4,7 +4,7 @@
 }
 @if (User.IsInRole("Admin"))
 {
-    <h1>Admin</h1>
+   
     <style>
         #dash-con {
             background: hsla(120, 60%, 70%, 0.3);
@@ -24,7 +24,7 @@
                 border: 1px solid rgba( 255, 255, 255, 0.18 );
             }
     </style>
-    <h1>Welcome <span class="text-danger">E</span><span class="text-info">-NOMPILE</span> <bold></bold></h1>
+    <h1>Admin Welcome <span class="text-danger">E</span><span class="text-info">-NOMPILE</span> <bold></bold></h1>
     <div class="container-fluid pt-4 px-4">
 
         <div class="row g-4">
@@ -32,8 +32,8 @@
                 <div id="dash-con" class="dash-con rounded d-flex align-items-center justify-content-between p-4">
                     @* <img src="~/Image/App.png" style="width: 79px" />*@
                     <div class="ms-3">
-                        <a a asp-controller="Family" asp-action="CreateAppointment">
-                            <h4 class="mb-2">Appointments<span class="badge bg-white rounded-pill text-primary"></span></h4>
+                        <a a asp-controller="Family" asp-action="PreventationTypeList">
+                            <h4 class="mb-2">Birth_controls<span class="badge bg-white rounded-pill text-primary"></span></h4>
                         </a>
                     </div>
                 </div>
@@ -246,7 +246,7 @@
                 border: 1px solid rgba( 255, 255, 255, 0.18 );
             }
     </style>
-    <h1>Welcome <span class="text-danger">E</span><span class="text-info">-NOMPILE</span> <bold></bold></h1>
+    <h1> Doc Welcome <span class="text-danger">E</span><span class="text-info">-NOMPILE</span> <bold></bold></h1>
     <div class="container-fluid pt-4 px-4">
 
         <div class="row g-4">
@@ -454,7 +454,7 @@
 }*@
 @if (User.IsInRole("Patient"))
 {
-    <h1>Patient</h1>
+   
     <style>
         #dash-con {
             background: hsla(120, 60%, 70%, 0.3);
@@ -474,7 +474,7 @@
                 border: 1px solid rgba( 255, 255, 255, 0.18 );
             }
     </style>
-    <h1>Welcome <span class="text-danger">E</span><span class="text-info">-NOMPILE</span> <bold></bold></h1>
+    <h1> Patient Welcome <span class="text-danger">E</span><span class="text-info">-NOMPILE</span> <bold></bold></h1>
     <div class="container-fluid pt-4 px-4">
 
         <div class="row g-4">
