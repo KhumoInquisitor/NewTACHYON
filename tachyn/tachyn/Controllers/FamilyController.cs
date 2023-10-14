@@ -32,8 +32,12 @@ namespace Tachyon.Controllers
         {
             return View();
         }
-        public IActionResult viewReport()
+        public async  Task< IActionResult> viewReport()
         {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ViewBag.Date = DateTime.Now.ToString("dd/MMMM/yyyyy HH:mm");
+            //var Alerts = _Context.alerts.where
+
             return View();
         }
         public IActionResult Dash()
@@ -104,9 +108,12 @@ namespace Tachyon.Controllers
 
         public IActionResult updateAppointment(FamilyAppointment familyAppointment)
         {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            familyAppointment.PatientID = user;
             _Context.familyAppointments.Update(familyAppointment);
             _Context.SaveChanges();
-            return RedirectToAction("listAppointments");
+            return View("listAppointments");
+           // return RedirectToAction("listAppointments");
         }
 
         public IActionResult DeleteAppointment(int? ID)

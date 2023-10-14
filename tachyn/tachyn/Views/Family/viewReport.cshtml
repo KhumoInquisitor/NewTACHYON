@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Tachyon.Models.ManageFile>
+﻿@model IEnumerable<Tachyon.Models.FamilyAppointment>
+
 @using Microsoft.AspNetCore.Identity
 @using Tachyon.Models
 @using Tachyon.Areas.Identity.Data
@@ -10,56 +11,79 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-<div class="container p-3 bg-success p-2 text-dark bg-opacity-50">
+<div class="mt-2 p-2 bg-primary text-center text-white rounded">
+    <h6>REPORT</h6>
+   
+</div>
+<div class="container p-3 bg-blue-200 p-2 text-dark  bg-blue-200 bg-opacity-50">
     <img src="~/css/images.jpg" class="rounded float-end">
     <div class=" row pt-4">
-        <div class=" col-10">
-            <h2 class="text-primary"> List of Files</h2>
-        </div>
+       
         <div class=" col-10 text-right">
-            <a asp-controller="ManageFile" asp-action="ManageFile" style="width:100%"></a>
+            <a asp-controller="Family" asp-action="CreateAppointment" style="width:100%"></a>
         </div>
     </div>
-
+    <div class="row">
+        <div class=" col-6">
+        <p> First Name: @UserManager.GetUserAsync(User).Result.FirstName</p>
+        <p> Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
+        <p>Email: @UserManager.GetUserAsync(User).Result.Email</p>
+        </div>
+        <div class="col-6">
+            <p>Date of report: @ViewBag.Date</p>
+        </div>
+    </div>
     <br />
-    <a asp-action="ManageFile" class="btn btn-success"> add  a new patient</a>
-   
+     <a href="javascript:window.print()" class="btn btn-Info">Print</a>
+    @if (Model.Count() > 0)
+    {
         <table class=" table table-bordered table-striped table-success">
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Patient Name</th>
+                    <th>Patient surname</th>
+                    <th>Description</th>
 
-                    <th>Surname</th>
+                    <th>NurseName</th>
 
 
-                    <
+                    <th>CurrentDateDate</th>
+
+                    <th>AppointmentDate</th>
+
+                    
+                    <th>Edit</th>
+
                 </tr>
             </thead>
             <tbody>
-              
+                @foreach (var familyAppointment in Model)
+                {
 
                     <tr>
-                        <td>@UserManager.GetUserAsync(User).Result.FirstName</td>
-
-                        <td>@UserManager.GetUserAsync(User).Result.LastName</td>
+                        <td>@familyAppointment.User.FirstName</td>
+                        <td>@familyAppointment.User.LastName</td>
+                        <td >@familyAppointment.Description</td>
+                        <td >@familyAppointment.NurseName</td>
+                        <td >@familyAppointment.CurrentDate</td>
+                        <td >@familyAppointment.AppointmentDate</td>
                        
+             
 
                     </tr>
 
 
 
-                
-               
+                }
 
             </tbody>
         </table>
-                    <div class="row mt-6 mb-6">
-                        <div class="col-md-12 text-end" >
-                            <div class="col">
-                                <a asp-action="Patient" class="btn btn-Info w-25">Back</a>
-                                <a href="javascript:window.print()" class="btn btn-Info">Print</a>
-                            </div>
-                            
-                        </div>
-                    </div>
-    
+       
+    }
+    else
+    {
+        <p>NO Appontment has been created</p>
+    }
+
+
+</div>
