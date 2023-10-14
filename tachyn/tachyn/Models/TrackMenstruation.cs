@@ -13,5 +13,7 @@ namespace Tachyon.Models
         [Required]
 
         public DateTime LastPeriodDate { get; set; }
+
+        public int difference { get; set; }
     }
 }

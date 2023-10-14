@@ -268,7 +268,7 @@ namespace Tachyon.Controllers
             {
                 _Context.trackMenstruations.Add(trackMenstruation);
                 _Context.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("TrackMenstruactionList");
             }
             return View(trackMenstruation);
         }
