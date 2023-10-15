@@ -9,10 +9,10 @@
 </div>
 <form method="post" asp-action="CreateAppointment" class=" form-horizontal   bg-green-300  p-2 text-dark bg-opacity-20">
     <div class="border border-5" >
-    <div class=" border border-5 border-primary p-3 border-width:thin">
+    <div class=" border border-5 border-primary">
         <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
        
-        <div class=" form-group border-2 border-success text-dark" >
+        <div class=" form-group border-5 border-success text-dark" >
             <label asp-for="Description" class="text-dark"></label>
             <div col-md-6 >
                 <select id="DescriptionDropdown" asp-for="Description" class=" form-control" id="validationName" required>
@@ -28,7 +28,7 @@
             </div>
             <span asp-validation-for="Description" class=" text-danger"></span>
         </div>
-        <div class=" form-group border-2 border-success" >
+        <div class=" form-group border-5 border-success" >
             <label asp-for="NurseName"></label>
             <div col-sm>
                 <select id="NurseDropdown" asp-for="NurseName" class=" form-control" id="validationName" required>
@@ -42,7 +42,7 @@
             </div>
             <span asp-validation-for="NurseName" class=" text-danger"></span>
         </div>
-        <div class=" form-group border-2 border-success">
+        <div class=" form-group border-5 border-success">
             <label asp-for="CurrentDate"></label>
             <div col-sm-7>
                 <input asp-for="CurrentDate" class=" form-control" id="validationAge" required />
@@ -51,7 +51,7 @@
             </div>
             <span asp-validation-for="CurrentDate" class=" text-danger"></span>
         </div>
-        <div class=" form-group border-2 border-success ">
+        <div class=" form-group border-5 border-success ">
             <label asp-for="AppointmentDate"></label>
             <div col-sm-7>
                 <input asp-for="AppointmentDate" class=" form-control" id="validationAbility" required />

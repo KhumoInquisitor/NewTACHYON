@@ -101,19 +101,19 @@ namespace Tachyon.Controllers
             {
                 return NotFound();
             }
+
             return View(list);
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-
-        public IActionResult updateAppointment(FamilyAppointment familyAppointment)
+        public IActionResult updateAppointment(FamilyAppointment  familyAppointment)
         {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
             familyAppointment.PatientID = user;
             _Context.familyAppointments.Update(familyAppointment);
             _Context.SaveChanges();
-            return View("listAppointments");
-           // return RedirectToAction("listAppointments");
+            return RedirectToAction("listAppointments");
         }
 
         public IActionResult DeleteAppointment(int? ID)

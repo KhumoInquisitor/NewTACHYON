@@ -7,56 +7,61 @@
     <h6>UPDATE APPOINTMENT</h6>
 
 </div>
-<form method="post" asp-action="updateAppointment" class=" form-horizontal bg-green-300 p-2 text-dark bg-opacity-25">
-    <input asp-for="AppointmentID" hidden />
-    <div class="border border-5 ">
-        <div class=" border border-5 border-primary p-3 border-width:thin">
-        <div class="form-group row">
-          
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group row">
-                    <div class="col-6">
-                        <label asp-for="Description"></label>
-                        <select id="DescriptionDropdown" asp-for="Description" class=" form-control" id="validationName" required>
-                            <option value="Pill">pill</option>
-                            <option value="Implants">implant</option>
-                            <option value="Injection">Injection</option>
-                            <option value="Plan B">Plan B</option>
-                            <option value="Injection">Plan B</option>
 
-                        </select>
-                    </div>
-                    <div class="col-6">
+<div class="container p-3 bg-blue-200 p-2 text-dark  bg-blue-200 bg-opacity-50">
+  <form method="post" asp-action="updateAppointment" class="bg-blue-200 p-2 text-dark  bg-blue-200 bg-opacity-50">
+    <input asp-for="AppointmentID" hidden />
+   <div class="border border-dark ">
+               
+   
+             
+                   <div class="form-group ">
+                     <div class="col">
+                        <label asp-for="Description"></label>
+                        <div col-md-6>
+                            <select id="DescriptionDropdown" asp-for="Description" class=" form-control" id="validationName" required>
+                                <option value="select">select</option>
+                                <option value="Pill">pill</option>
+                                <option value="Implant">implant</option>
+                                <option value="Injection">Injection</option>
+                                <option value="Plan B">Plan B</option>
+
+                            </select>
+                     </div>
+                     <div class="col">
                         <label asp-for="NurseName"></label>
-                        <select id="NurseDropdown" asp-for="NurseName" class=" form-control" id="validationName" required>
-                            <option value="Miss Buntu"> Miss Buntu</option>
-                            <option value="2">Mr treat</option>
-                            <option value="3">miss lisa</option>
-                        </select>
-                    </div>
-                    <div class="col-6">
+                            <div col-sm>
+                                <select id="NurseDropdown" asp-for="NurseName" class=" form-control" id="validationName" required>
+                                    <option value="select">select</option>
+                                    <option value="Miss Buntu"> Miss Buntu</option>
+                                    <option value="Mr Treat">Mr treat</option>
+                                    <option value="Miss Lisa">miss lisa</option>
+                                </select>
+                            </div>
+                     </div>
+                   </div>
+            
+              
+                    <div class="col">
                         <label asp-for="CurrentDate"></label>
                         <input asp-for="CurrentDate" class="form-control" />
                     </div>
-                    <div class="col-6">
+                    <div class="col">
                         <label asp-for="AppointmentDate"></label>
                         <input asp-for="AppointmentDate" class="form-control" />
                     </div>
-                    
-                </div>
 
-                <div class="form-group row">
-                    <div class="col-8 offset-2 row">
+
+            <div class=" form-group row">
+                      <div class="col-6 ">
                         <input type="submit" class="btn btn-info w-75" value="update" />
-                    </div>
-                    <div class="col">
-                        <a asp-action="Index" class="btn btn-danger w-75"> Back</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div/>
+                      </div>
+                      <div class="col-6">
+                        <a asp-action="listAppointments" class="btn btn-danger w-75"> Back</a>
+                      </div>
+             </div>
+  
     </div>
-</form>
+   
+   </form>
+</div>

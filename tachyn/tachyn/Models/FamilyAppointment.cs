@@ -19,12 +19,16 @@ namespace Tachyon.Models
         [ForeignKey("PatientID")]
         public virtual TachyonUser? User { get; set; }
         [Required]
+        [Display(Name = "Choose birth control:")]
         public string? Description { get; set; }
         [Required]
+        [Display(Name = "Nurse name:")]
         public string? NurseName { get; set; }
         [Required]
+        [Display(Name = "Current Date:")]
         public DateTime CurrentDate { get; set; }
         [Required]
+        [Display(Name = "Appintment Date:")]
         public DateTime AppointmentDate { get; set; }
 
       
