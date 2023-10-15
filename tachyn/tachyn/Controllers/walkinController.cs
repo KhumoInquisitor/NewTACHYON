@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using Tachyon.Areas.Identity.Data;
 using Tachyon.Models;
 
@@ -153,7 +154,7 @@ namespace Tachyon.Controllers
             {
                 _context.Add(booking);
                 _context.SaveChangesAsync();
-                return RedirectToAction("View Appointment");
+                return RedirectToAction("ViewAppointment");
             }
             return View(booking);
         }
@@ -250,6 +251,15 @@ namespace Tachyon.Controllers
 
             _context.SaveChangesAsync();
             return RedirectToAction("ViewAppointment");
+        }
+        public async Task<IActionResult> Report()
+        {
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ViewBag.Date = DateTime.Now.ToString("dd/MMMM/yyyyy");
+            ViewBag.Date = DateTime.Now.ToString(" HH:mm");
+            
+            
+            return View();
         }
 
         private bool BookingExists(int id)
