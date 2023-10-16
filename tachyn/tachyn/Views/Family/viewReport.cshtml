@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Tachyon.Models.FamilyAppointment>
 
+
 @using Microsoft.AspNetCore.Identity
 @using Tachyon.Models
 @using Tachyon.Areas.Identity.Data
@@ -11,12 +12,14 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-<div class="mt-2 p-2 bg-primary text-center text-white rounded">
+<div class="mt-2 p-2 bg-blue-200 text-center text-white rounded">
     <h6>REPORT</h6>
-   
+</div>
+<div class="align-content-end">
+    <img src="~/Logo/4.png" class="float-end" style="width:200px" />
 </div>
 <div class="container p-3 bg-blue-200 p-2 text-dark  bg-blue-200 bg-opacity-50">
-    <img src="~/css/images.jpg" class="rounded float-end">
+   @* <img src="~/css/images.jpg" class="rounded float-end">*@
     <div class=" row pt-4">
        
         <div class=" col-10 text-right">
@@ -25,34 +28,27 @@
     </div>
     <div class="row">
         <div class=" col-6">
-        <p> First Name: @UserManager.GetUserAsync(User).Result.FirstName</p>
-        <p> Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
-        <p>Email: @UserManager.GetUserAsync(User).Result.Email</p>
+        <p class="text-primary"> First Name: @UserManager.GetUserAsync(User).Result.FirstName</p>
+            <p class="text-primary"> Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
+            <p class="text-primary">Email: @UserManager.GetUserAsync(User).Result.Email</p>
         </div>
         <div class="col-6">
-            <p>Date of report: @ViewBag.Date</p>
+            <p class="text-black-80">DATE OF REPORT: @ViewBag.Date</p>
         </div>
     </div>
     <br />
      <a href="javascript:window.print()" class="btn btn-Info">Print</a>
-    @if (Model.Count() > 0)
-    {
+  
         <table class=" table table-bordered table-striped table-success">
             <thead>
                 <tr>
                     <th>Patient Name</th>
                     <th>Patient surname</th>
                     <th>Description</th>
-
                     <th>NurseName</th>
-
-
                     <th>CurrentDateDate</th>
 
                     <th>AppointmentDate</th>
-
-                    
-                    <th>Edit</th>
 
                 </tr>
             </thead>
@@ -78,12 +74,5 @@
 
             </tbody>
         </table>
-       
-    }
-    else
-    {
-        <p>NO Appontment has been created</p>
-    }
-
 
 </div>

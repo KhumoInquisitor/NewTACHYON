@@ -28,10 +28,12 @@ namespace Tachyon.Models
         [Display(Name = "Current Date:")]
         public DateTime CurrentDate { get; set; }
         [Required]
-        [Display(Name = "Appintment Date:")]
+        [Display(Name = "Appointment Date:")]
         public DateTime AppointmentDate { get; set; }
 
-      
+       
+        [Display(Name = " Appointment Status:")]
+        public string? status { get; set; }
 
     }
 }

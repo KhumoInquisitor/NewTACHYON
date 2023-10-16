@@ -42,10 +42,10 @@ namespace Tachyon.Models
         [DisplayName(" Have you ever used any contraceptive before?")]
         public int? contraceptive { get; set; }
 
-        public FamilyScrenning()
-        {
-            date =DateTime.Now;
-            status = "New";
-        }
+        //public FamilyScrenning()
+        //{
+        //    date =DateTime.Now;
+        //    status = "New";
+        //}
     }
 }

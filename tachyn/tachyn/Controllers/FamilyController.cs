@@ -36,9 +36,8 @@ namespace Tachyon.Controllers
         {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
             ViewBag.Date = DateTime.Now.ToString("dd/MMMM/yyyyy HH:mm");
-            //var Alerts = _Context.alerts.where
-
-            return View();
+            var applicationDBContext = _Context.familyAppointments.Include(f => f.User).ToList();
+            return View( applicationDBContext);
         }
         public IActionResult Dash()
         {
@@ -63,13 +62,17 @@ namespace Tachyon.Controllers
         }
         public IActionResult NurselistAppointments()
         {
-            IEnumerable<FamilyAppointment> list = _Context.familyAppointments;
-            return View(list);
+           
+                var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                ViewBag.Date = DateTime.Now.ToString("dd/MMMM/yyyyy HH:mm");
+                var applicationDBContext = _Context.familyAppointments.Include(f => f.User).ToList();
+                return View(applicationDBContext);
+           
         }
         public async Task<IActionResult> listAppointments()
         {
             var applicationDBContext = _Context.familyAppointments.Include(f => f.User);
-            return View(await applicationDBContext.ToListAsync());
+            return View( applicationDBContext);
         }
         public IActionResult CreateAppointment()
         {
@@ -268,7 +271,7 @@ namespace Tachyon.Controllers
             {
                 _Context.trackMenstruations.Add(trackMenstruation);
                 _Context.SaveChanges();
-                return RedirectToAction("TrackMenstruactionList");
+                return RedirectToAction("TrackMenstruactioList");
             }
             return View(trackMenstruation);
         }

@@ -21,6 +21,8 @@
         <table class=" table table-bordered table-striped table-success">
             <thead>
                 <tr>
+                    <th>Patient Name</th>
+                    <th> Patient surname</th>
                     <th>Description</th>
 
                     <th>NurseName</th>
@@ -29,6 +31,7 @@
                     <th>CurrentDateDate</th>
 
                     <th>AppointmentDate</th>
+                    <th>status</th>
 
                     
                     <th>Edit</th>
@@ -41,11 +44,13 @@
                 {
 
                     <tr>
+                        <td>@familyAppointment.User.FirstName</td>
+                        <td>@familyAppointment.User.LastName</td>
                         <td>@familyAppointment.Description</td>
-
                         <td >@familyAppointment.NurseName</td>
                         <td >@familyAppointment.CurrentDate</td>
                         <td >@familyAppointment.AppointmentDate</td>
+                        <td >@familyAppointment.status</td>
                      
                         <td >
                             <div class=" w-100 btn-group" role="group">

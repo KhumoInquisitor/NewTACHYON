@@ -45,7 +45,7 @@
                       <th>Name</th>
                       <th>surname</th>
                     <th>Date</th>
-                    <th>status</th>
+                   
                     <th>drink</th>
                     <th>Period</th>
                     <th>Child</th>
@@ -53,6 +53,7 @@
                     <th>Allergies</th>
                     <th>Medication</th>
                     <th>contraceptive</th>
+                    <th>suggetions</th>
 
                 </tr>
             </thead>
@@ -64,7 +65,7 @@
                         <td>@screening.mainUser.FirstName</td>
                         <td>@screening.mainUser.LastName</td>
                         <td>@screening.date</td>
-                        <td> @screening.status</td>
+                        
                         <td>@if(screening.Drink == 10)
                             {
                                 <p>Yes</p>
@@ -148,7 +149,21 @@
 
                             
                         </td>
-
+                        <td>
+                            @if(screening.Child == 10)
+                            {
+                                <p>1.pill</p>
+                                <p>2.implant</p>
+                                <p>3.plan B</p>
+                            }
+                            else
+                            {
+                                <p>1.pill</p>
+                                <p>2.Injection</p>
+                                <p>3.Plan B</p>
+                                <p>4.Implant</p>
+                            }
+                        </td>
 
                     </tr>
 
