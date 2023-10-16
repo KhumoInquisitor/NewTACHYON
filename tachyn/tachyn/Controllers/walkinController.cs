@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Tachyon.Areas.Identity.Data;
 using Tachyon.Models;
+using System.Linq;
 
 namespace Tachyon.Controllers
 {
@@ -252,13 +253,20 @@ namespace Tachyon.Controllers
             _context.SaveChangesAsync();
             return RedirectToAction("ViewAppointment");
         }
-        public async Task<IActionResult> Report()
+        public async Task<IActionResult> Report(dynamic Alerts)
         {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
             ViewBag.Date = DateTime.Now.ToString("dd/MMMM/yyyyy");
-            ViewBag.Date = DateTime.Now.ToString(" HH:mm");
+            ViewBag.Time = DateTime.Now.ToString(" HH:mm");
             
+            if (Alerts.Count() > 0)
+            {
+                ViewBag.Alerts = Alerts;
+                TempData["Alerts"] = "Not null";
             
+            }
+            ViewBag.Booking = await _context.Booking.Include(a => a.name).Include(b => b.lastname).Include(a=> 
+            a.name).ToListAsync();
             return View();
         }
 

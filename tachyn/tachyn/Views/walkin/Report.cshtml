@@ -96,7 +96,7 @@
 
 
 
-@*<div class="m-1 p-2 bg-primary text-center text-white ">
+@*@*<div class="m-1 p-2 bg-primary text-center text-white ">
     <h6>Report for Walk-in appointment</h6>
 
 </div>
@@ -124,30 +124,35 @@
     </div>
     <br />
     <a href="javascript:window.print()" class="btn btn-Info">Print</a>
-    @if (Model.Count() > 0)
-    {
-        <table class=" table table-bordered table-striped table-success">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>name</th>
-                    <th>lastname</th>
+    <h3 class=" text-center">List Of All Sessions</h3>
+    <table id="MyTable" class="table">
 
-                    <th>email</th>
+        <thead class="table-dark">
 
-
-                    
-                </tr>
-            </thead>
+            <tr>
+                <th>
+                    Patient Information
+                </th>
+                <th>
+                    Patient Information
+                </th>
+                <th>
+                    Patient Information
+                </th>
+                <th>
+                    Patient Information
+                </th>
+            </tr>
+        </thead>
             <tbody>
-                @foreach (var Booking in Model)
+                @foreach (var booking in Model)
                 {
 
                     <tr>
-                        <td>@Booking.id</td>
-                        <td>@Booking.name</td>
-                        <td>@Booking.lastname</td>
-                        <td>@Booking.email</td>
+                        <td>@booking.id</td>
+                        <td>@booking.name</td>
+                        <td>@booking.lastname</td>
+                        <td>@booking.email</td>
                         
 
 
@@ -167,4 +172,4 @@
     }
 
 
-</div>*@*
+</div>**@

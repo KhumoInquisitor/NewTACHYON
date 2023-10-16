@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tachyon.Areas.Identity.Data;
 
@@ -11,9 +12,10 @@ using Tachyon.Areas.Identity.Data;
 namespace Tachyon.Migrations
 {
     [DbContext(typeof(TachyonDbContext))]
-    partial class TachyonDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231016081804_Alert")]
+    partial class Alert
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
