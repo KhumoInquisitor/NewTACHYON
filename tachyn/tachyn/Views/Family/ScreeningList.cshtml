@@ -12,6 +12,7 @@
                     <h3 class="modal-title">Screening result</h3>
                     <button type="button" id="close" class="close btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                 </div>
+
                 <div class="modal-body">
                     <img src="~/css/images.jpg" class="rounded float-end">
                     <h4>@TempData["Result"]</h4>
@@ -36,7 +37,7 @@
     <p>
     <a asp-action="CreateScreening" class="btn btn-success"> add  a new screening</a>
     </p>
-    
+    <a href="javascript:window.print()" class="btn btn-Info">Print</a>
     @if (Model.Count() > 0)
     {
         <table class=" table table-bordered table-striped table-success">
