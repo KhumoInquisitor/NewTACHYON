@@ -275,76 +275,76 @@ namespace Tachyon.Controllers
             }
             return View(trackMenstruation);
         }
-        public async Task<IActionResult> ScreeningList()
-        {
-            var applicationDBContext = _Context.familyScrenning.Include(f => f.mainUser);
-            return View(await applicationDBContext.ToListAsync());
-        }
-
         public IActionResult CreateScreening()
         {
             return View();
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateScreening(FamilyScrenning familyScrenning)
+
+        public async Task<IActionResult> CreateScreening(Screening screening)
         {
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var email = User.FindFirstValue(ClaimTypes.Email);
-            familyScrenning.PatientID = user;
-            int total = 0;
+            screening.PatientID = user;
+            int totalReg = 0;
             if (ModelState.IsValid)
             {
-                total += Convert.ToInt32(familyScrenning.Drink);
-                total += Convert.ToInt32(familyScrenning.Period);
-                total += Convert.ToInt32(familyScrenning.active);
-                total += Convert.ToInt32(familyScrenning.Child);
-                total += Convert.ToInt32(familyScrenning.intercourse);
-                total += Convert.ToInt32(familyScrenning.allergies);
-                total += Convert.ToInt32(familyScrenning.medication);
-                total += Convert.ToInt32(familyScrenning.contraceptive);
-                if (total <= 30)
-                {
-                    TempData["Result"] = "Injection will be a perfect choice for you";
-                }
-                else if (total >= 30 && total < 61)
-                {
-                    TempData["Result"] = "pill will be a perfect choice for you";
-                }
-                else if (total > 61)
-                {
-                    TempData["Result"] = "implant will be a perfect choice for you";
-                }
-
-                _Context.familyScrenning.Add(familyScrenning);
-                //try
+                totalReg += Convert.ToInt32(screening.intercourse);
+                totalReg += Convert.ToInt32(screening.period);
+                totalReg += Convert.ToInt32(screening.child);
+                totalReg += Convert.ToInt32(screening.experience);
+                totalReg += Convert.ToInt32(screening.allergies);
+                totalReg += Convert.ToInt32(screening.medication);
+                totalReg += Convert.ToInt32(screening.contraceptives);
+                totalReg += Convert.ToInt32(screening.condom);
+                totalReg += Convert.ToInt32(screening.normal);
+                //if (totalReg <= 30)
                 //{
-                //    await _emailSender.SendEmailAsync("esihlembangeleli@gmail.com", "Screening results" +
-                //    "Screening has been done.");
-                //    var alert = new Alert()
-                //    {
-                //        Message = "screening has been done",
-                //        intendedUser= user,
-                //        Role = "notification",
-                //    };
-                //    _Context.Alert.Add(alert);
-                //    await _Context.SaveChangesAsync();
-                       
+                //    TempData["Result"] = "Pills will be ";
+                //    TempData["_Image"] = "1";
+                //}
+                //else if (totalReg <= 40)
+                //{
+                //    TempData["Result"] = "1 month";
+                //    TempData["_Image"] = "2";
+                //}
+                //else if (totalReg <= 50)
+                //{
+                //    TempData["Result"] = "3 months";
+                //    TempData["_Image"] = "3";
+                //}
+                //else if (totalReg <= 60)
+                //{
+                //    TempData["Result"] = "1 implant";
+                //    TempData["_Image"] = "4";
+                //}
+                //else if (totalReg <= 70)
+                //{
+                //    TempData["Result"] = "3 loop";
+                //    TempData["_Image"] = "5";
+                //}
+                //else if (totalReg >= 80)
+                //{
+                //    TempData["Result"] = "Viginal Ring";
+                //    TempData["_Image"] = "6";
+                //}
+                ////familyReg .Total = totalReg;
 
-                    
-                //}
-                //catch (Exception ex) {
-                //}
+                _Context.Screenings.Add(screening);
                 _Context.SaveChanges();
                 return RedirectToAction("ScreeningList");
-            }
-            ViewData["PatientID"] = new SelectList(_Context.Users, "Id", "Id", familyScrenning.PatientID);
-            return View(familyScrenning);
 
+            }
+            ViewData["PatientID"] = new SelectList(_Context.Users, "Id", "Id", screening.PatientID);
+            return View(screening);
         }
-       
+        public async Task<IActionResult> ScreeningList()
+        {
+            var ApplicationDbContext = _Context.Screenings.Include(f => f.MainUser);
+            return View(await ApplicationDbContext.ToListAsync());
+            //IEnumerable<FamilyReg> list = dbContext.FamilyReg;
+            //return View(list);
+        }
     }
 
          

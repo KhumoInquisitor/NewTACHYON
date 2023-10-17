@@ -1,73 +1,175 @@
-﻿@model IEnumerable<Tachyon.Models.FamilyScrenning>
+﻿@model IEnumerable<Tachyon.Models.Screening>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/LayoutFamily.cshtml";
 }
-@*@if(TempData["Result"] != null)
-{*@
-    <div id="mymodal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
+
+
+<@*!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+@if (TempData["Result"] != null)
+{
+    <div id="myModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h3 class="modal-title">Screening result</h3>
-                    <button type="button" id="close" class="close btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-                </div>
+                    <h3 class="modal-title">Screening Result</h3>
+                    <button type="button" id="close" class="close btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
+                </div>
                 <div class="modal-body">
-                    <img src="~/css/images.jpg" class="rounded float-end">
-                    <h4>@TempData["Result"]</h4>
+                    @if (Convert.ToString(TempData["_Image"]) == "1")
+                    {
+                        <img src="~/_Images/pill_.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "2")
+                    {
+                        <img src="~/_Images/Injection.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "3")
+                    {
+                        <img src="~/_Images/logo/Injection 2.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "4")
+                    {
+                        <img src="~/_Ima_Images/logo/implant1" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "5")
+                    {
+                        <img src="~/_Images/logo/loop1.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
+                    else if (Convert.ToString(TempData["_Image"]) == "6")
+                    {
+                        <img src="~/_Images/Viganal ring.jpg" style="width: 200px" />
+                        <h4>@TempData["Result"]</h4>
+                    }
                 </div>
             </div>
         </div>
     </div>
-@*}*@
+}*@
 
-<div class="container p-3 bg-blue-200 p-2 text-dark bg-opacity-50">
-   @* <img src="~/css/images.jpg" class="rounded float-end">
+<div class="container p-3 bg-blue-200 p-2 text-dark bg-blue-200 bg-opacity-50">
+    <img src="~/css/images.jpg" class="rounded float-end">
     <div class=" row pt-4">
         <div class=" col-10">
-            <h2 class="text-primary"> Feedback list</h2>
+            <h2 class="text-primary"> screening List</h2>
         </div>
         <div class=" col-10 text-right">
             <a asp-controller="Family" asp-action="CreateScreening" style="width:100%"></a>
         </div>
-    </div>*@
-@*
-    <br />*@
-    <p>
-    <a asp-action="CreateScreening" class="btn btn-success"> add  a new screening</a>
-    </p>
-    <a href="javascript:window.print()" class="btn btn-Info">Print</a>
+    </div>
+
+    <br />
+
     @if (Model.Count() > 0)
     {
-        <table class=" table table-bordered table-striped table-success">
+         
+            <table class="table    table-bordered table-striped table-success" >
             <thead>
                 <tr>
-                      <th>Name</th>
-                      <th>surname</th>
-                    <th>Date</th>
-                   
-                    <th>drink</th>
-                    <th>Period</th>
-                    <th>Child</th>
-                    <th>Intercourse</th>
-                    <th>Allergies</th>
-                    <th>Medication</th>
-                    <th>contraceptive</th>
-                    <th>suggetions</th>
-
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        1. sexual intercourse?"
+                    </th>
+                    <th>
+                        2. periods?
+                    </th>
+                    <th>
+                        3.  child?
+                    </th>
+                    <th>
+                        4.morning sickness?
+                    </th>
+                    <th>
+                        5. allergies?
+                    </th>
+                    <th>
+                        6. medication?
+                    </th>
+                    <th>
+                        7.contraceptives?
+                    </th>
+                    <th>
+                        8.using condom?
+                    </th>
+                    <th>
+                        9.normal cycle?
+                    </th>
+                    <th>
+                        10.birth Controls for you
+                    </th>
                 </tr>
             </thead>
-            <tbody>
-                @foreach (var screening in Model)
-                {
 
+            <tbody>
+                @foreach (var fed in Model)
+                {
                     <tr>
-                        <td>@screening.mainUser.FirstName</td>
-                        <td>@screening.mainUser.LastName</td>
-                        <td>@screening.date</td>
-                        
-                        <td>@if(screening.Drink == 10)
+                        <td>@fed.MainUser.FirstName @fed.MainUser.LastName</td>
+                        <td>@fed.Date</td>
+                        <td >@fed.Status</td>
+                    
+                        <td>@if(fed.intercourse == 10)
+                            {
+                                <p>yes</p>
+                            }
+                            else 
+                            {
+                                <p> no</p>
+                            }
+                          
+                        </td>
+                        <td>@if(fed.period == 10)
+                            {
+                                <p> yes</p>
+                            }
+                            else 
+                            {
+                                <p>no</p>
+                            }
+                           
+
+                        </td>
+                        <td>@if (fed.child == 10)
+                            {
+                                <p>Yes</p>
+                            }
+                            else
+                            {
+                                <p>No</p>
+                            }
+                        </td>
+                        <td>@if(fed.experience == 10)
                             {
                                 <p>Yes</p>
                             }
@@ -77,110 +179,89 @@
                             }
 
                         </td>
-
-                        <td>@if (screening.Period==10)
-                            
-                                {
-                                    <p>Yes</p>
-                                }
+                        <td>@if(fed.allergies == 10)
+                            {
+                                <p>Yes</p>
+                            }
                             else
                             {
-                                    <p>No</p>
+                                <p>No</p>
                             }
-
-                            
                         </td>
-                        <td>@if (screening.Child == 10)
-                                {
-                                
-                                    <p>Yes</p>
-                                }
+                        <td>@if(fed.medication == 10)
+                            {
+                                <p>Yes</p>
+                            }
                             else
                             {
-                                    <p>No</p>
+                                <p>No</p>
                             }
 
-                            
                         </td>
-                        <td>@if (screening.intercourse == 10)
-                            
-                                {
-                                    <p>Yes</p>
-                                }
+                        <td>@if(fed.contraceptives == 10)
+                            {
+                                <p>Yes</p>
+                            }
                             else
-                                {
-                                    <p>No</p>
-                                }
+                            {
+                                <p>No</p>
+                            }
 
-                            
                         </td>
-                        <td>@if (screening.allergies == 10)
-                            
-                                {
-                                    <p>Yes</p>
-                                }
+                        <td>@if(fed.condom == 10)
+                            {
+                                <p>Yes</p>
+                            }
                             else
-                                {
-                                    <p>No</p>
-                                }
+                            {
+                                <p>No</p>
+                            }
 
-                            
-                        </td>
-                        <td>@if (screening.medication == 10)
-                            
-                                {
-                                    <p>Yes</p>
-                                }
-                            else
-                                {
-                                    <p>No</p>
-                                }
-
-                            
-                        </td>
-                        <td>@if (screening.contraceptive == 10)
-                            
-                                {
-                                    <p>Yes</p>
-                                }
-                            else
-                                {
-                                    <p>No</p>
-                                }
-
-                            
                         </td>
                         <td>
-                            @if(screening.Child == 10)
+                            @if (fed.normal == 10)
                             {
-                                <p>1.pill</p>
-                                <p>2.implant</p>
-                                <p>3.plan B</p>
+                                <p>Yes</p>
                             }
                             else
                             {
-                                <p>1.pill</p>
-                                <p>2.Injection</p>
-                                <p>3.Plan B</p>
-                                <p>4.Implant</p>
+                                <p>No</p>
                             }
+
                         </td>
+                          <td>
+                            @if (fed.child == 10)
+                            {
+                                <p>1.Pill</p>
+                                <p>2.Implant</p>
+                                <p>3. three months Injection</p>
+                                <p>4.Plan B</p>
+                            }
+                            else
+                            {
+                                <p>1.Pill</p>
+                                <p>2.Implant</p>
+                                <p>3.two months Injection</p>
+                                <p>4.Plan B</p>
+                            }
 
+                        </td>
+                       
                     </tr>
-
-
-
+                   
                 }
-
             </tbody>
         </table>
-        <a href="javascript:window.print()" class="btn btn-Info">Print</a>
+       
+        <div class="col-6 text-right  d-grid gap-2 d-md-flex justify-content-md-end">
+            <a asp-controller="Family" asp-action="CreateScreening" class="btn btn-outline-info">Back</a>
+        </div>
+
     }
     else
     {
-        <p>NO screening has been done</p>
+        <p>No Chat added yet</p>
     }
-
 
 </div>
 

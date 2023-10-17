@@ -1,164 +1,165 @@
-﻿@model Tachyon.Models.FamilyScrenning
+﻿@model Tachyon.Models.Screening;
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/LayoutFamily.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/LayoutFamily.cshtml";
 }
-<div class="mt-2 p-2 bg-primary text-center text-white rounded">
-    <h6>SCREENING</h6>
+<div class="bg-info p-3 mb-2">
+	<h4 class="text-white text-center ">
+		SCREEENING FOR BIRTH CONTROL
+	</h4>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<div class="container-fluid bg-white">
+
+	<form method="post" asp-action="CreateScreening">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+		<div class="row p-3">
+
+			<div class="col-6">
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="intercourse" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="intercourse" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>	
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="intercourse" class=" text-danger"></span>
+				</div>
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="period" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="period" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="period" class=" text-danger"></span>
+				</div>
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="child" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="child" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="child" class=" text-danger"></span>
+				</div>
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="experience" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="experience" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="experience" class=" text-danger"></span>
+				</div>
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="allergies" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="allergies" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="allergies" class=" text-danger"></span>
+				</div>
+			</div>
+
+			<div class="col-6">
+
+
+
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="medication" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="medication" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="medication" class=" text-danger"></span>
+				</div>
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="contraceptives" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="contraceptives" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="contraceptives" class=" text-danger"></span>
+				</div>
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="condom" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="condom" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="condom" class=" text-danger"></span>
+				</div>
+				<div class=" form-group border-5 border-success text-dark">
+					<label asp-for="normal" class="text-dark"></label>
+					<div col-md-6>
+						<select id="DescriptionDropdown" asp-for="normal" class=" form-control" id="validationName" required>
+							<option value="select">select</option>
+							<option value="10">yes</option>
+							<option value="0">no</option>
+						</select>
+					</div>
+					<div class="invalid-feedback">
+					</div>
+					<span asp-validation-for="normal" class=" text-danger"></span>
+				</div>
+				
+
+
+			</div>
+			<div class="form-group row">
+				<div class="col-6 offset-2 row">
+					<div class="col">
+						<input type="submit" class="btn btn-outline-info w-25" value="Screen" />
+					</div>
+					<div class="col-6">
+						<a asp-action="ScreeningList" class="btn btn-outline-info w-25">View</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
 
 </div>
-<form method="post" asp-action="CreateScreening" class=" form-horizontal   bg-green-300  p-2 text-dark bg-opacity-20 align-text-center">
-    <div class=" border border-primary border-5 p-3">
-        <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
-      
-        <div class="row">
-            <div class=" form-group col">
-                <label asp-for="Drink"></label>
-                <div col-sm-5>
-                    <select id="DescriptionDropdown" asp-for="Drink" class=" form-control" id="validationName" >
-                        <option value="select">select</option>
-                        <option value="10">Yes</option>
-                        <option value="0">No</option>
 
 
-                    </select>
-                </div>
-                <div class="invalid-feedback">
-                </div>
-                <span asp-validation-for="Drink" class=" text-danger"></span>
-            </div>
-          <div class=" form-group col" >
-            <label asp-for="Period"></label>
-            <div col-sm-5>
-                <select id="DescriptionDropdown" asp-for="Period" class=" form-control" id="validationName">
-                    <option value="select">select</option>
-                    <option value="10">Yes</option>
-                    <option value="0">No</option>
-                    
-
-                </select>
-            </div>
-            <div class="invalid-feedback">
-            </div>
-            <span asp-validation-for="Period" class=" text-danger"></span>
-          </div>
-       </div>
-        <div class="row">
-                <div class=" form-group col">
-                    <label asp-for="active"></label>
-                    <div col-sm-5>
-                        <select id="DescriptionDropdown" asp-for="active" class=" form-control" id="validationName" >
-                            <option value="select">select</option>
-                            <option value="10">Yes</option>
-                            <option value="0">No</option>
-
-
-                        </select>
-                    </div>
-                    <div class="invalid-feedback">
-                    </div>
-                    <span asp-validation-for="active" class=" text-danger"></span>
-                </div>
-            
-          <div class=" form-group col">
-            <label asp-for="Child"></label>
-            <div col-sm-10>
-                <select id="DescriptionDropdown" asp-for="Child" class=" form-control" id="validationName" >
-                    <option value="select">select</option>
-                    <option value="10">Yes</option>
-                    <option value="0">No</option>
-
-
-                </select>
-            </div>
-            <div class="invalid-feedback">
-            </div>
-            <span asp-validation-for="Child" class=" text-danger"></span>
-
-          </div>
-       </div>
-      <div class="row">
-        <div class=" form-group col">
-            <label asp-for="intercourse"></label>
-            <div col-sm-10>
-                <select id="DescriptionDropdown" asp-for="intercourse" class=" form-control" id="validationName" >
-                    <option value="select">select</option>
-                    <option value="10">Yes</option>
-                    <option value="0">No</option>
-
-
-                </select>
-            </div>
-            <div class="invalid-feedback">
-            </div>
-            <span asp-validation-for="intercourse" class=" text-danger"></span>
-
-        </div>
-        
-       
-        <div class=" form-group col">
-            <label asp-for="allergies"></label>
-            <div col-sm-5>
-                <select id="DescriptionDropdown" asp-for="allergies" class=" form-control" id="validationName" >
-                    <option value="select">select</option>
-                    <option value="10">Yes</option>
-                    <option value="0">No</option>
-
-
-                </select>
-            </div>
-            <div class="invalid-feedback">
-            </div>
-            <span asp-validation-for="allergies" class=" text-danger"></span>
-            </div>
-        </div>
-   
-      <div class="row">
-        <div class=" form-group col">
-            <label asp-for="medication"></label>
-            <div col-sm-5>
-                <select id="DescriptionDropdown" asp-for="medication" class=" form-control" id="validationName">
-                    <option value="select">select</option>
-                    <option value="10">Yes</option>
-                    <option value="0">No</option>
-
-
-                </select>
-            </div>
-            <div class="invalid-feedback">
-            </div>
-            <span asp-validation-for="medication" class=" text-danger"></span>
-        </div>
-        
-        
-        <div class=" form-group col">
-            <label asp-for="contraceptive"></label>
-            <div col-sm-5>
-                <select id="DescriptionDropdown" asp-for="contraceptive" class=" form-control" id="validationName" >
-                    <option value="select">select</option>
-                    <option value="10">Yes</option>
-                    <option value="0">No</option>
-
-
-                </select>
-            </div>
-            <div class="invalid-feedback">
-            </div>
-            <span asp-validation-for="contraceptive" class=" text-danger"></span>
-        </div>
-       </div>
-        
-        <div class=" form-group row">
-            <div class=" col-8 offset-2 row">
-                <div class=" col">
-                    <input type="submit" class="btn-primary btn-lg  " value="submit" />
-                </div>
-                <div class=" col-1">
-                    <a asp-action="ScreeningList" class=" btn btn-primary btn-lg ">Screenings</a>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</form>
