@@ -160,13 +160,12 @@ namespace Tachyon.Controllers
         {
             return View();
         }
-		//public IActionResult Report(int? ID)
-		//{
-		//	if (ID == null)
-		//	{
-		//		return NotFound();
-		//	}
+        public ActionResult MedicationReport()
+        {
+            var medications = Chronic_Report.GetAllMedications(); // Fetch medication data from the repository
+            return View("Report", medications);
+        }
 
-		//}
+
     }
 }

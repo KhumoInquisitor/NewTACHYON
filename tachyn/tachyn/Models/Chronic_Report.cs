@@ -6,28 +6,27 @@ namespace Tachyon.Models
 {
     public class Chronic_Report
     {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        [Required]
-        public string? Surname { get; set; }
-        public string? Gender { get; set; }
-        [Required]
-        [DisplayName("Date Of Birth")]
-        public DateTime DateOFBirth { get; set; }
-        [Required]
-        public string? Race { get; set; }
-        [Required]
-        [DisplayName(" Medication Name")]
-        public string NameOfMedication { get; set; }
-        [Required]
-        [DisplayName("Order Date")]
-        public DateTime OrderedDate { get; set; }
-        [Required]
-        public string? City { get; set; }
-        [Required]
-        public string? province { get; set; }
-        [Required]
-        public int? zip { get; set; }
+       public int ID { get; set; }
+        [DisplayName("Medication ")]
+        public string Name { get; set; }
+        public int Dosage { get; set; }
+        public DateTime ordered { get; set; }
 
+        internal static object GetAllMedications()
+        {
+            throw new NotImplementedException();
+        }
+       
+        //public int MedicationCount { get; private set; }
+
+        //// Add medication to the repository
+        //public void AddMedication(Chronic_Report medication)
+        //{
+        //    // Add the medication to your data source
+        //    medications.Add(medication);
+
+        //    // Increment the count
+        //    MedicationCount++;
+        //}
     }
 }

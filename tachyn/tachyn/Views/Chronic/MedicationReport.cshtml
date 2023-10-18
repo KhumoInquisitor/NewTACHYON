@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Tachyon.Models.Chronic_Report>
+
+
+
+<h2>Medication Report</h2>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Dosage</th>
+        <th>Ordered Date</th>
+       @* <th>Expiration Date</th>*@
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Dosage</td>
+            <td>@item.ordered.ToShortDateString()</td>
+           @* <td>@item.ExpirationDate.ToShortDateString()</td>*@
+        </tr>
+    }
+</table>
