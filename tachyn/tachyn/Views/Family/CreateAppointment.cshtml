@@ -11,7 +11,25 @@
     <div class="border border-5" >
     <div class=" border border-5 border-primary">
         <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
-       
+            <div class=" form-group border-5 border-success">
+                <label asp-for="Name"></label>
+                <div col-sm-7>
+                    <input asp-for="Name" class=" form-control" id="validationAge" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Name" class=" text-danger"></span>
+            </div>
+            <div class=" form-group border-5 border-success ">
+                <label asp-for="lastName"></label>
+                <div col-sm-7>
+                    <input asp-for="lastName" class=" form-control" id="validationAbility" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="AppointmentDate" class=" text-danger"></span>
+
+            </div>
         <div class=" form-group border-5 border-success text-dark" >
             <label asp-for="Description" class="text-dark"></label>
             <div col-md-6 >
