@@ -1,16 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Tachyon.Areas.Identity.Data;
 using Tachyon.Models;
+using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace Tachyon.Controllers
 {
 	public class ProcedureController : Controller
 	{
 		private readonly TachyonDbContext _db;
-		public ProcedureController(TachyonDbContext db)
+		private readonly UserManager<TachyonUser> _userManager;
+		public ProcedureController(TachyonDbContext db, UserManager<TachyonUser> userManager)
 		{
 			_db = db;
+			_userManager = userManager;
 		}
 		public IActionResult Index()
 		{
@@ -89,7 +95,16 @@ namespace Tachyon.Controllers
             _db.Procedure.Remove(proList);
             _db.SaveChanges();
 			return RedirectToAction("ProcedureList");
-
 		}
+
+		
+
+		// GET: Appointments
+		public async Task<IActionResult> AppIndex()
+		{
+			var appointments = await _db.appointments.ToListAsync();
+			return View(appointments);
+		}
+
 	}
 }
