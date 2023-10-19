@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Tachyon.Models.Procedure>
+
+@{
+    ViewData["Title"] = "ProcedureList";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<h1>ProcedureList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.patientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.patientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.specialistName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.specialistId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.anesthesiaProvider)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.anesthesiaType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.procedureId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.procedureName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.procedureDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.complications)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.instructions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bodyTemp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pulseRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.respRate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bloodPressure)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.patientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.patientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialistName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialistId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anesthesiaProvider)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.anesthesiaType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.procedureId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.procedureName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.procedureDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.complications)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.instructions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bodyTemp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pulseRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.respRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bloodPressure)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,119 @@
+﻿@model Tachyon.Models.Procedure
+
+@{
+    ViewData["Title"] = "CreateProcedure";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<h1>CreateProcedure</h1>
+
+<h4>Procedure</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateProcedure">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="patientId" class="control-label"></label>
+                <input asp-for="patientId" class="form-control" />
+                <span asp-validation-for="patientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="patientName" class="control-label"></label>
+                <input asp-for="patientName" class="form-control" />
+                <span asp-validation-for="patientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dob" class="control-label"></label>
+                <input asp-for="dob" class="form-control" />
+                <span asp-validation-for="dob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="specialistName" class="control-label"></label>
+                <input asp-for="specialistName" class="form-control" />
+                <span asp-validation-for="specialistName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="specialistId" class="control-label"></label>
+                <input asp-for="specialistId" class="form-control" />
+                <span asp-validation-for="specialistId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="anesthesiaProvider" class="control-label"></label>
+                <input asp-for="anesthesiaProvider" class="form-control" />
+                <span asp-validation-for="anesthesiaProvider" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="anesthesiaType" class="control-label"></label>
+                <input asp-for="anesthesiaType" class="form-control" />
+                <span asp-validation-for="anesthesiaType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="date" class="control-label"></label>
+                <input asp-for="date" class="form-control" />
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="procedureId" class="control-label"></label>
+                <input asp-for="procedureId" class="form-control" />
+                <span asp-validation-for="procedureId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="procedureName" class="control-label"></label>
+                <input asp-for="procedureName" class="form-control" />
+                <span asp-validation-for="procedureName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="procedureDescription" class="control-label"></label>
+                <input asp-for="procedureDescription" class="form-control" />
+                <span asp-validation-for="procedureDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="complications" class="control-label"></label>
+                <input asp-for="complications" class="form-control" />
+                <span asp-validation-for="complications" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="instructions" class="control-label"></label>
+                <input asp-for="instructions" class="form-control" />
+                <span asp-validation-for="instructions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="notes" class="control-label"></label>
+                <input asp-for="notes" class="form-control" />
+                <span asp-validation-for="notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bodyTemp" class="control-label"></label>
+                <input asp-for="bodyTemp" class="form-control" />
+                <span asp-validation-for="bodyTemp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pulseRate" class="control-label"></label>
+                <input asp-for="pulseRate" class="form-control" />
+                <span asp-validation-for="pulseRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="respRate" class="control-label"></label>
+                <input asp-for="respRate" class="form-control" />
+                <span asp-validation-for="respRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bloodPressure" class="control-label"></label>
+                <input asp-for="bloodPressure" class="form-control" />
+                <span asp-validation-for="bloodPressure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

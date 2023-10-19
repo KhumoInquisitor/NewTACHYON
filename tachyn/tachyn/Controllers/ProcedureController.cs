@@ -32,8 +32,11 @@ namespace Tachyon.Controllers
 		{
 			return View();
 		}
-
-		public IActionResult ProcedureList()
+        public IActionResult Screenings()
+        {
+            return View();
+        }
+        public IActionResult ProcedureList()
 		{
 			IEnumerable<Procedure> proList = _db.Procedure;
 			return View(proList);
