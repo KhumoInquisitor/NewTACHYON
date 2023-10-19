@@ -1,0 +1,175 @@
+﻿@model IEnumerable<Tachyon.Models.Booking>
+
+@using Microsoft.AspNetCore.Identity
+@using Tachyon.Models
+@using Tachyon.Areas.Identity.Data
+
+@inject SignInManager<TachyonUser> SignInManager
+@inject UserManager<TachyonUser> UserManager
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/walkinLayout.cshtml";
+}
+<div id="mainDiv" class="border p-2">
+    <div id="Header" class="bg-primary">
+       <h1 class="m-1 text-center text-white">Report Sessions for walk-in</h1>
+    </div>
+    <button id="btnPrint" class="btn btn-primary">
+        Generate Report
+    </button>
+    <div id="Information" class="row">
+        <div class="col-8">
+            <img src="~/Logo/4.png style="width:200px"/>
+            <p class="mt-3">Date Of Report:@ViewBag.Date</p>
+            <p class="mt-3">Time Of Report:@ViewBag.Time</p>
+
+        
+    </div>
+    <div class="col-4" justify-content-md-end">
+        <h4>Nurse Information</h4>
+        <p> First Name: @UserManager.GetUserAsync(User).Result.FirstName</p>
+        <p> Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
+        <p>Email: @UserManager.GetUserAsync(User).Result.Email</p>
+
+
+    </div>
+    </div>
+    <h3 class=" text-center">List Of All Sessions</h3>
+    <table id="MyTable" class="table">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>
+                    Patient Information
+                </th>
+<th>
+                    Patient Information
+                </th>
+                <th>
+                    Patient Information
+                </th>
+<th>
+                    Patient Information
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Booking item in ViewBag.Booking)
+            {
+              <tr>
+                  <td>
+                      @Html.DisplayFor(modelItem=> item.name)@Html.DisplayFor(modelItem=>item.name)
+                  </td>
+                    <td>
+                        @Html.DisplayFor(modelItem=> item.lastname)@Html.DisplayFor(modelItem=>item.lastname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem=> item.email)@Html.DisplayFor(modelItem=>item.email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem=> item.id)@Html.DisplayFor(modelItem=>item.id)
+                    </td>
+              </tr>  
+                
+            }
+        </tbody>
+    </table>
+    </div>
+    <script defer>
+        window.onload=function()
+        {
+            console.log("its working");
+            document.getElementById('Information').style.visibility="hidden";
+            document.getElementById('mainDiv').className="p-2"'
+
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+@*@*<div class="m-1 p-2 bg-primary text-center text-white ">
+    <h6>Report for Walk-in appointment</h6>
+
+</div>
+<button>
+    hidden id="btnPrint" class="btn-primary">
+    Generate report
+</button>
+<div class="container p-3 bg-blue-200 p-2 text-dark  bg-blue-200 bg-opacity-50">
+    @*<img src="~/css/images.jpg" class="rounded float-end">*@
+    @*<div class=" row pt-4">
+
+        <div class=" col-10 text-right">
+            <a asp-controller="walkin" asp-action="Booking" style="width:100%"></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-6">
+            <p> First Name: @UserManager.GetUserAsync(User).Result.FirstName</p>
+            <p> Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
+            <p>Email: @UserManager.GetUserAsync(User).Result.Email</p>
+        </div>
+        <div class="col-6">
+            <p>Date of report: @ViewBag.Date</p>
+        </div>
+    </div>
+    <br />
+    <a href="javascript:window.print()" class="btn btn-Info">Print</a>
+    <h3 class=" text-center">List Of All Sessions</h3>
+    <table id="MyTable" class="table">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th>
+                    Patient Information
+                </th>
+                <th>
+                    Patient Information
+                </th>
+                <th>
+                    Patient Information
+                </th>
+                <th>
+                    Patient Information
+                </th>
+            </tr>
+        </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+
+                    <tr>
+                        <td>@booking.id</td>
+                        <td>@booking.name</td>
+                        <td>@booking.lastname</td>
+                        <td>@booking.email</td>
+                        
+
+
+                    </tr>
+
+
+
+                }
+
+            </tbody>
+        </table>
+
+    }
+    else
+    {
+        <p>NO Appiontment available</p>
+    }
+
+
+</div>**@

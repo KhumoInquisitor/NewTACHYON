@@ -9,17 +9,36 @@
 </div>
 <form method="post" asp-action="CreateAppointment" class=" form-horizontal   bg-green-300  p-2 text-dark bg-opacity-20">
     <div class="border border-5" >
-    <div class=" border border-5 border-primary p-3 border-width:thin">
+    <div class=" border border-5 border-primary">
         <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
-       
-        <div class=" form-group border-2 border-success text-dark" >
+            <div class=" form-group border-5 border-success">
+                <label asp-for="Name"></label>
+                <div col-sm-7>
+                    <input asp-for="Name" class=" form-control" id="validationAge" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Name" class=" text-danger"></span>
+            </div>
+            <div class=" form-group border-5 border-success ">
+                <label asp-for="lastName"></label>
+                <div col-sm-7>
+                    <input asp-for="lastName" class=" form-control" id="validationAbility" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="AppointmentDate" class=" text-danger"></span>
+
+            </div>
+        <div class=" form-group border-5 border-success text-dark" >
             <label asp-for="Description" class="text-dark"></label>
             <div col-md-6 >
                 <select id="DescriptionDropdown" asp-for="Description" class=" form-control" id="validationName" required>
                     <option value="select">select</option>
                     <option value="Pill">pill</option>
                     <option value="Implant">implant</option>
-                    <option value="Injection">Injection</option>
+                    <option value=" Two Injection"> two Injection</option>
+                    <option value=" Three Injection">three Injection</option>
                     <option value="Plan B">Plan B</option>
                     
                 </select>
@@ -28,7 +47,7 @@
             </div>
             <span asp-validation-for="Description" class=" text-danger"></span>
         </div>
-        <div class=" form-group border-2 border-success" >
+        <div class=" form-group border-5 border-success" >
             <label asp-for="NurseName"></label>
             <div col-sm>
                 <select id="NurseDropdown" asp-for="NurseName" class=" form-control" id="validationName" required>
@@ -42,7 +61,7 @@
             </div>
             <span asp-validation-for="NurseName" class=" text-danger"></span>
         </div>
-        <div class=" form-group border-2 border-success">
+        <div class=" form-group border-5 border-success">
             <label asp-for="CurrentDate"></label>
             <div col-sm-7>
                 <input asp-for="CurrentDate" class=" form-control" id="validationAge" required />
@@ -51,7 +70,7 @@
             </div>
             <span asp-validation-for="CurrentDate" class=" text-danger"></span>
         </div>
-        <div class=" form-group border-2 border-success ">
+        <div class=" form-group border-5 border-success ">
             <label asp-for="AppointmentDate"></label>
             <div col-sm-7>
                 <input asp-for="AppointmentDate" class=" form-control" id="validationAbility" required />
@@ -61,6 +80,21 @@
             <span asp-validation-for="AppointmentDate" class=" text-danger"></span>
            
         </div>
+          
+                <div class=" form-group border-5 border-success ">
+                    <label asp-for="status"></label>
+                    <div col-sm>
+                        <select id="NurseDropdown" asp-for="status" class=" form-control" id="validationName" required>
+                            <option value="Pending">Pending</option>
+
+                        </select>
+                    </div>
+                    <div class="invalid-feedback">
+                    </div>
+                    <span asp-validation-for="status" class=" text-danger"></span>
+                </div>
+           
+          
 
         <div class=" form-group row">
             <div class=" col-8 offset-2 row">

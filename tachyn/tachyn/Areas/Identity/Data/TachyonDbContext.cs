@@ -13,7 +13,7 @@ public class TachyonDbContext : IdentityDbContext<TachyonUser>
         : base(options)
     { 
     }
-   
+    public DbSet<Screening> Screenings { get; set; }
     public DbSet<Appointment> appointments { get; set; }
     public DbSet<Booking> bookings { get; set; }
     public DbSet<Feedback> feedbacks { get; set; }
@@ -24,7 +24,8 @@ public class TachyonDbContext : IdentityDbContext<TachyonUser>
     public DbSet<FamilyPrescription> familyPrescriptions { get; set; }
     public DbSet<TrackMenstruation> trackMenstruations { get; set; }
     public DbSet<FamilyReferrals> familyReferrals { get; set; }
-    public DbSet<FamilyScrenning> familyScrenning { get; set; }
+   
+    public DbSet<Alerts> alerts { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -74,9 +75,5 @@ public class TachyonDbContext : IdentityDbContext<TachyonUser>
     public DbSet<PatientProgress> Progress { get; set; }
     public DbSet<LabTest> Lab { get; set; }
     public DbSet<Tachyon.Models.Sappointments>? Sappointments { get; set; }
-
-
-
-
-
+    public IEnumerable<object> Alerts { get; internal set; }
 }

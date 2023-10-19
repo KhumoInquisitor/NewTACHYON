@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width" />
 	<title>@ViewBag.Title</title>
 	<link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu|Lora">
 	<link rel="stylesheet" href="~/assets/css/ready.css">
 	<link rel="stylesheet" href="~/assets/css/demo.css">
 	@*<link rel="stylesheet" href="~/css/ChronicHome.css">*@
@@ -151,9 +151,9 @@
 			<div class="blog py-5" id="Newsblog">
 				<div class="container py-lg-5 py-md-4 py-2">
 					<div class="text-center mb-sm-5 mb-4">
-						<h5 class="w3l-title-small mb-1">Welcome to e-Nompilo</h5>
+						@*<h5 class="w3l-title-small mb-1">Welcome to e-Nompilo</h5>*@
 						<h3 class="w3l-title-main">Chronic Medication</h3>
-						<p class="text-lg-center border-2 bg-light">
+						<p class="fs-1">
 							We provide comprehensive care for chronic illnesses,ofering accessible medication,advice and support.
 							Our team of experienced professionals are committed in providing quality healthcare to all.
 						</p>
@@ -170,7 +170,7 @@
 								</div>
 								<div class="card-body blog-details">
 									<div class="price-review mb-1 align-items-center">
-										<p>Medication Records</p>
+										<p class="fs-4">Medication Records</p>
 									</div>
 									<a asp-controller="Chronic" asp-action="MedRecords" class="blog-desc">Our Pharmacist can check the records for available meds </a>
 								</div>
@@ -189,7 +189,7 @@
 								</div>
 								<div class="card-body blog-details">
 									<div class="price-review mb-1 align-items-center">
-										<p>Prescriptions</p>
+										<p class="fs-4">Prescriptions</p>
 									</div>
 									<a asp-controller="Chronic" asp-action="Fillmed" class="blog-desc">You can get your prescribe meds at our facility.</a>
 								</div>
@@ -208,13 +208,15 @@
 								</div>
 								<div class="card-body blog-details">
 									<div class="price-review mb-1 align-items-center">
-										<p>Collect Medication</p>
+										<p class="fs-4">Collect Medication</p>
 									</div>
 									<a asp-controller="Chronic" asp-action="CollectMed" class="blog-desc">We aim in giving our client better services.</a>
 								</div>
+
 								
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
@@ -271,23 +273,23 @@
 							<span class="badge badge-count">5</span>
 						</a>
 					</li>
-					<li class="nav-item">
+					@*<li class="nav-item">
 						<a asp-controller="ManageFile" asp-action="ManageFile">
 							<i class="fas fa-file-alt" style="font-size:small"></i>
 							<p>Manage File</p>
 							<@*span class="badge badge-count">14</span>*@
-						</a>
-					</li>
+						@*</a>
+					</li>*@
 					<li class="nav-item">
 						<a asp-controller="Chronic" asp-action="Fillmed">
-							<i class="fas fa-file-alt" style="font-size:small" ></i>
+							<i class="bi bi-capsule-pill" style="font-size:small"></i>
 							<p>Filling Prescription</p>
 							@*<span class="badge badge-count">50</span>*@
 						</a>
 					</li>
 					<li class="nav-item">
 						<a asp-controller="Chronic" asp-action="MedRecords">
-							<i class="fa fa-book" style="font-size:small"></i>
+							<i class="bi bi-capsule-pill" style="font-size:small"></i>
 							<p>Medication Records</p>
 							@*<span class="badge badge-count">6</span>*@
 						</a>
@@ -297,19 +299,31 @@
 							<i class="la la-bell"></i>
 							<p>Update Filling</p>*@
 							@*<span class="badge badge-success">3</span>*@
-						</a>
-					</li>
+						@*</a>
+					</li>*@
 					@*<li class="nav-item">
 						<a asp-controller="Chronic" asp-action="MediUpdate">
 							<i class="fas fa-file" style="font-size:small"></i>
 							<p>Update Medicine Records</p>*@
 							@*<span class="badge badge-danger">25</span>*@
+						@*</a>
+					</li>*@
+					<li class="nav-item">
+						<a asp-controller="Chronic" asp-action="CollectMed">
+							<i class="bi bi-capsule-pill"></i>
+							<p>Collect Medication</p>
 						</a>
 					</li>
 					<li class="nav-item">
-						<a asp-controller="Chronic" asp-action="CollectMed">
+						<a asp-controller="Chronic" asp-action="MedicationReport">
 							<i class="la la-fonticons"></i>
-							<p>Collect Medication</p>
+							<p>Report</p>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a asp-controller="Dashboard" asp-action="Index">
+							<i class="bi bi-backspace-fill"></i>
+							<p>Back</p>
 						</a>
 					</li>
 					@*<li class="nav-item update-pro">

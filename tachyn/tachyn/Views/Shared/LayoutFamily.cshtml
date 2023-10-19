@@ -32,7 +32,7 @@
 			</div>
 			<nav class="navbar navbar-header navbar-expand-lg">
 				<div class="container-fluid">
-					
+					@*
 					<form class="navbar-left navbar-form nav-search mr-md-3" action="">
 						<div class="input-group">
 							<input type="text" placeholder="Search ..." class="form-control">
@@ -42,7 +42,7 @@
 								</span>
 							</div>
 						</div>
-					</form>
+					</form>*@
 					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
 						@*<li class="nav-item dropdown hidden-caret">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -187,9 +187,9 @@
 						if (User.IsInRole("Admin"))
 						{
 							<li class="nav-item">
-								<a asp-controller="Family" asp-action="CreateScreening">
+								<a asp-controller="Family" asp-action="ScreeningList">
 									<i class="la la-fonticons"></i>
-									<p>Screening</p>
+									<p>Screenings</p>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -199,35 +199,27 @@
 								
 								</a>
 							</li>
-							<li class="nav-item">
-								<a asp-controller="Family" asp-action="PreventationTypeList">
-									<i class="la la-table"></i>
-									<p>Preventation Types</p>
-									@*<span class="badge badge-count">50</span>*@
+						<li class="nav-item">
+								<a asp-controller="Family" asp-action="PrescriptionList">
+									<i class="la la-font"></i>
+									<p>Prescription</p>
+									@*<span class="badge badge-danger">25</span>*@
 								</a>
 							</li>
 							
+			
 							<li class="nav-item">
-								<a asp-controller="Family" asp-action="CreateTrackMenstruation">
-									<i class="la la-clock-o"></i>
-									<p>Track-Menstruation</p>
-									@*<span class="badge badge-success">3</span>*@
-								</a>
-							</li>
-							
-							
-							<li class="nav-item">
-								<a asp-controller="Family" asp-action="CreateFeedBack">
+								<a asp-controller="Family" asp-action="FeedBackList">
 									<i class="la la-twitch"></i>
-									<p>Feedback</p>
+									<p>Feedbacks</p>
 								</a>
 							</li>
-							@*<li class="nav-item">
+							<li class="nav-item">
 								<a asp-controller="Family" asp-action="viewReport">
 									<i class="la la-fonticons"></i>
 									<p>Report</p>
 								</a>
-							</li>*@
+							</li>
 							<li class="nav-item ">
 								<a asp-controller="Dashboard" asp-action="Index">
 									<i class="la la-dashboard"></i>
@@ -240,9 +232,9 @@
 
 						{
 							<li class="nav-item">
-								<a asp-controller="Family" asp-action="CreateScreening">
+								<a asp-controller="Family" asp-action="ScreeningList">
 									<i class="la la-fonticons"></i>
-									<p>Screening</p>
+									<p>Screenings</p>
 								</a>
 							</li>
 							<li class="nav-item">
@@ -252,27 +244,15 @@
 
 								</a>
 							</li>
-							<li class="nav-item">
-								<a asp-controller="Family" asp-action="PreventationTypeList">
-									<i class="la la-table"></i>
-									<p>Preventation Types</p>
-									@*<span class="badge badge-count">50</span>*@
-								</a>
-							</li>
+							
 							<li class="nav-item">
 								<a asp-controller="Family" asp-action="NurselistAppointments">
 									<i class="la la-th"></i>
-									<p>Appointment</p>
+									<p>Appointments</p>
 									@*<span class="badge badge-count">6</span>*@
 								</a>
 							</li>
-							<li class="nav-item">
-								<a asp-controller="Family" asp-action="CreateTrackMenstruation">
-									<i class="la la-clock-o"></i>
-									<p>Track-Menstruation</p>
-									@*<span class="badge badge-success">3</span>*@
-								</a>
-							</li>
+							
 							<li class="nav-item">
 								<a asp-controller="Family" asp-action="CreatePrescription">
 									<i class="la la-font"></i>
@@ -287,9 +267,9 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a asp-controller="Family" asp-action="CreateFeedBack">
+								<a asp-controller="Family" asp-action="FeedBackList">
 									<i class="la la-twitch"></i>
-									<p>Feedback</p>
+									<p>Feedbacks</p>
 								</a>
 							</li>
 							<li class="nav-item ">
@@ -335,12 +315,6 @@
 								<a asp-controller="Family" asp-action="CreateFeedBack">
 									<i class="la la-twitch"></i>
 									<p>Feedback</p>
-								</a>
-							</li>
-							<li class="nav-item">
-								<a asp-controller="Family" asp-action="viewReport">
-									<i class="la la-fonticons"></i>
-									<p>Report</p>
 								</a>
 							</li>
 							<li class="nav-item ">
