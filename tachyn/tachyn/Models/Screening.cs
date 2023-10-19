@@ -17,7 +17,7 @@ namespace Tachyon.Models
         public string? PatientID { get; set; }
         [ForeignKey("PatientID")]
         public virtual TachyonUser? MainUser { get; set; }
-        public string? Status { get; set; } = "New";
+       
 
 
         //Question
