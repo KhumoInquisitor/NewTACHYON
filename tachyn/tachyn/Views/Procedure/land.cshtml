@@ -3,9 +3,57 @@
     Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
 }
 
-<h1>Land</h1>
 
-<p>
+<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="container text-center text-md-left" data-aos="fade-up">
+        <h1>Welcome to <span>Specialised Medical Procedures</span></h1>
+        <h3>Making informed decisions about your healthcare needs.</h3>
+    </div>
+</section>
+@* <div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="~/css/bursa-injection_600x450.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Joint Injections</h5>
+            <p class="card-text">
+                Joint injections can be used to treat a variety of joint conditions, including osteoarthritis, rheumatoid arthritis, and tendonitis. They can also be used to diagnose joint problems and to deliver contrast material for imaging studies.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="~/css/bursa-injection_600x450.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Spirometry/Bronchoscopy: </h5>
+            <p class="card-text">
+                Spirometry is a non-invasive test that measures how much air you can breathe in and out of your lungs. Bronchoscopy is a minimally invasive procedure that uses a thin, flexible tube with a camera to examine the inside of your airways. These procedures are often used together to diagnose and treat respiratory conditions such as asthma, COPD, and lung cancer.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="~/css/bursa-injection_600x450.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Joint Injections</h5>
+            <p class="card-text">
+                Joint Injections: Joint injections can be used to treat a variety of joint conditions, including osteoarthritis, rheumatoid arthritis, and tendonitis. They can also be used to diagnose joint problems and to deliver contrast material for imaging studies.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="~/css/bursa-injection_600x450.jpg" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Joint Injections</h5>
+            <p class="card-text">
+                Joint Injections: Joint injections can be used to treat a variety of joint conditions, including osteoarthritis, rheumatoid arthritis, and tendonitis. They can also be used to diagnose joint problems and to deliver contrast material for imaging studies.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+</div> *@
+@* <p>
     **Specialized Medical Procedures Offered:**
 
     ---
@@ -34,16 +82,61 @@
     - Outpatient procedures that address various conditions, requiring minimal incisions and often allowing for faster recovery times compared to major surgeries.
 
     ---
-</p>
+</p> *@
 
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-        <h5 class="card-title">Joint Injections</h5>
-        <p class="card-text"> 
-            - Targeted delivery of medication directly into a joint to alleviate pain and inflammation, often used for conditions like arthritis or other joint disorders.
-        </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+
+
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Minor Surgeries: </h5>
+                <p class="card-text">Minor surgeries are outpatient procedures that are typically less complex and invasive than major surgeries. Some common minor surgeries include carpal tunnel surgery, cataract surgery, and mole removal.</p>
+                <a asp-action="MinorSurgery" class="btn btn-primary">Minor Surgeries</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Screening Procedures: </h5>
+                <p class="card-text">Screening procedures are preventive tests and exams that are designed to detect potential health problems before they cause symptoms or become serious. Some common screening procedures include cancer screenings, heart disease screenings, and diabetes screenings.</p>
+                <a asp-action="Screening" class="btn btn-primary">Screenings</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">ECGs (Electrocardiograms): </h5>
+                <p class="card-text">An ECG is a non-invasive test that records the electrical activity of your heart. It can be used to diagnose a variety of heart conditions, including arrhythmias, heart attacks, and heart failure.</p>
+                <a asp-action="electro" class="btn btn-primary">ECGs</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Spirometry/Bronchoscopy: </h5>
+                <p class="card-text">Spirometry is a non-invasive test that measures how much air you can breathe in and out of your lungs. Bronchoscopy is a minimally invasive procedure that uses a thin, flexible tube with a camera to examine the inside of your airways. These procedures are often used together to diagnose and treat respiratory conditions such as asthma, COPD, and lung cancer.</p>
+                <a asp-action="lung" class="btn btn-primary">Spirometry/Bronchoscopy</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Joint Injections: </h5>
+                <p class="card-text">Joint injections can be used to treat a variety of joint conditions, including osteoarthritis, rheumatoid arthritis, and tendonitis. They can also be used to diagnose joint problems and to deliver contrast material for imaging studies.</p>
+                <a asp-action="JointInjection" class="btn btn-primary">Joint Injections</a>
+            </div>
+        </div>
+    </div>
 </div>
+
+@* <link href="~/specialised/style - copy.css" rel="stylesheet" /> *@
+<link href="~/specialised/style.css" rel="stylesheet" />
+<link href="~/specialised/table.css" rel="stylesheet" />
