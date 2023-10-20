@@ -8,9 +8,8 @@ namespace Tachyon.Models
 {
     public class FamilyReferrals
     {
-
         [Key]
-        public int FamilyReferralsID { get; set; }
+        public int FamilyPrescriptionID { get; set; }
         [Required]
         [DisplayName("Patient Name")]
         public string? ID { get; set; }
@@ -20,9 +19,10 @@ namespace Tachyon.Models
         public string? Description { get; set; }
         [Required]
         public string? NurseName { get; set; }
-        [Required]
-        public string? ReferralName { get; set; }
+
         [Required]
         public DateTime Date { get; set; }
+        public string? ReferralName { get; set; }
+       
     }
 }
