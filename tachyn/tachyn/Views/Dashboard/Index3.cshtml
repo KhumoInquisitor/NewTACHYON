@@ -1,12 +1,11 @@
 ﻿
 @{
     ViewData["Title"] = "Index3";
-	Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+	Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h1>Index3</h1>
 <div class="container-fluid">
-	<h3 class="page-title">Welcome to Specialised Medical Procedures</h3>
+	<h1 class="page-title">Welcome</h1>
 	<div class="row d-flex w-100">
 
 		<div>
@@ -14,12 +13,12 @@
 				@* <h2>Sub System</h2> *@
 				<div class="all-products">
 					<div class="product">
-						<img src="~/css/patient.png" />
+						<img src="~/css/specialise.png" />
 						<div class="product-info">
 							<h4 class="product-title">
-								Patient Evaluation
+								Specialised Medical Procedures
 							</h4>
-							<a asp-controller="Specialised" asp-action="EvalIndex">Patient Evaluation</a>
+							<a asp-controller="Procedure" asp-action="land">GO</a>
 
 						</div>
 					</div>

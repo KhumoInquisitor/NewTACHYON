@@ -71,12 +71,8 @@ public class TachyonDbContext : IdentityDbContext<TachyonUser>
     public DbSet<Patient> Patients { get; set; }
     public DbSet<Referral> Referral { get; set; }
     public DbSet<Message> Message { get; set; }
-    public DbSet<Procedure> ProcedureNotes { get; set; }
-    //public DbSet<TreatmentPlan> Treatment { get; set; }
+    public DbSet<ProcedureName> ProcedureName { get; set; }
     public DbSet<Procedure> Procedure { get; set; }
-    //public DbSet<PatientEvaluation> Evaluation { get; set; }
-    //public DbSet<PatientProgress> Progress { get; set; }
-    //public DbSet<LabTest> Lab { get; set; }
-    //public DbSet<Tachyon.Models.Sappointments>? Sappointments { get; set; }
     public IEnumerable<object> Alerts { get; internal set; }
+    public DbSet<Tachyon.Models.AppointmentViewModel>? AppointmentViewModel { get; set; }
 }
