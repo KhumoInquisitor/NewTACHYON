@@ -8,6 +8,8 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using Tachyon.Areas.Identity.Data;
 using Microsoft.AspNetCore.Mvc.Razor.TagHelpers;
+using Humanizer;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Tachyon.Models
 {
@@ -15,23 +17,36 @@ namespace Tachyon.Models
 	{
 		[Key]
 		public int Id { get; set; }
-		//patient
-		public int patientId { get; set; }
-		public string patientName { get; set; }
-		public DateTime? dob { get; set; }
-		public string patientContact { get; set; }
-		//specialist
-		public int specialistId { get; set; }
-		public string specialistName { get; set; }
-		public string specialty { get; set; }
-		public string contact { get; set;}
-		public string practiseNumber { get; set;}
-		//letter
-		public DateTime? date { get; set; }
-		public string complaint { get; set; }
-		public string medHistory { get; set; }
-		public string phyExam { get; set; }
-		public string notes { get; set; }
-		public string bloodTests { get; set; }
+
+		// Patient details
+		[Required]
+		[ForeignKey("Patient")]
+		public int PatientId { get; set; }
+		public virtual Patient Patient { get; set; }
+
+		// Specialist details
+		[Required]
+		[ForeignKey("Specialist")]
+		public int SpecialistId { get; set; }
+		public string Specialist { get; set; }
+
+		// Referral letter details
+		[Required]
+		public DateTime Date { get; set; }
+
+		[Required, MaxLength(500)]
+		public string Complaint { get; set; }
+
+		[MaxLength(1000)]
+		public string MedHistory { get; set; }
+
+		[MaxLength(1000)]
+		public string PhyExam { get; set; }
+
+		[MaxLength(1000)]
+		public string Notes { get; set; }
+
+		[MaxLength(500)]
+		public string BloodTests { get; set; }
 	}
 }
