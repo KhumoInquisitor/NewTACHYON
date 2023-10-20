@@ -9,7 +9,8 @@ namespace Tachyon.Models
 {
     public class FamilyPrescription
     {
-        [Key]
+       
+ [Key]
         public int FamilyPrescriptionID { get; set; }
         [Required]
         [DisplayName("Patient Name")]
@@ -23,6 +24,5 @@ namespace Tachyon.Models
        
         [Required]
         public DateTime Date { get; set; }
-
     }
 }

@@ -165,6 +165,10 @@ namespace Tachyon.Controllers
             var medications = Chronic_Report.GetAllMedications(); // Fetch medication data from the repository
             return View("Report", medications);
         }
+		public IActionResult Print()
+		{
+			return View();
+		}
 
 
     }

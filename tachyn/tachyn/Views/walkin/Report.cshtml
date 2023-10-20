@@ -12,15 +12,15 @@
     Layout = "~/Views/Shared/walkinLayout.cshtml";
 }
 <div id="mainDiv" class="border p-2">
-    <div id="Header" class="bg-primary">
-       <h1 class="m-1 text-center text-white">Report Sessions for walk-in</h1>
+    <div id="Header" class="bg-success">
+       <h1 class="m-1 text-center text-white">Report for walk-in Appointments</h1>
     </div>
     <button id="btnPrint" class="btn btn-primary">
         Generate Report
     </button>
     <div id="Information" class="row">
         <div class="col-8">
-            <img src="~/Logo/4.png style="width:200px"/>
+            <img src="~/Logo/4trimmed.png" style="width:200px"/>
             <p class="mt-3">Date Of Report:@ViewBag.Date</p>
             <p class="mt-3">Time Of Report:@ViewBag.Time</p>
 
@@ -35,48 +35,38 @@
 
     </div>
     </div>
-    <h3 class=" text-center">List Of All Sessions</h3>
+     <h3 class=" text-center">List Of All Appointments</h3>
     <table id="MyTable" class="table">
 
-        <thead class="table-dark">
+        <thead class="table-primary">
 
-            <tr>
-                <th>
-                    Patient Information
-                </th>
-<th>
-                    Patient Information
-                </th>
-                <th>
-                    Patient Information
-                </th>
-<th>
-                    Patient Information
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(Booking item in ViewBag.Booking)
+             <tr>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Date & Time</th>
+                    <th>Service</th>
+                </tr>
+            </thead>
+           @* @foreach (var book in Model)
             {
-              <tr>
-                  <td>
-                      @Html.DisplayFor(modelItem=> item.name)@Html.DisplayFor(modelItem=>item.name)
-                  </td>
-                    <td>
-                        @Html.DisplayFor(modelItem=> item.lastname)@Html.DisplayFor(modelItem=>item.lastname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem=> item.email)@Html.DisplayFor(modelItem=>item.email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem=> item.id)@Html.DisplayFor(modelItem=>item.id)
-                    </td>
-              </tr>  
-                
-            }
-        </tbody>
-    </table>
-    </div>
+                <tr>
+                    <td>@book.name</td>
+                    <td>@book.lastname</td>
+                    <td>@book.email</td>
+                    <td>@book.datetimevalue</td>
+                    <td>@book.Department</td>
+                    <td><button asp-controller="Walkin" asp-action="Edit" asp-route-ID="@book.id" class="btn-success">Update</button></td>
+                    <td><button asp-controller="Walkin" asp-action="Delete" asp-route-ID="@book.id" class="btn-danger">Delete</button></td>
+                </tr>
+            }*@
+
+        </table>
+    @*</form>
+    <br />
+    <a asp-controller="Walkin" asp-action="Booking"><button id="button1" class="btn-danger">Back</button></a>*@
+
+
     <script defer>
         window.onload=function()
         {
