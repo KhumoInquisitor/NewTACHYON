@@ -32,15 +32,15 @@ namespace Tachyon.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ManageFile(ManageFile managefile)
+        public IActionResult ManageFile(ManageFile managefiles)
         {
             if (ModelState.IsValid)
             {
-                _context.manageFiles.Add(managefile);
+                _context.manageFiles.Add(managefiles);
                 _context.SaveChanges();
                 return RedirectToAction("Filelist");
             }
-            return View(managefile);
+            return View(managefiles);
         }
         public IActionResult FileList()
         {

@@ -3,16 +3,16 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/walkinLayout.cshtml";
 }
-<div class="container p-3 bg-success p-2 text-dark bg-opacity-50">
-    <img src="~/css/images.jpg" class="rounded float-end">
+<div class="container p-3 bg-primary p-2 text-dark bg-opacity-50">
+    <img src="~/Logo/4trimmed.png" class="rounded float-end">
     <div class=" row pt-4">
         <div class=" col-10">
-            <h2 class="text-primary"> List of Files</h2>
+            <h2 class="text-black"> List of Files</h2>
         </div>
         <div class=" col-10 text-right">
-            <a asp-controller="ManageFile" asp-action="ManageFile" style="width:100%"></a>
+            <a asp-controller="walkin" asp-action="ManageFile" style="width:100%"></a>
         </div>
     </div>
 
