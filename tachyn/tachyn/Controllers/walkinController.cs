@@ -26,7 +26,7 @@ namespace Tachyon.Controllers
             //            View() :
             //            Problem("Entity set 'TachyonDbContext.Booking'  is null.");
         }
-        public IActionResult Files()
+        public IActionResult ManageFile()
         {
             return View();
         }

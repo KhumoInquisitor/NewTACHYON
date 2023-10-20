@@ -2,15 +2,18 @@
 
 @{
     ViewData["Title"] = "ManageFiles";
+    Layout = "~/Views/Shared/walkinLayout.cshtml";
+}
 }
 
 <h1>ManageFiles</h1>
 
 <h4>ManageFile</h4>
 <hr />
+
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="ManageFiles">
+        <form id="card" class="card" asp-controller="Walkin" asp-action="ManageFile" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -75,6 +78,7 @@
 </div>
 
 <div>
+    < a asp-action="fileList">View Files</>
     <a asp-action="Index">Back to List</a>
 </div>
 
