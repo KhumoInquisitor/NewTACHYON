@@ -26,15 +26,27 @@ namespace Tachyon.Controllers
             //            View() :
             //            Problem("Entity set 'TachyonDbContext.Booking'  is null.");
         }
-        public IActionResult ManageFiles()
+        public IActionResult Files()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ManageFile(ManageFile managefile)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.manageFiles.Add(managefile);
+                _context.SaveChanges();
+                return RedirectToAction("Filelist");
+            }
+            return View(managefile);
         }
         public IActionResult FileList()
         {
 
-            IEnumerable<ManageFile> list = _context.manageFiles;
-            return View(list);
+            IEnumerable<ManageFile> filelist = _context.manageFiles;
+            return View(filelist);
         }
         public IActionResult Doctors()
         {
@@ -258,15 +270,17 @@ namespace Tachyon.Controllers
             var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
             ViewBag.Date = DateTime.Now.ToString("dd/MMMM/yyyyy");
             ViewBag.Time = DateTime.Now.ToString(" HH:mm");
+
             
-            if (Alerts.Count() > 0)
-            {
-                ViewBag.Alerts = Alerts;
-                TempData["Alerts"] = "Not null";
-            
-            }
-            ViewBag.Booking = await _context.Booking.Include(a => a.name).Include(b => b.lastname).Include(a=> 
-            a.name).ToListAsync();
+
+            //if (Alerts.Count() > 0)
+            //{
+            //    ViewBag.Alerts = Alerts;
+            //    TempData["Alerts"] = "Not null";
+
+            //}
+            //ViewBag.Booking = await _context.Booking.Include(a => a.name).Include(b => b.lastname).Include(a=> 
+            //a.name).ToListAsync();
             return View();
         }
 
