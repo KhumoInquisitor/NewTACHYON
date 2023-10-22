@@ -1,23 +1,79 @@
-﻿@model IEnumerable<Tachyon.Models.Chronic_Report>
+﻿@model IEnumerable<Tachyon.Models.MedicationRecords>
+
+
+@using Microsoft.AspNetCore.Identity
+@using Tachyon.Models
+@using Tachyon.Areas.Identity.Data
+
+@inject SignInManager<TachyonUser> SignInManager
+@inject UserManager<TachyonUser> UserManager
+
+@{
+   ViewData["Title"] = "Records";
+    Layout = "~/Views/Shared/_Layoutchronic.cshtml";
+}
+<div class="mt-2 p-2 bg-blue-200 text-center text-white rounded">
+    <h6>Medication Report</h6>
+</div>
+<div class="align-content-end">
+    <img src="~/Logo/4.png" class="float-end" style="width:200px" />
+</div>
+<div class="container p-3 bg-blue-200 p-2 text-dark  bg-blue-200 bg-opacity-50">
+   @* <img src="~/css/images.jpg" class="rounded float-end">*@
+    <div class=" row pt-4">
+       
+        <div class=" col-10 text-right">
+            <a asp-controller="Chronic" asp-action="MedRecords" style="width:100%"></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-8">
+        <p class="text-primary"> First Name: @UserManager.GetUserAsync(User).Result.FirstName</p>
+            <p class="text-primary"> Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
+            <p class="text-primary">Email Address: @UserManager.GetUserAsync(User).Result.Email</p>
+            <p class="text-primary">Phone Number: @UserManager.GetUserAsync(User).Result.PhoneNumber</p>
+
+        </div>
+        <div class="col-4">
+            <p class="text-black-80">DATE OF REPORT: @ViewBag.Date</p>
+        </div>
+    </div>
+    <br />
+     <a href="javascript:window.print()" class="btn btn-Info">Print</a>
+  
+        <table class=" table table-bordered table-striped">
+            <thead>
+                <tr>
+                  
+                   <th>Medication Name</th>
+                 <th>Purpose </th>
+                 <th>Description</th>
+                <th>Ordered Date</th>
+                <th> Expiry Date</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var medRecords in Model)
+                {
+
+                    <tr>
+                    <td>@medRecords.NameOfMedication</td>
+                    <td>@medRecords.Purpose</td>
+                    <td>@medRecords.Description</td>
+                    <td>@medRecords.OrderedDate</td>
+                    <td>@medRecords.ExpiryDate</td>
+             
+
+                    </tr>
 
 
 
-<h2>Medication Report</h2>
+                }
 
-<table class="table">
-    <tr>
-        <th>Name</th>
-        <th>Dosage</th>
-        <th>Ordered Date</th>
-       @* <th>Expiration Date</th>*@
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Dosage</td>
-            <td>@item.ordered.ToShortDateString()</td>
-           @* <td>@item.ExpirationDate.ToShortDateString()</td>*@
-        </tr>
-    }
-</table>
+            </tbody>
+        </table>
+        <button class=btn btn-success>Report</button>
+
+</div>
+
