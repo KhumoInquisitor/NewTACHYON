@@ -166,14 +166,14 @@ namespace Tachyon.Controllers
 		{
 			var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
 			ViewBag.Date = DateTime.Now.ToString("dd/MMM/yyyy HH:mm");
-            var Alerts = _context.Alerts.Where(a => a.IntendedUser == user).OrderByAscending(a => a.date).ToList();
+   //         var Alerts = _context.Alerts.Where(a => a.IntendedUser == user).OrderByAscending(a => a.date).ToList();
 
-			if (Alerts.Count > 0)
-			{
-				ViewBag.Alerts = Alerts;
-				TempData["Alerts"] = "Not Null";
+			//if (Alerts.Count > 0)
+			//{
+			//	ViewBag.Alerts = Alerts;
+			//	TempData["Alerts"] = "Not Null";
 
-			}
+			//}
 			ViewBag.Medication = await _context.medicationRecords.ToListAsync();
 			return View();
 
