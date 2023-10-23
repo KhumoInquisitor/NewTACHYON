@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Reflection.Metadata.Ecma335;
 using Tachyon.Areas.Identity.Data;
 using Tachyon.Models;
+using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace Tachyon.Controllers
 {
@@ -160,15 +162,24 @@ namespace Tachyon.Controllers
         {
             return View();
         }
-        public ActionResult MedicationReport()
-        {
-            var medications = Chronic_Report.GetAllMedications(); // Fetch medication data from the repository
-            return View("Report", medications);
-        }
-		public IActionResult Print()
+        public async Task<ActionResult> MedicationReport()
 		{
+			var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+			ViewBag.Date = DateTime.Now.ToString("dd/MMM/yyyy HH:mm");
+   //         var Alerts = _context.Alerts.Where(a => a.IntendedUser == user).OrderByAscending(a => a.date).ToList();
+
+			//if (Alerts.Count > 0)
+			//{
+			//	ViewBag.Alerts = Alerts;
+			//	TempData["Alerts"] = "Not Null";
+
+			//}
+			ViewBag.Medication = await _context.medicationRecords.ToListAsync();
 			return View();
+
 		}
+        
+           
 
 
     }

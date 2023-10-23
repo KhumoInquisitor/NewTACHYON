@@ -32,15 +32,15 @@ namespace Tachyon.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult ManageFile(ManageFile managefile)
+        public IActionResult ManageFile(ManageFile managefiles)
         {
             if (ModelState.IsValid)
             {
-                _context.manageFiles.Add(managefile);
+                _context.manageFiles.Add(managefiles);
                 _context.SaveChanges();
                 return RedirectToAction("Filelist");
             }
-            return View(managefile);
+            return View(managefiles);
         }
         public IActionResult FileList()
         {
@@ -194,58 +194,61 @@ namespace Tachyon.Controllers
         }
 
 
+
         // POST: walkin/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update(int id, [Bind("id,name,lastname,email,datetimevalue,subsystem")] Booking booking)
+        public IActionResult Update(Booking book)
         {
-            if (id != booking.id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(booking);
-                    _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!BookingExists(booking.id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction("ViewAppointment");
-            }
-            return View(booking);
+            _context.bookings.Update(book);
+            _context.SaveChanges();
+            return RedirectToAction("ViewAppointment");
         }
+        //{
+        //    if (id != booking.id)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //if (ModelState.IsValid){
+        ////{
+        ////    try
+        ////    {
+        //        _context.Update(booking);
+        //        _context.SaveChangesAsync();
+        //    }
+
+        //catch (DbUpdateConcurrencyException)
+        //{
+        //    if (!BookingExists(booking.id))
+        //    {
+        //        return NotFound();
+        //    }
+        //    else
+        //    {
+        //        throw;
+        //    }
+        //}
+        //        return RedirectToAction("ViewAppointment");
+        //    }
+        //    return View(booking);
+        //}
 
         // GET: walkin/Delete/5
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int? ID)
         {
-            if (id == null || _context.Booking == null)
+            var obj = _context.bookings.Find(ID);
+            if (obj == null)
             {
                 return NotFound();
             }
-
-            var booking = _context.Booking
-                .FirstOrDefaultAsync(m => m.id == id);
-            if (booking == null)
-            {
-                return NotFound();
-            }
-
-            return View(booking);
+            _context.bookings.Remove(obj);
+            _context.SaveChanges();
+            return RedirectToAction("ViewAppointment");
         }
+
 
         // POST: walkin/Delete/5
         [HttpPost, ActionName("Delete")]

@@ -1,85 +1,171 @@
 ﻿@model Tachyon.Models.ManageFile
-
 @{
-    ViewData["Title"] = "ManageFiles";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/walkinLayout.cshtml";
 }
+<div class="mt-2 p-2 bg-primary text-center text-white rounded">
+    <h6>Create File</h6>
 
-<h1>ManageFiles</h1>
+</div>
+<form method="post" asp-action="ManageFile" class=" form-horizontal   bg-green-300  p-2 text-dark bg-opacity-20 align-text-center">
+    <div class=" border border-primary border-5 p-3">
+        <div asp-validation-summary="ModelOnly" class=" text-danger"></div>
 
-<h4>ManageFile</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="ManageFiles">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+        <div class="row">
+            <div class=" form-group col-6">
+                <label asp-for="Name"></label>
+                <div col-sm-10>
+                    <input asp-for="Name" class=" form-control" id="validationRace" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Name" class=" text-danger"></span>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Surname" class="control-label"></label>
-                <input asp-for="Surname" class="form-control" />
-                <span asp-validation-for="Surname" class="text-danger"></span>
+            <div class=" form-group col-6">
+                <label asp-for="Surname"></label>
+                <div col-sm-10>
+                    <input asp-for="Surname" class=" form-control" id="validationRace" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Surname" class=" text-danger"></span>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
-                <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class=" form-group col">
+                <label asp-for="Gender"></label>
+                <div col-sm-5>
+                    <select id="GenderDropdown" asp-for="Gender" class=" form-control" id="validationName">
+                        <option value="select">select</option>
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+
+
+                    </select>
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Gender" class=" text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="DateOFBirth" class="control-label"></label>
-                <input asp-for="DateOFBirth" class="form-control" />
-                <span asp-validation-for="DateOFBirth" class="text-danger"></span>
+
+            <div class=" form-group col">
+                <label asp-for="Race"></label>
+                <div col-sm-10>
+                    <select id="DescriptionDropdown" asp-for="Race" class=" form-control" id="validationName">
+                        <option value="select">select</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        @*<option value="Asian">White</option>*@
+
+
+                    </select>
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Race" class=" text-danger"></span>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Race" class="control-label"></label>
-                <input asp-for="Race" class="form-control" />
-                <span asp-validation-for="Race" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class=" form-group col-6">
+                <label asp-for="Email"></label>
+                <div col-sm-10>
+                    <input asp-for="Email" class=" form-control" id="validationRace" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="Email" class=" text-danger"></span>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+
+
+            <div class=" form-group col-6">
+                <label asp-for="address"></label>
+                <div col-sm-10>
+                    <input asp-for="address" class=" form-control" id="validationRace" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="address" class=" text-danger"></span>
+
             </div>
-            <div class="form-group">
-                <label asp-for="address" class="control-label"></label>
-                <input asp-for="address" class="form-control" />
-                <span asp-validation-for="address" class="text-danger"></span>
+        </div>
+        @*<div class="row">
+            <div class=" form-group col-6">
+                <label asp-for="address2"></label>
+                <div col-sm-10>
+                    <input asp-for="address2" class=" form-control" id="validationRace" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="address2" class=" text-danger"></span>
+
+            </div>*@
+
+
+            <div class=" form-group col-6">
+                <label asp-for="City"></label>
+                <div col-sm-10>
+                    <input asp-for="City" class=" form-control" id="validationRace" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="City" class=" text-danger"></span>
+
             </div>
-            <div class="form-group">
-                <label asp-for="address2" class="control-label"></label>
-                <input asp-for="address2" class="form-control" />
-                <span asp-validation-for="address2" class="text-danger"></span>
+
+        </div>
+        <div class="row">
+
+            <div class=" form-group col">
+                <label asp-for="province"></label>
+                <div col-sm-10>
+                    <select id="DescriptionDropdown" asp-for="province" class=" form-control" id="validationName">
+                        <option value="select">select</option>
+                        <option value="Eastern Cape">Eastern Cape</option>
+                        <option value="Kwazulu-Natal">Kwazulu_Natala</option>
+                        <option value="Limpompo">Limpompo</option>
+                        <option value="western Cape">Western Cape</option>
+                        <option value="North West">North west</option>
+                        <option value="Mpumalanga">Mpumalanga</option>
+                        <option value="Free State">Free State</option>
+                        <option value="Gauteng">Gauteng</option>
+
+
+
+                    </select>
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="province" class=" text-danger"></span>
+
             </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
+
+
+            <div class=" form-group col-6">
+                <label asp-for="zip"></label>
+                <div col-sm-10>
+                    <input asp-for="zip" class=" form-control" id="validationRace" required />
+                </div>
+                <div class="invalid-feedback">
+                </div>
+                <span asp-validation-for="zip" class=" text-danger"></span>
+
             </div>
-            <div class="form-group">
-                <label asp-for="province" class="control-label"></label>
-                <input asp-for="province" class="form-control" />
-                <span asp-validation-for="province" class="text-danger"></span>
+
+        </div>
+        <div class=" form-group row">
+            <div class=" col-8 offset-2 row">
+                <div class=" col">
+                    <input type="submit" class="btn-primary btn-lg  " value="submit" />
+                </div>
+                <div class=" col-1">
+                    <a asp-action="Filelist" class=" btn btn-primary btn-lg ">Files</a>
+
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="zip" class="control-label"></label>
-                <input asp-for="zip" class="form-control" />
-                <span asp-validation-for="zip" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}
+</form>
