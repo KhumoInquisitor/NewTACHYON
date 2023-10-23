@@ -1,0 +1,67 @@
+﻿@model Tachyon.Models.ProcedureFeedback
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ProcedureFeedback</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HasUndergoneProcedure)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HasUndergoneProcedure)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProcedureName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProcedureName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Concerns)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Concerns)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DecisionReason)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DecisionReason)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PostProcedureExperience)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PostProcedureExperience)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ManagementOfSideEffects)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ManagementOfSideEffects)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OverallSatisfaction)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OverallSatisfaction)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

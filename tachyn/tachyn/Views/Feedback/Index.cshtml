@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Tachyon.Models.ProcedureFeedback>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.HasUndergoneProcedure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcedureName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Concerns)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DecisionReason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostProcedureExperience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManagementOfSideEffects)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OverallSatisfaction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasUndergoneProcedure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcedureName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Concerns)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecisionReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostProcedureExperience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagementOfSideEffects)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OverallSatisfaction)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

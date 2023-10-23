@@ -17,7 +17,7 @@ public class TachyonDbContext : IdentityDbContext<TachyonUser>
     public DbSet<Appointment> appointments { get; set; }
     public DbSet<Booking> bookings { get; set; }
     public DbSet<Feedback> feedbacks { get; set; }
-   public DbSet<FamilyPlanning> familyPlanning { get; set; }
+    public DbSet<FamilyPlanning> familyPlanning { get; set; }
     public DbSet<ManageFile> manageFiles { get; set; }
     public DbSet<FamilyAppointment> familyAppointments { get; set; }
     public DbSet<FamilyFeedBack> familyFeedBacks { get; set; }
@@ -74,5 +74,6 @@ public class TachyonDbContext : IdentityDbContext<TachyonUser>
     public DbSet<ProcedureName> ProcedureName { get; set; }
     public DbSet<Procedure> Procedure { get; set; }
     public IEnumerable<object> Alerts { get; internal set; }
-    public DbSet<Tachyon.Models.AppointmentViewModel>? AppointmentViewModel { get; set; }
+    public DbSet<Tachyon.Models.AppointmentViewModel>? AppView { get; set; }
+    public DbSet<ProcedureFeedback> ProcedureFeedbacks { get; set; }
 }

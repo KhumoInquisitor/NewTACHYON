@@ -18,7 +18,7 @@ namespace Tachyon.Models
 		//patient
 		public string patientId { get; set; }
 		public string patientName { get; set; }
-		public DateTime? dob { get; set; }
+		public DateTime? Dob { get; set; }
 		//personnel
 		public string specialistName { get; set; }
 		public int specialistId { get; set;}

@@ -1,0 +1,75 @@
+﻿@model Tachyon.Models.Referral
+
+@{
+    ViewData["Title"] = "updateReferral";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<h1>updateReferral</h1>
+
+<h4>Referral</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="updateReferral">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="patientId" class="control-label"></label>
+                <input asp-for="patientId" class="form-control" />
+                <span asp-validation-for="patientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="specialistId" class="control-label"></label>
+                <input asp-for="specialistId" class="form-control" />
+                <span asp-validation-for="specialistId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="specialist" class="control-label"></label>
+                <input asp-for="specialist" class="form-control" />
+                <span asp-validation-for="specialist" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="date" class="control-label"></label>
+                <input asp-for="date" class="form-control" />
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="complaint" class="control-label"></label>
+                <input asp-for="complaint" class="form-control" />
+                <span asp-validation-for="complaint" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="medHistory" class="control-label"></label>
+                <input asp-for="medHistory" class="form-control" />
+                <span asp-validation-for="medHistory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="phyExam" class="control-label"></label>
+                <input asp-for="phyExam" class="form-control" />
+                <span asp-validation-for="phyExam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="notes" class="control-label"></label>
+                <input asp-for="notes" class="form-control" />
+                <span asp-validation-for="notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="bloodTests" class="control-label"></label>
+                <input asp-for="bloodTests" class="form-control" />
+                <span asp-validation-for="bloodTests" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
