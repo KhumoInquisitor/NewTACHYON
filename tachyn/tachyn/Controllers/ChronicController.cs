@@ -26,12 +26,40 @@ namespace Tachyon.Controllers
             IEnumerable<MedicationRecords> records =_context.medicationRecords;
             return View(records);
         }
+        [HttpPost]
+        public IActionResult MedRecords(MedicationRecords medicationRecords)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.medicationRecords.Add(medicationRecords);
+                _context.SaveChanges();
+                return RedirectToAction("MedicationIndex");
+
+            }
+            return View(medicationRecords);
+        }
+
+
         public IActionResult FillingIndex()
         {
 
             IEnumerable<FillingPrescription>prescriptions=_context.fillingPrescriptions;
             return View(prescriptions);
         }
+
+        [HttpPost]
+        public IActionResult Fillmed(FillingPrescription fillingPrescription)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.fillingPrescriptions.Add(fillingPrescription);
+                _context.SaveChanges();
+                return RedirectToAction("FillingIndex");
+
+            }
+            return View(fillingPrescription);
+        }
+
         public IActionResult CollectionIndex()
         {
 
@@ -39,10 +67,7 @@ namespace Tachyon.Controllers
             return View(collections);
         }
 
-        //public IActionResult CreateCollection()
-        //{
-        //    return View();
-        //}
+     
         public IActionResult CollectMed(Collection collection)
 		{
             if (ModelState.IsValid)
@@ -54,111 +79,16 @@ namespace Tachyon.Controllers
             }
             return View(collection);
         }
-		[HttpPost]//you are able to post the data
-		[ValidateAntiForgeryToken]
-        public IActionResult Create()
-        {
-            return View();
-        }
-        public IActionResult Fillmed(FillingPrescription fillingPrescription)
-		{
-			if (ModelState.IsValid)
-			{
-				_context.fillingPrescriptions.Add(fillingPrescription);
-				_context.SaveChanges();
-				return RedirectToAction("FillingIndex");
+		//[HttpPost]
+		//[ValidateAntiForgeryToken]
+  //      public IActionResult Create()
+  //      {
+  //          return View();
+  //      }
 
-			}
-			return View(fillingPrescription);
-		}
-       
-        public IActionResult MedRecords(MedicationRecords medicationRecords)
-		{
-			if (ModelState.IsValid)
-			{
-				_context.medicationRecords.Add(medicationRecords);
-				_context.SaveChanges();
-				return RedirectToAction("MedicationIndex");
 
-			}
-			return View(medicationRecords);
-		}
-       
-        public IActionResult MediUpdate(int? ID)//the ID on this will look for that certain ID to update
-		{
-			if (ID == null || ID == 0)
-			{
-				return NotFound();
-			}
-			var Med = _context.medicationRecords.Find(ID);// will look for the ID
 
-			if (Med == null)
-			{
-				return NotFound();
-			}
-
-			return View(Med);
-		}
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-
-        //public IActionResult UpdateMed()
-        //{
-        //    return View();
-        //}
-        public IActionResult MediUpdate(MedicationRecords records) //Post updated data to the table
-		{
-			_context.medicationRecords.Update(records);
-			_context.SaveChanges();
-			return RedirectToAction("MedicationIndex");
-		}
-		public IActionResult Fillupdate(int? ID)//the ID on this will look for that certain ID to update
-		{
-			if (ID == null || ID == 0)
-			{
-				return NotFound();
-			}
-			var filling = _context.fillingPrescriptions.Find(ID);// will look for the ID
-
-			if (filling == null)
-			{
-				return NotFound();
-			}
-
-			return View(filling);
-		}
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-
-		//public IActionResult Fillupdate()
-		//{
-		//	return View();
-		//}
-		public IActionResult Fillupdate(FillingPrescription prescription) //Post updated data to the table
-		{
-			_context.fillingPrescriptions.Update(prescription);
-			_context.SaveChanges();
-			return RedirectToAction("FillingIndex");
-		}
-
-		//public IActionResult Delete(int? ID)
-		//{
-
-		//	var fighter = context.Fighters.Find(ID);
-
-		//	if (fighter == null)
-		//	{
-		//		return NotFound();
-		//	}
-		//	context.Fighters.Remove(fighter);
-		//	context.SaveChanges();
-		//	return RedirectToAction("Index");
-
-		//}
-
-		//}
-
-		public IActionResult Chronic_Dashboard()
+        public IActionResult Chronic_Dashboard()
         {
             return View();
         }
