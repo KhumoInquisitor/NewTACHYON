@@ -4,7 +4,7 @@
 <div class="container p-4">
     <div class="row pt-5">
         <div class="col-6">
-            <h2 class="text-center text-capitalize" style="color:cadetblue"> List of Patients Meddication </h2>
+            <h2 class="text-center text-capitalize" style="color:cadetblue"> Medication List </h2>
         </div>
 
     </div>
@@ -23,17 +23,17 @@
                     <th>Description</th>
                     <th>Expiry Date</th>
                     <th>Ordered Date</th>
-                    <th>Update</th>
+                   @* <th>Update</th>*@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var Records in Model)
+                @foreach (var MedicationRecords in Model)
                 {
                     <tr>
-                        <td width="10%"> @Records.ID </td>
-                        <td width="20%">@Records.Description </td>
-                        <td width="30%"> @Records.ExpiryDate </td>
-                        <td width="10%"> @Records.OrderedDate </td>
+                        <td width="10%"> @MedicationRecords.ID </td>
+                        <td width="20%">@MedicationRecords.Description </td>
+                        <td width="30%"> @MedicationRecords.ExpiryDate </td>
+                        <td width="10%"> @MedicationRecords.OrderedDate </td>
                     </tr>
              
 

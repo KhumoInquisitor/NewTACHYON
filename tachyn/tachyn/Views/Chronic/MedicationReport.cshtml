@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Tachyon.Models.MedicationRecords>
+﻿@model IEnumerable<Tachyon.Models.Collection>
 
 
 @using Microsoft.AspNetCore.Identity
@@ -12,12 +12,15 @@
    ViewData["Title"] = "Records";
     Layout = "~/Views/Shared/_Layoutchronic.cshtml";
 }
-<div class="mt-2 p-2 bg-blue-200 text-center text-white rounded">
-    <h6>Medication Report</h6>
-</div>
+
 <div class="align-content-end">
     <img src="~/Logo/4.png" class="float-end" style="width:200px" />
 </div>
+
+<div class="mt-2 p-2 bg-blue-200 text-center ">
+    <h3>Medication Report</h3>
+</div>
+
 <div class="container p-3 bg-blue-200 p-2 text-dark  bg-blue-200 bg-opacity-50">
    @* <img src="~/css/images.jpg" class="rounded float-end">*@
     <div class=" row pt-4">
@@ -31,7 +34,7 @@
         <p class="text-primary"> First Name: @UserManager.GetUserAsync(User).Result.FirstName</p>
             <p class="text-primary"> Last Name: @UserManager.GetUserAsync(User).Result.LastName</p>
             <p class="text-primary">Email Address: @UserManager.GetUserAsync(User).Result.Email</p>
-            <p class="text-primary">Phone Number: @UserManager.GetUserAsync(User).Result.PhoneNumber</p>
+           @* <p class="text-primary">Phone Number: @UserManager.GetUserAsync(User).Result.PhoneNumber</p>*@
 
         </div>
         <div class="col-4">
@@ -40,32 +43,37 @@
     </div>
     <br />
      <a href="javascript:window.print()" class="btn btn-Info">Print</a>
-  
-        <table class=" table table-bordered table-striped">
+    @if (Model.Count() > 0)
+    {
+         <table class=" table table-bordered table-striped">
             <thead>
+            <tr>
+                <th>Order Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Date of Birth</th>
+                <th>Medication Name</th>
+                <th>Collected</th>
+                <th>Quality</th>
+            </tr>
+        </thead>
+       
+        <tbody>
+            
+
+            @foreach (var item in Model)
+            {
+
                 <tr>
-                  
-                   <th>Medication Name</th>
-                 <th>Purpose </th>
-                 <th>Description</th>
-                <th>Ordered Date</th>
-                <th> Expiry Date</th>
+                    <td width="10%"> @item.OrderNo </td>
+                    <td width="30%"> @item.FirstName </td>
+                    <td width="30%">@item.lastName </td>
+                    <td width="20%"> @item.DateOfBirth</td>
+                    <td width="40%"> @item.MedicationName</td>
+                    <td width="10%"> @item.Collected</td>
+                    <td width="10%"> @item.Quantity</td>
 
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var medRecords in Model)
-                {
-
-                    <tr>
-                    <td>@medRecords.NameOfMedication</td>
-                    <td>@medRecords.Purpose</td>
-                    <td>@medRecords.Description</td>
-                    <td>@medRecords.OrderedDate</td>
-                    <td>@medRecords.ExpiryDate</td>
-             
-
-                    </tr>
 
 
 
@@ -75,5 +83,11 @@
         </table>
         <button class=btn btn-success>Report</button>
 
+    }
+    else
+    {
+        <p>No Report was generated</p>
+    }
 </div>
+   
 

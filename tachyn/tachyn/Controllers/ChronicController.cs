@@ -162,25 +162,31 @@ namespace Tachyon.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> MedicationReport()
+		public async Task<IActionResult> MedicationReport(dynamic Alerts)
 		{
 			var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
-			ViewBag.Date = DateTime.Now.ToString("dd/MMM/yyyy HH:mm");
-   //         var Alerts = _context.Alerts.Where(a => a.IntendedUser == user).OrderByAscending(a => a.date).ToList();
+			ViewBag.Date = DateTime.Now.ToString("dd/MMMM/yyyyy");
+			ViewBag.Time = DateTime.Now.ToString(" HH:mm");
 
-			//if (Alerts.Count > 0)
+
+
+			//if (Alerts.Count() > 0)
 			//{
 			//	ViewBag.Alerts = Alerts;
-			//	TempData["Alerts"] = "Not Null";
+			//	TempData["Alerts"] = "Not null";
 
 			//}
-			ViewBag.Medication = await _context.medicationRecords.ToListAsync();
+			ViewBag.Booking = await _context.collection.ToListAsync();
 			return View();
-
 		}
-        
-           
 
 
-    }
+
+
+
+
+
+
+
+	}
 }

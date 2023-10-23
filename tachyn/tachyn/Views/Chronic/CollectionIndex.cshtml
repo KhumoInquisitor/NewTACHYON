@@ -29,13 +29,13 @@
                     @foreach (var Collect in Model)
                     {
                         <tr>
-                            <td width="10%"> @Collect.FirstName </td>
-                            <td width="20%">@Collect.lastName </td>
-                            <td width="30%"> @Collect.OrderNo </td>
-                            <td width="10%"> @Collect.MedicationName</td>
-                            <td width="10%"> @Collect.Quantity</td>
-                            <td width="10%"> @Collect.DateOfBirth</td>
+                            <td width="10%"> @Collect.OrderNo </td>
+                            <td width="30%"> @Collect.FirstName </td>
+                            <td width="30%">@Collect.lastName </td>
+                            <td width="20%"> @Collect.DateOfBirth</td>
+                            <td width="40%"> @Collect.MedicationName</td>
                             <td width="10%"> @Collect.Collected</td>
+                            <td width="10%"> @Collect.Quantity</td>
 
                         </tr>
                  @*   <td>

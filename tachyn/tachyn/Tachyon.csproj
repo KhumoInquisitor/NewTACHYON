@@ -48,9 +48,7 @@
     <None Include="Views\Chronic\CollectMed.cshtml" />
     <None Include="Views\Chronic\FillingIndex.cshtml" />
     <None Include="Views\Chronic\Fillmed.cshtml" />
-    <None Include="Views\Chronic\Fillupdate.cshtml" />
     <None Include="Views\Chronic\MedicationIndex.cshtml" />
-    <None Include="Views\Chronic\MediUpdate.cshtml" />
     <None Include="Views\Chronic\MedRecords.cshtml" />
     <None Include="Views\Vaccine\Appointment.cshtml" />
     <None Include="Views\Vaccine\AppointmentHistory.cshtml" />
