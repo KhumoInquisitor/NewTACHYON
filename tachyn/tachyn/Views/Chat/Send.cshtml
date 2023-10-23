@@ -1,0 +1,13 @@
+﻿
+<h2>Send a Message</h2>
+
+<form method="post" action="@Url.Action("SendMessage", "Chat")">
+    <div>
+        <label for="text">Message:</label>
+        <input type="text" name="text" required />
+    </div>
+    <div>
+        <input type="submit" value="Send" />
+    </div>
+</form>
+ 

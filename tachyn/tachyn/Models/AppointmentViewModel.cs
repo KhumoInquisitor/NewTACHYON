@@ -14,7 +14,7 @@ namespace Tachyon.Models
 	public class AppointmentViewModel
 	{
 		[Key]
-		public int AppointmentId { get; set; }
+		public int Id { get; set; }
 		[Required]
 		public string? PatientID { get; set; }
 		[ForeignKey("PatientID")]

@@ -1,0 +1,69 @@
+﻿@model Tachyon.Models.ProcedureFeedback
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>ProcedureFeedback</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HasUndergoneProcedure" /> @Html.DisplayNameFor(model => model.HasUndergoneProcedure)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProcedureName" class="control-label"></label>
+                <input asp-for="ProcedureName" class="form-control" />
+                <span asp-validation-for="ProcedureName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concerns" class="control-label"></label>
+                <input asp-for="Concerns" class="form-control" />
+                <span asp-validation-for="Concerns" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DecisionReason" class="control-label"></label>
+                <input asp-for="DecisionReason" class="form-control" />
+                <span asp-validation-for="DecisionReason" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostProcedureExperience" class="control-label"></label>
+                <input asp-for="PostProcedureExperience" class="form-control" />
+                <span asp-validation-for="PostProcedureExperience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManagementOfSideEffects" class="control-label"></label>
+                <input asp-for="ManagementOfSideEffects" class="form-control" />
+                <span asp-validation-for="ManagementOfSideEffects" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OverallSatisfaction" class="control-label"></label>
+                <input asp-for="OverallSatisfaction" class="form-control" />
+                <span asp-validation-for="OverallSatisfaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
