@@ -100,16 +100,16 @@ namespace Tachyon.Controllers
             _db.SaveChanges();
 			return RedirectToAction("ProcedureList");
 		}
-
+		public IActionResult CreateReferral()
+		{
+			return View();
+		}
 		public IActionResult ReferralList()
 		{
 			IEnumerable<Referral> ReferralList = _db.Referral;
 			return View(ReferralList);
 		}
-		public IActionResult CreateReferral()
-		{
-			return View();
-		}
+		
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		public IActionResult CreateReferral(Referral Referral)
@@ -154,160 +154,6 @@ namespace Tachyon.Controllers
 			_db.Referral.Remove(ReferralList);
 			_db.SaveChanges();
 			return RedirectToAction("ReferralList");
-		}
-
-		// GET: Appointments
-		public async Task<IActionResult> AppIndex()
-		{
-			var appointments = await _db.appointments.ToListAsync();
-			return View(appointments);
-		}
-		// GET: Create Appointment
-		public IActionResult CreateAppointment()
-		{
-			return View();
-		}
-
-		// POST: Create Appointment
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public IActionResult CreateAppointment(AppointmentViewModel viewModel)
-		{
-			if (ModelState.IsValid)
-			{
-				var appointment = new Appointment
-				{
-					Name = viewModel.Name,
-					Surname = viewModel.Surname,
-					Date = viewModel.Date,
-					PhoneNumber = viewModel.PhoneNumber,
-					Email = viewModel.Email,
-					Status = viewModel.Status,
-					IDNumber = viewModel.IDNumber
-				};
-
-				_db.appointments.Add(appointment);
-				_db.SaveChanges();
-
-				return RedirectToAction("AppIndex");
-			}
-
-			return View(viewModel);
-		}
-
-		public ActionResult ShowAppointment(int id)
-		{
-			var appointment = _db.appointments.Find(id); 
-
-			var viewModel = new AppointmentViewModel
-			{
-				AppointmentId = appointment.AppointmentId,
-				Name = appointment.Name + " " + appointment.Surname,
-				Date = appointment.Date,
-				PhoneNumber = appointment.PhoneNumber,
-				Email = appointment.Email,
-				Status = appointment.Status,
-				IDNumber = appointment.IDNumber
-			};
-
-			return View(viewModel); 
-		}
-		// GET: Edit Appointment
-		public IActionResult EditAppointment(int id)
-		{
-			var appointment = _db.appointments.Find(id);
-
-			if (appointment == null)
-			{
-				return NotFound();
-			}
-
-			var viewModel = new AppointmentViewModel
-			{
-				AppointmentId = appointment.AppointmentId,
-				Name = appointment.Name + " " + appointment.Surname,
-				Date = appointment.Date,
-				PhoneNumber = appointment.PhoneNumber,
-				Email = appointment.Email,
-				Status = appointment.Status,
-				IDNumber = appointment.IDNumber
-			};
-
-			return View(viewModel);
-		}
-
-		// POST: Edit Appointment
-		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public IActionResult EditAppointment(AppointmentViewModel viewModel)
-		{
-			if (ModelState.IsValid)
-			{
-				var appointment = _db.appointments.Find(viewModel.AppointmentId);
-
-				if (appointment == null)
-				{
-					return NotFound();
-				}
-
-				appointment.Name = viewModel.Name;
-				appointment.Surname = viewModel.Surname;
-				appointment.Date = viewModel.Date;
-				appointment.PhoneNumber = viewModel.PhoneNumber;
-				appointment.Email = viewModel.Email;
-				appointment.Status = viewModel.Status;
-				appointment.IDNumber = viewModel.IDNumber;
-
-				_db.appointments.Update(appointment);
-				_db.SaveChanges();
-
-				return RedirectToAction("AppIndex");
-			}
-
-			return View(viewModel);
-		}
-		// GET: Delete Appointment Confirmation
-		public IActionResult DeleteAppointment(int? id)
-		{
-			if (id == null)
-			{
-				return NotFound();
-			}
-
-			var appointment = _db.appointments.Find(id);
-			if (appointment == null)
-			{
-				return NotFound();
-			}
-
-			var viewModel = new AppointmentViewModel
-			{
-				AppointmentId = appointment.AppointmentId,
-				Name = appointment.Name + " " + appointment.Surname,
-				Date = appointment.Date,
-				PhoneNumber = appointment.PhoneNumber,
-				Email = appointment.Email,
-				Status = appointment.Status,
-				IDNumber = appointment.IDNumber
-			};
-
-			return View(viewModel);
-		}
-
-		// POST: Delete Appointment
-		[HttpPost, ActionName("DeleteAppointment")]
-		[ValidateAntiForgeryToken]
-		public IActionResult DeleteConfirmed(int id)
-		{
-			var appointment = _db.appointments.Find(id);
-			if (appointment == null)
-			{
-				return NotFound();
-			}
-			_db.appointments.Remove(appointment);
-			_db.SaveChanges();
-
-			return RedirectToAction("AppIndex");
 		}
 
 	}

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Tachyon.Models.Referral>
+
+@{
+    ViewData["Title"] = "ReferralList";
+    Layout = "~/Views/Shared/_MainLayout-Special.cshtml";
+}
+
+<h1>ReferralList</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.patientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.specialistId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.specialist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.complaint)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medHistory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.phyExam)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bloodTests)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.patientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialistId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.specialist)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.complaint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.medHistory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phyExam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bloodTests)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

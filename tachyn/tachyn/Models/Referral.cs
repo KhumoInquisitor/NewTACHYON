@@ -21,32 +21,31 @@ namespace Tachyon.Models
 		// Patient details
 		[Required]
 		[ForeignKey("Patient")]
-		public int PatientId { get; set; }
-		public virtual Patient Patient { get; set; }
+		public int patientId { get; set; }
 
 		// Specialist details
 		[Required]
 		[ForeignKey("Specialist")]
-		public int SpecialistId { get; set; }
-		public string Specialist { get; set; }
+		public int specialistId { get; set; }
+		public string specialist { get; set; }
 
 		// Referral letter details
 		[Required]
-		public DateTime Date { get; set; }
+		public DateTime date { get; set; }
 
-		[Required, MaxLength(500)]
-		public string Complaint { get; set; }
+		[Required]
+		public string complaint { get; set; }
 
-		[MaxLength(1000)]
-		public string MedHistory { get; set; }
+		
+		public string medHistory { get; set; }
 
-		[MaxLength(1000)]
-		public string PhyExam { get; set; }
+		
+		public string phyExam { get; set; }
 
-		[MaxLength(1000)]
-		public string Notes { get; set; }
+		
+		public string notes { get; set; }
 
-		[MaxLength(500)]
-		public string BloodTests { get; set; }
+		
+		public string bloodTests { get; set; }
 	}
 }

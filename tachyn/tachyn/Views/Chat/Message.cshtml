@@ -1,0 +1,13 @@
+﻿
+@model List<Message>
+
+<h2>Chat Messages</h2>
+
+<ul>
+    @foreach (var message in Model)
+    {
+        <li>
+            <strong>@message.UserName</strong> [@message.Timestamp]: @message.Text
+        </li>
+    }
+</ul>
