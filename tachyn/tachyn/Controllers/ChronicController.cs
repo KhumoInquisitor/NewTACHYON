@@ -26,7 +26,7 @@ namespace Tachyon.Controllers
             IEnumerable<MedicationRecords> records =_context.medicationRecords;
             return View(records);
         }
-        [HttpPost]
+        //[HttpPost]
         public IActionResult MedRecords(MedicationRecords medicationRecords)
         {
             if (ModelState.IsValid)
@@ -47,7 +47,7 @@ namespace Tachyon.Controllers
             return View(prescriptions);
         }
 
-        [HttpPost]
+        //[HttpPost]
         public IActionResult Fillmed(FillingPrescription fillingPrescription)
         {
             if (ModelState.IsValid)
