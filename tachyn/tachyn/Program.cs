@@ -13,6 +13,7 @@ builder.Services.AddDbContext<TachyonDbContext>(options =>
 builder.Services.AddDefaultIdentity<TachyonUser>(options => options.SignIn.RequireConfirmedAccount = false)
    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<TachyonDbContext>();
+builder.Services.AddSession();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -34,6 +35,7 @@ app.UseRouting();
 app.UseAuthentication();;
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

@@ -122,7 +122,7 @@ namespace Tachyon.Controllers
     }
 }
 
-// GET: Appointments
+//GET: Appointments
 //public async Task<IActionResult> AppIndex()
 //{
 //    var appointments = await _db.appointments.ToListAsync();
