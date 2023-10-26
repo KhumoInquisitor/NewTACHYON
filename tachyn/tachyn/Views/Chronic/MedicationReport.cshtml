@@ -44,7 +44,7 @@
     <br />
      <a href="javascript:window.print()" class="btn btn-Info">Print</a>
 
-    @if (Model.Count() > 0)
+    @if (Model != null && Model.Any())
     {
          <table class=" table table-bordered table-striped">
             <thead>
@@ -87,7 +87,7 @@
     }
     else
     {
-        <p>No Report was generated</p>
+        <p>No report was generated</p>
     }
 </div>
    

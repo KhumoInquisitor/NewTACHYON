@@ -13,7 +13,7 @@
             <img src="/css/collect.jpg" alt="" width="560" />
         </div>
         <div class="mt-2 p-2 bg-primary text-center text-white rounded">
-            <h6>Medication Form</h6>
+            <h6>Medication</h6>
 
         </div>
         <div class=" form-group">
@@ -23,8 +23,9 @@
             </div>
             <div class="invalid-feedback">
             </div>
-          @*  <span asp-validation-for="NameOfMedication" class=" text-danger"></span>*@
+            @* <span asp-validation-for="FirstName" class=" text-danger"></span>*@
         </div>
+       
         <div class=" form-group">
             <label asp-for="Description"></label>
             <div col-sm-10>
@@ -32,7 +33,7 @@
             </div>
             <div class="invalid-feedback">
             </div>
-            @* <span asp-validation-for="Description" class=" text-danger"></span>*@
+            @*<span asp-validation-for="DateOfBirth" class=" text-danger"></span>*@
 
         </div>
         <div class=" form-group">
@@ -42,19 +43,8 @@
             </div>
             <div class="invalid-feedback">
             </div>
-            @*   <span asp-validation-for="Purpose" class=" text-danger"></span>*@
+            @*  <span asp-validation-for="OrderNo" class=" text-danger"></span>*@
 
-        </div>
-       
-        <div class=" form-group">
-            <label asp-for="ExpiryDate"></label>
-            <div col-sm-10>
-                <input asp-for="ExpiryDate" class=" form-control" id="validationRace" required />
-            </div>
-            <div class="invalid-feedback">
-            </div>
-          @*  <span asp-validation-for="ExpiryDate" class=" text-danger"></span>
-*@
         </div>
         <div class=" form-group">
             <label asp-for="OrderedDate"></label>
@@ -63,11 +53,20 @@
             </div>
             <div class="invalid-feedback">
             </div>
-          @*  <span asp-validation-for="OrderedDate" class=" text-danger"></span>
-*@
+            @* <span asp-validation-for="MedicationName" class=" text-danger"></span>*@
+
+        </div>
+        <div class=" form-group">
+            <label asp-for="ExpiryDate"></label>
+            <div col-sm-10>
+                <input asp-for="ExpiryDate" class=" form-control" id="validationRace" required />
+            </div>
+            <div class="invalid-feedback">
+            </div>
+            @*  <span asp-validation-for="Quantity" class=" text-danger"></span>*@
+
         </div>
        
-      
         <div class=" form-group row">
             <div class=" col-8 offset-2 row">
                 <div class=" col">

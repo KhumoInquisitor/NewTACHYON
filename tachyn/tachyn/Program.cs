@@ -5,8 +5,8 @@ using Tachyon.Areas.Identity.Data;
 using Tachyon.services;
 
 var builder = WebApplication.CreateBuilder(args);
-//var connectionString = builder.Configuration.GetConnectionString("TachyonDbContextConnection ") ?? throw new InvalidOperationException("Connection string 'TachyonDbContextConnection' not found.");
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("TachyonDbContextConnection") ?? throw new InvalidOperationException("Connection string 'TachyonDbContextConnection' not found.");
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<TachyonDbContext>(options =>
     options.UseSqlServer(connectionString));
 
