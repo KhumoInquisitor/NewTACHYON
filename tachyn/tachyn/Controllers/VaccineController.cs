@@ -15,7 +15,11 @@ namespace Tachyon.Controllers
         {
             return View();
         }
-        public IActionResult Select()
+		public IActionResult Index2()
+		{
+			return View();
+		}
+		public IActionResult Select()
         {
             return View();
         }

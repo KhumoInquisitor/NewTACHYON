@@ -37,7 +37,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Procedure}/{action=land}/{id?}");
+    pattern: "{controller=Dashboard}/{action=Index3}/{id?}");
 
 
 app.MapRazorPages();
