@@ -1,4 +1,7 @@
-﻿
+﻿@{
+	ViewData["Title"] = "Send";
+	Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
 <h2>Send a Message</h2>
 
 <form method="post" action="@Url.Action("SendMessage", "Chat")">
@@ -10,4 +13,5 @@
         <input type="submit" value="Send" />
     </div>
 </form>
- 
+
+<a class="product-btn" asp-controller="Procedure" asp-action="land">BACK</a>
