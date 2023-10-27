@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Tachyon.Migrations
 {
-    public partial class tachyon : Migration
+    public partial class Tachyon : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -625,10 +625,10 @@ namespace Tachyon.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "7614dd60-b6e1-403e-ba41-fbe0444197c4", "885acd3f-aa93-4654-9762-466837219937", "Doctor", "Doctor" },
-                    { "9c6e44ac-1f89-4373-9f89-c35966a63795", "9fd7f828-f89f-4a0e-97fd-25db713908e6", "Patient", "PATIENT" },
-                    { "cee851f6-be8e-4d1f-a578-b9a5242bfdd5", "3069d45a-3a78-42c3-8638-989da290cabc", "Nurse", "NURSE" },
-                    { "e14e7ac2-b50d-4425-921a-d23c6670242f", "741aac57-1e38-42ec-83f8-51ce8888a8af", "Admin", "ADMIN" }
+                    { "1322515d-9101-4213-a257-ae652f9b1e0d", "47eeeb13-3845-474b-a521-02dd9548e617", "Admin", "ADMIN" },
+                    { "2ca41d87-c14e-44ab-b5bf-549381362752", "217a78a3-6fd6-47fc-af3d-23c478db4186", "Nurse", "NURSE" },
+                    { "5cfe7ffd-a7cd-4866-8316-e81763c25c3b", "5eadda62-218c-44dd-aea8-06bfb068be76", "Patient", "PATIENT" },
+                    { "7b089750-1395-4037-ae5c-b5b2748ad1c5", "2959fae6-3d87-4abc-9359-593ccc684934", "Doctor", "Doctor" }
                 });
 
             migrationBuilder.CreateIndex(
