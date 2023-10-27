@@ -185,24 +185,31 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a asp-controller="Specialised" asp-action="ShowAppointment">
-							<i class="la la-th"></i>
-							<p>Appointments</p>
-							@*<span class="badge badge-count">6</span>*@
+						<a asp-controller="Procedure" asp-action="before">
+							<i class="la la-table"></i>
+							<p>Pre-Procedure</p>
+							@*<span class="badge badge-count">50</span>*@
 						</a>
 					</li>
 					<li class="nav-item">
 						<a asp-controller="Procedure" asp-action="ReferralList">
-							<i class="la la-bell"></i>
-							<p>Referrals</p>
-							@*<span class="badge badge-success">3</span>*@
+							<i class="la la-table"></i>
+							<p>Referral List</p>
+							@*<span class="badge badge-count">50</span>*@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a asp-controller="Procedure" asp-action="ProcedureList">
-							<i class="la la-font"></i>
-							<p>Procedure</p>
-							@*<span class="badge badge-danger">25</span>*@
+						<a asp-controller="Chat" asp-action="Message">
+							<i class="la la-table"></i>
+							<p>Chat</p>
+							@*<span class="badge badge-count">50</span>*@
+						</a>
+					</li>
+					<li class="nav-item">
+						<a asp-controller="ProcedureAppointment" asp-action="Index">
+							<i class="la la-table"></i>
+							<p>Appointment</p>
+							@*<span class="badge badge-count">50</span>*@
 						</a>
 					</li>
 				</ul>

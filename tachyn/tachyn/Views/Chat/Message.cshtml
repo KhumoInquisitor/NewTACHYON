@@ -1,6 +1,9 @@
 ﻿
 @model List<Message>
-
+@{
+    ViewData["Title"] = "View Message";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
 <h2>Chat Messages</h2>
 
 <ul>
@@ -9,5 +12,7 @@
         <li>
             <strong>@message.UserName</strong> [@message.Timestamp]: @message.Text
         </li>
-    }
+	}
+	
 </ul>
+<a class="product-btn" asp-controller="Procedure" asp-action="land">BACK</a>

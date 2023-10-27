@@ -22,7 +22,11 @@ namespace Tachyon.Controllers
 		{
 			return View();
 		}
-		public IActionResult Land()
+        public IActionResult before()
+        {
+            return View();
+        }
+        public IActionResult Land()
 		{
 			return View();
 		}

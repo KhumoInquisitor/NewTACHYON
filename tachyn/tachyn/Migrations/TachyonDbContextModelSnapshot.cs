@@ -51,29 +51,29 @@ namespace Tachyon.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e14e7ac2-b50d-4425-921a-d23c6670242f",
-                            ConcurrencyStamp = "741aac57-1e38-42ec-83f8-51ce8888a8af",
+                            Id = "1322515d-9101-4213-a257-ae652f9b1e0d",
+                            ConcurrencyStamp = "47eeeb13-3845-474b-a521-02dd9548e617",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "7614dd60-b6e1-403e-ba41-fbe0444197c4",
-                            ConcurrencyStamp = "885acd3f-aa93-4654-9762-466837219937",
+                            Id = "7b089750-1395-4037-ae5c-b5b2748ad1c5",
+                            ConcurrencyStamp = "2959fae6-3d87-4abc-9359-593ccc684934",
                             Name = "Doctor",
                             NormalizedName = "Doctor"
                         },
                         new
                         {
-                            Id = "9c6e44ac-1f89-4373-9f89-c35966a63795",
-                            ConcurrencyStamp = "9fd7f828-f89f-4a0e-97fd-25db713908e6",
+                            Id = "5cfe7ffd-a7cd-4866-8316-e81763c25c3b",
+                            ConcurrencyStamp = "5eadda62-218c-44dd-aea8-06bfb068be76",
                             Name = "Patient",
                             NormalizedName = "PATIENT"
                         },
                         new
                         {
-                            Id = "cee851f6-be8e-4d1f-a578-b9a5242bfdd5",
-                            ConcurrencyStamp = "3069d45a-3a78-42c3-8638-989da290cabc",
+                            Id = "2ca41d87-c14e-44ab-b5bf-549381362752",
+                            ConcurrencyStamp = "217a78a3-6fd6-47fc-af3d-23c478db4186",
                             Name = "Nurse",
                             NormalizedName = "NURSE"
                         });
