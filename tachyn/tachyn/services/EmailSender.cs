@@ -14,8 +14,8 @@ namespace Tachyon.services
 
 		public async Task SendEmailAsync(string email, string subject, string htmlMessage)
 		{
-			string from = "esihlembangeleli@gmail.com";
-			string password = "emzzsmuonstpppjr";
+			string from = "i@gmail.com";
+			string password = "";
 			string senderName = "Admin";
 			MailMessage  message = new MailMessage();
 			message.From = new MailAddress(from);
